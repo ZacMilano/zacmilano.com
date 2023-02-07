@@ -3,7 +3,6 @@ version: 2.1
 
 orbs:
   aws-cli: circleci/aws-cli@3.1.4
-  aws-assume-role: underw8/aws-assume-role@0.1.0
 
 jobs:
   install-dependencies:
@@ -63,15 +62,14 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - aws-cli/setup
-      - run:
-          name: Configure AWS credentials
-          command: |
-            aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-            aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-            cp .circleci/aws_config ~/.aws/config
-      - aws-assume-role/assume:
+      - aws-cli/setup:
           role-arn: "arn:aws:iam::731679461860:role/CircleCi-Personal-Projects"
+      # - run:
+      #     name: Configure AWS credentials
+      #     command: |
+      #       aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
+      #       aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+      #       cp .circleci/aws_config ~/.aws/config
       - run:
           name: Deploy
           command: |
