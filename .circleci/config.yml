@@ -34,7 +34,7 @@ jobs:
             - ~/zacmilano
   build:
     docker:
-      - image: circleci/node:15.5.0
+      - image: cimg/node:18.13.0
     working_directory: ~/zacmilano
     steps:
       - restore_cache:
@@ -51,7 +51,7 @@ jobs:
             - .
   deploy:
     docker:
-      - image: circleci/node:15.5.0
+      - image: cimg/node:18.13.0
     working_directory: ~/zacmilano
     steps:
       - attach_workspace:
