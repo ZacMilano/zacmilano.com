@@ -68,6 +68,8 @@ workflows:
           requires:
             - dependencies
       - deploy:
+          context:
+            - milano-personal-projects-context
           requires:
             - build
           filters:
