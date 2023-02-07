@@ -1,0 +1,5 @@
+[default]
+region=us-east-2
+output=json
+role_arn=arn:aws:iam::731679461860:role/CircleCi-Personal-Projects
+source_profile = default
