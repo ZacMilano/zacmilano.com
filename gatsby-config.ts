@@ -18,6 +18,12 @@ const config: GatsbyConfig = {
 		"gatsby-plugin-styled-components",
 		"gatsby-transformer-sharp",
 		{
+			resolve: `gatsby-plugin-s3`,
+			options: {
+				bucketName: "zacmilano.com",
+			},
+		},
+		{
 			resolve: "gatsby-source-filesystem",
 			options: {
 				name: "images",
