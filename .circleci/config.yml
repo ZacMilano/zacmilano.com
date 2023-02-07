@@ -1,0 +1,42 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/2.0/configuration-reference
+version: 2.1
+
+orbs:
+  aws-s3: circleci/aws-s3@3.1.1
+
+# Define a job to be invoked later in a workflow.
+# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
+jobs:
+  push-to-s3:
+    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
+    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+    docker:
+      - image: cimg/base:stable
+    # Add steps to the job
+    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+    steps:
+      - checkout
+      - run:
+          name: "Start it all!"
+          command: "echo Pushing to S3..."
+      - aws-s3/sync:
+          from: src
+          role-arn: "arn:aws:iam::731679461860:role/CircleCi-Personal-Projects"
+          to: "s3://zacmilano.com"
+      - run:
+          name: "End it all!"
+          command: "echo Done!"
+
+# Invoke jobs via workflows
+# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+workflows:
+  update-site:
+    jobs:
+      - push-to-s3:
+          context:
+            - milano-personal-projects-context
+          filters:
+            branches:
+              only:
+                - main
