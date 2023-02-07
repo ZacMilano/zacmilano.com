@@ -39,7 +39,7 @@ jobs:
   build:
     docker:
       - image: cimg/node:18.13.0
-    resource_class: small
+    resource_class: medium
     working_directory: ~/zacmilano
     steps:
       - restore_cache:
