@@ -49,7 +49,7 @@ const TodaysTestimonialPage: React.FC = () => {
 					<p>
 						This is my first testimonial component that I'm making in an effort
 						to build the same thing every day. I talk more about this concept in
-						this <Link to="#TODO">blog post</Link>.
+						a <Link to="/blog/make-the-same-thing-every-day">blog post</Link>.
 					</p>
 
 					<p>
@@ -66,6 +66,13 @@ const TodaysTestimonialPage: React.FC = () => {
 						<li>Sauce(s)</li>
 						<li>Doneness (e.g. extra crispy)</li>
 					</ul>
+
+					<p>
+						This testimonial is very simple. I didn't have a ton of time today,
+						but I wanted to get it done to kickstart the habit.
+					</p>
+
+					<p>See you tomorrow!</p>
 				</TestimonialBlurb>
 
 				<Testimonial />
@@ -75,3 +82,7 @@ const TodaysTestimonialPage: React.FC = () => {
 };
 
 export default TodaysTestimonialPage;
+
+export const Head: React.FC = () => {
+	return <title>FaaSt Foods | Testimonials</title>;
+};
