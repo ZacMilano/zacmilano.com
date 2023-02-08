@@ -1,13 +1,7 @@
 import * as React from "react";
-import { HeadFC, Link, PageProps } from "gatsby";
-import styled from "styled-components";
+import { HeadFC, PageProps } from "gatsby";
 
-import { MainWithCenteredContent } from "../components";
-
-const InternalLink = styled((props) => <Link {...props} />)`
-	font-size: 2em;
-	display: block;
-`;
+import { InternalLink, MainWithCenteredContent } from "../components";
 
 const IndexPage: React.FC<PageProps> = () => {
 	return (
