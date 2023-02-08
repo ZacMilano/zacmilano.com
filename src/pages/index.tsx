@@ -6,13 +6,16 @@ import { MainWithCenteredContent } from "../components";
 
 const InternalLink = styled((props) => <Link {...props} />)`
 	font-size: 2em;
+	display: block;
 `;
 
 const IndexPage: React.FC<PageProps> = () => {
 	return (
 		<MainWithCenteredContent>
-			<InternalLink to="/blog" className="link">
-				Blog
+			<InternalLink to="/blog">Blog</InternalLink>
+
+			<InternalLink to="/daily-testimonials">
+				Making the same thing every day
 			</InternalLink>
 		</MainWithCenteredContent>
 	);
