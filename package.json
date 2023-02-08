@@ -1,9 +1,9 @@
 {
-	"name": "zac-milano-s-personal-site",
+	"name": "zac-milano-dot-com",
 	"version": "1.0.0",
 	"private": true,
-	"description": "zac-milano-s-personal-site",
-	"author": "zacmonroe",
+	"description": "Zac Milano's personal website",
+	"author": "ZacMilano",
 	"keywords": [
 		"gatsby"
 	],
