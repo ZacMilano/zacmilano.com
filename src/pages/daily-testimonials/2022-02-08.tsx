@@ -1,8 +1,21 @@
 import React from "react";
-import { TestimonialPage } from "../../components/testimonial-page";
+
+import { TestimonialPage, TwoColumnTestimonial } from "../../components";
 
 const Testimonial: React.FC = () => {
-	return <TestimonialPage>My first testimonial component</TestimonialPage>;
+	return <article>Today's component</article>;
 };
 
-export default Testimonial;
+const TodaysTestimonialPage: React.FC = () => {
+	return (
+		<TestimonialPage date="2022-02-08">
+			<TwoColumnTestimonial>
+				<Testimonial />
+
+				<p>Another paragraph</p>
+			</TwoColumnTestimonial>
+		</TestimonialPage>
+	);
+};
+
+export default TodaysTestimonialPage;

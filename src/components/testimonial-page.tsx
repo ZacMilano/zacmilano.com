@@ -1,6 +1,27 @@
 import React, { PropsWithChildren } from "react";
-import { MainWithCenteredContent } from "./main-with-centered-content";
+import styled from "styled-components";
 
-export const TestimonialPage: React.FC<PropsWithChildren> = ({ children }) => {
-	return <MainWithCenteredContent>{children}</MainWithCenteredContent>;
+const FullHeightMain = styled.main`
+	height: 100%;
+	padding: 4em;
+`;
+
+const Header = styled.h1`
+	margin-bottom: 2em;
+`;
+
+export interface TestimonialPageProps {
+	date: string;
+}
+
+export const TestimonialPage: React.FC<
+	PropsWithChildren<TestimonialPageProps>
+> = ({ date, children }) => {
+	return (
+		<FullHeightMain>
+			<Header>Daily testimonial component for {date}</Header>
+
+			{children}
+		</FullHeightMain>
+	);
 };
