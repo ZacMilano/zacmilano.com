@@ -1,8 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-
-import { TestimonialPage, TwoColumnTestimonial } from "../../components";
 import { Link } from "gatsby";
+
+import {
+	TestimonialPageTemplate,
+	TwoColumnTestimonial,
+} from "../../components";
 
 const CenteredCardWithShadow = styled.article`
 	margin-inline: auto;
@@ -43,7 +46,7 @@ const TestimonialBlurb = styled.div`
 
 const TodaysTestimonialPage: React.FC = () => {
 	return (
-		<TestimonialPage date="2022-02-08" businessName="FaaSt Foods">
+		<TestimonialPageTemplate date="2022-02-08" businessName="FaaSt Foods">
 			<TwoColumnTestimonial>
 				<TestimonialBlurb>
 					<p>
@@ -77,7 +80,7 @@ const TodaysTestimonialPage: React.FC = () => {
 
 				<Testimonial />
 			</TwoColumnTestimonial>
-		</TestimonialPage>
+		</TestimonialPageTemplate>
 	);
 };
 

@@ -14,14 +14,14 @@ const Subheader = styled.h2`
 	font-weight: normal;
 `;
 
-export interface TestimonialPageProps {
+export interface TestimonialPageTemplateProps {
 	date: string;
 	businessName: string;
 }
 
 // TODO Dynamically define page's title with React Helmet (or similar)
-export const TestimonialPage: React.FC<
-	PropsWithChildren<TestimonialPageProps>
+export const TestimonialPageTemplate: React.FC<
+	PropsWithChildren<TestimonialPageTemplateProps>
 > = ({ children, ...props }) => {
 	return (
 		<FullHeightMain>
