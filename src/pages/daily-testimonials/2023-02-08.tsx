@@ -59,7 +59,7 @@ const TodaysTestimonialPage: React.FC = () => {
 						The imaginary company being shouted out here is FaaSt Foods, which
 						specializes in Frying-as-a-Service. Customers bring in their raw
 						ingredients (e.g. chicken legs, mozzarella sticks) for FaaSt Foods
-						to bread & fry them. Customers can specify details such as:
+						to bread &amp; fry them. Customers can specify details such as:
 					</p>
 
 					<ul>
