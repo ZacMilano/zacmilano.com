@@ -9,7 +9,7 @@ const FullHeightMain = styled.main`
 
 const Header = styled.h1``;
 
-const Subheader = styled.h2`
+const Subheader = styled.p`
 	margin-bottom: 2em;
 	font-weight: normal;
 `;
