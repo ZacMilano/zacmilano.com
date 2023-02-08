@@ -19,6 +19,7 @@ export interface TestimonialPageProps {
 	businessName: string;
 }
 
+// TODO Dynamically define page's title with React Helmet (or similar)
 export const TestimonialPage: React.FC<
 	PropsWithChildren<TestimonialPageProps>
 > = ({ children, ...props }) => {
