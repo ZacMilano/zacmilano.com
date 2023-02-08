@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from "react";
 import styled from "styled-components";
 
 const FullHeightMain = styled.main`
-	height: 100%;
+	min-height: 100%;
 	padding-block: 4em;
 	padding-inline: 10em;
 `;
