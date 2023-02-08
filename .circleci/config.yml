@@ -4,12 +4,20 @@ version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@3.1.4
 
+constants:
+  - &aws-role-arn "arn:aws:iam::731679461860:role/CircleCi-Personal-Projects"
+  - &project-directory ~/zacmilano-dot-com
+
+job-defaults: &job-defaults
+  docker:
+    - image: cimg/node:18.13.0
+  resource_class: small
+  working_directory: *project-directory
+
 jobs:
   install-dependencies:
-    docker:
-      - image: cimg/node:18.13.0
-    resource_class: small
-    working_directory: ~/zacmilano
+    <<: *job-defaults
+
     steps:
       - checkout
       - run:
@@ -35,12 +43,12 @@ jobs:
           name: Cache whole project
           key: v1-repo-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
           paths:
-            - ~/zacmilano
+            - *project-directory
+
   build:
-    docker:
-      - image: cimg/node:18.13.0
+    <<: *job-defaults
     resource_class: medium
-    working_directory: ~/zacmilano
+
     steps:
       - restore_cache:
           key: v1-repo-{{ .Branch }}-{{ .Environment.CIRCLE_SHA1 }}
@@ -54,26 +62,26 @@ jobs:
           root: .
           paths:
             - .
+
   deploy:
-    docker:
-      - image: cimg/node:18.13.0
-    resource_class: small
-    working_directory: ~/zacmilano
+    <<: *job-defaults
+
     steps:
       - attach_workspace:
           at: .
       - aws-cli/setup:
-          role-arn: "arn:aws:iam::731679461860:role/CircleCi-Personal-Projects"
-      # - run:
-      #     name: Configure AWS credentials
-      #     command: |
-      #       aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-      #       aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-      #       cp .circleci/aws_config ~/.aws/config
+          role-arn: *aws-role-arn
       - run:
-          name: Deploy
+          name: Deploy to S3 bucket via gatsby-plugin-s3
           command: |
             yarn run deploy
+      - run:
+          name: Invalidate CloudFront Cache
+          command: >
+            aws cloudfront create-invalidation
+            --distribution-id E1BHQYZYZX50ED
+            --paths "/*"
+
 workflows:
   build_and_deploy:
     jobs:
