@@ -5,7 +5,7 @@ import { InternalLink, MainWithCenteredContent } from "../../components";
 const TestimonialsHome: React.FC = () => {
 	return (
 		<MainWithCenteredContent>
-			<InternalLink to="./2022-02-08">2022-02-08: FaaSt Foods</InternalLink>
+			<InternalLink to="./2023-02-08">2023-02-08: FaaSt Foods</InternalLink>
 		</MainWithCenteredContent>
 	);
 };

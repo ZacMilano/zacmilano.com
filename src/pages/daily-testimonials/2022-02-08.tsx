@@ -46,7 +46,7 @@ const TestimonialBlurb = styled.div`
 
 const TodaysTestimonialPage: React.FC = () => {
 	return (
-		<TestimonialPageTemplate date="2022-02-08" businessName="FaaSt Foods">
+		<TestimonialPageTemplate date="2023-02-08" businessName="FaaSt Foods">
 			<TwoColumnTestimonial>
 				<TestimonialBlurb>
 					<p>
