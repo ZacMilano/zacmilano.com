@@ -6,7 +6,7 @@ orbs:
 
 constants:
   - &aws-role-arn "arn:aws:iam::731679461860:role/CircleCi-Personal-Projects"
-  - &project-directory ~/zacmilano-dot-com
+  - &project-directory /tmp/zacmilano-dot-com
 
 job-defaults: &job-defaults
   docker:
