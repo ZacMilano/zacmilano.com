@@ -4,14 +4,15 @@ import styled from "styled-components";
 const FullHeightMain = styled.main`
 	height: 100%;
 	padding-block: 4em;
-	padding-inline: 10em;
 `;
-
-const Header = styled.h1``;
 
 const Subheader = styled.p`
 	margin-bottom: 2em;
 	font-weight: normal;
+`;
+
+const HeaderSection = styled.section`
+	padding-inline: 10em;
 `;
 
 export interface TestimonialPageTemplateProps {
@@ -25,10 +26,12 @@ export const TestimonialPageTemplate: React.FC<
 > = ({ children, ...props }) => {
 	return (
 		<FullHeightMain>
-			<Header>{props.businessName}</Header>
-			<Subheader>
-				<i>Daily testimonial component for {props.date}</i>
-			</Subheader>
+			<HeaderSection>
+				<h1>{props.businessName}</h1>
+				<Subheader>
+					<i>Daily testimonial component for {props.date}</i>
+				</Subheader>
+			</HeaderSection>
 
 			{children}
 		</FullHeightMain>
