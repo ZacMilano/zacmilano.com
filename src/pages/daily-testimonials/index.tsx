@@ -11,3 +11,7 @@ const TestimonialsHome: React.FC = () => {
 };
 
 export default TestimonialsHome;
+
+export const Head: React.FC = () => {
+	return <title>Testimonials</title>;
+};
