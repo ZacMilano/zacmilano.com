@@ -9,6 +9,7 @@ const TestimonialsHome: React.FC = () => {
 			<InternalLink to="./2023-02-09">
 				2023-02-09: Froggy's Daycare
 			</InternalLink>
+			<InternalLink to="./2023-02-10">2023-02-10: Lorem's Ipsum</InternalLink>
 		</MainWithCenteredContent>
 	);
 };
