@@ -11,6 +11,7 @@ const TestimonialsHome: React.FC = () => {
 			</InternalLink>
 			<InternalLink to="./2023-02-10">2023-02-10: Lorem's Ipsum</InternalLink>
 			<InternalLink to="./2023-02-11">2023-02-11: Lorem's Ipsum</InternalLink>
+			<InternalLink to="./2023-02-12">2023-02-12: Superb Bowls</InternalLink>
 		</MainWithCenteredContent>
 	);
 };
