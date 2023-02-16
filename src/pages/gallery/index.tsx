@@ -6,7 +6,7 @@ import {
 	MainWithCenteredContent,
 	NavigationHeader,
 } from "../../components";
-import { VISUALLY_HIDDEN } from "../../styles";
+import { VisuallyHidden } from "../../styles";
 
 interface TestimonialPracticeConfig {
 	date: string;
@@ -24,10 +24,6 @@ const testimonialPractices: TestimonialPracticeConfig[] = [
 	{ date: "2023-02-15", businessName: "Lorem's Ipsum" },
 ];
 
-const HiddenNavLabel = styled.h2`
-	${VISUALLY_HIDDEN}
-`;
-
 const TestimonialList = styled.ul`
 	padding-left: 0;
 	list-style-type: none;
@@ -39,10 +35,10 @@ const TestimonialsHome: React.FC = () => {
 			<NavigationHeader />
 
 			<MainWithCenteredContent>
-				<nav aria-labelledby="main-nav-label">
-					<HiddenNavLabel id="main-nav-label">
-						Main Navigation Menu
-					</HiddenNavLabel>
+				<nav aria-labelledby="gallery-nav-label">
+					<h2 id="gallery-nav-label">
+						<VisuallyHidden>Gallery Navigation Menu</VisuallyHidden>
+					</h2>
 
 					<TestimonialList>
 						{testimonialPractices.map(({ date, businessName }) => (
