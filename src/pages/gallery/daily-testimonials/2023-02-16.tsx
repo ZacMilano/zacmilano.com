@@ -9,79 +9,72 @@ import allie from "../../../images/allie-sniffing.jpeg";
 
 const BlurbColumn = styled.div``;
 
+const Card = styled.article`
+	--gap: 2em;
+
+	display: grid;
+	gap: var(--gap);
+
+	width: 35em;
+	padding: 3em;
+
+	border-radius: 2em;
+	box-shadow: 0 0 2em 0.5em hsl(0 0% 0% / 20%);
+`;
+
 const QuotedPerson = styled.div`
-	position: relative;
-
 	display: flex;
-	justify-content: start;
+	justify-content: flex-start;
 	align-items: center;
+	gap: var(--gap);
+`;
 
-	gap: 1.5em;
+const QuotedPersonAvatar = styled.img`
+	width: 5em;
+	aspect-ratio: 1;
 
-	padding: 1em;
-
-	color: white;
-	background: teal;
-
-	box-shadow: 0 1em 1em rgba(0, 0, 0, 20%);
-	border-top-left-radius: 1000em;
-	border-bottom-left-radius: 1000em;
-
-	&::before {
-		content: "";
-		position: absolute;
-		z-index: -1;
-
-		left: -1em;
-		right: 1em;
-		top: -1em;
-		bottom: -1em;
-
-		border-radius: inherit;
-		background-color: aquamarine;
-		box-shadow: 0 1em 1em rgba(0, 0, 0, 20%);
-	}
-
-	& > img {
-		width: 4em;
-		aspect-ratio: 1 / 1;
-
-		border-radius: 100%;
-		box-shadow: 0 1em 1em rgba(0, 0, 0, 20%);
-	}
+	border-radius: 100%;
+	box-shadow: 0 1em 2em hsl(0 0% 0% / 20%);
 `;
 
 const QuotedPersonInfo = styled.div`
 	display: grid;
 `;
 
-const Card = styled.article`
-	display: grid;
-	gap: 2.5em;
-
-	width: 30em;
-	padding: 3em;
-
-	box-shadow: 0 1em 2em rgba(0, 0, 0, 50%);
+const Rating = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
 `;
 
 const Testimonial: React.FC = () => {
 	const reviewerName = "Allison Lloyd";
+
 	return (
 		<Card>
 			<QuotedPerson>
-				<img src={allie} alt={reviewerName} />
+				<QuotedPersonAvatar src={allie} alt={reviewerName} />
+
 				<QuotedPersonInfo>
 					<b>{reviewerName}</b>
-					<i>Local guide</i>
+					<i>Local Fool</i>
 				</QuotedPersonInfo>
 			</QuotedPerson>
+
 			<p>
 				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi
 				praesentium numquam, amet maiores fugit dolorum, minima exercitationem
 				aliquid quae veritatis facere placeat magnam voluptatum. Eligendi cum
 				obcaecati excepturi aperiam dolor.
 			</p>
+
+			<Rating>
+				<i className="fa-solid fa-star" />
+				<i className="fa-solid fa-star" />
+				<i className="fa-solid fa-star" />
+				<i className="fa-regular fa-star" />
+				<i className="fa-regular fa-star" />
+			</Rating>
 		</Card>
 	);
 };
@@ -92,7 +85,7 @@ const businessName = "Lorem's Ipsum";
 
 const TodaysTestimonialPage: React.FC = () => {
 	return (
-		<TestimonialPageTemplate date="2023-02-15" businessName={businessName}>
+		<TestimonialPageTemplate date="2023-02-16" businessName={businessName}>
 			<TwoColumnTestimonial>
 				<Testimonial />
 
