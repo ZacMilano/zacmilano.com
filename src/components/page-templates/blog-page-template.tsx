@@ -1,6 +1,7 @@
 import React, { PropsWithChildren } from "react";
 import styled from "styled-components";
-import { NavigationHeader } from "../top-nav-bar";
+
+import { NavigationHeader } from "..";
 
 const FullHeightMain = styled.main`
 	min-height: 100%;

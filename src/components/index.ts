@@ -2,6 +2,6 @@
 export * from "./internal-link";
 export * from "./main-with-centered-content";
 export * from "./page-templates";
-export * from "./top-nav-bar";
+export * from "./navigation-header";
 export * from "./two-column-testimonial";
 // @endindex
