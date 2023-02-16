@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { BlogPageTemplate } from "../../components/page-templates/blog-page-template";
+import { BlogPageTemplate } from "../../components";
 import struthlessIbisDrawing from "../../images/struthless-ibis-drawing.webp";
 import { Link } from "gatsby";
 
