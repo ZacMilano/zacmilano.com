@@ -4,53 +4,78 @@ import styled from "styled-components";
 import {
 	TwoColumnTestimonial,
 	TestimonialPageTemplate,
-} from "../../components";
+} from "../../../components";
 
 const BlurbColumn = styled.div``;
 
-const CardWithDecor = styled.article`
+const FootballShape = styled.article`
 	position: relative;
 
-	width: 30em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 
-	padding: 3em;
-	text-align: justify;
-	text-indent: 3em;
+	width: 40em;
+	height: 24em;
+	padding: 10em;
 
-	background-color: black;
+	background-color: peru;
 	color: white;
-	border-radius: 1em;
-	box-shadow: 0em 0.5em 5em hsla(0, 0%, 0%, 0.3);
+	font-weight: bold;
 
-	&::before,
+	clip-path: ellipse(50% 50% at 50% 50%);
+
+	&::before {
+		content: "";
+		position: absolute;
+
+		width: 100%;
+		z-index: -1;
+
+		border: 0.5em dashed rgba(0, 0, 0, 10%);
+	}
+
 	&::after {
 		content: "";
 		position: absolute;
-		z-index: -1;
 
-		width: 20%;
-		height: 50%;
+		z-index: -2;
+		inset: 0;
+		bottom: 50%;
 
-		border-radius: inherit;
-		box-shadow: 0em 0.5em 5em hsla(0, 0%, 0%, 0.3);
-	}
+		background-color: white;
 
-	&::before {
-		transform: rotate(-15deg);
-
-		top: -1em;
-		left: -1.5em;
-
-		background-color: cornflowerblue;
-	}
-
-	&::after {
-		transform: rotate(15deg);
-
-		bottom: -1em;
-		right: -1.5em;
-
-		background-color: deepskyblue;
+		clip-path: polygon(
+			10% 100%,
+			20% 100%,
+			20% 0%,
+			41% 2%,
+			41% 20%,
+			43% 20%,
+			43% 2%,
+			45% 2%,
+			45% 20%,
+			47% 20%,
+			47% 2%,
+			49% 2%,
+			49% 20%,
+			51% 20%,
+			51% 2%,
+			53% 2%,
+			53% 20%,
+			55% 20%,
+			55% 2%,
+			57% 2%,
+			57% 20%,
+			59% 20%,
+			59% 0%,
+			80% 0%,
+			80% 100%,
+			90% 100%,
+			90% 0%,
+			10% 0%
+		);
 	}
 `;
 
@@ -60,7 +85,7 @@ const QuotedPerson = styled.p`
 
 const Testimonial: React.FC = () => {
 	return (
-		<CardWithDecor>
+		<FootballShape>
 			<p>
 				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias
 				quasi mollitia obcaecati ullam repellendus. Error, non officiis?
@@ -69,19 +94,18 @@ const Testimonial: React.FC = () => {
 				voluptate in asperiores? Quae amet hic impedit delectus mollitia aut
 				eaque officia magnam.
 			</p>
-
-			<QuotedPerson>&mdash; Allison Yoyd</QuotedPerson>
-		</CardWithDecor>
+			<QuotedPerson>&mdash; Anonymous lunchtime regular</QuotedPerson>
+		</FootballShape>
 	);
 };
 
 // TODO: Define consistent structure to automatically include each day in the
 // index page for this meta-project, and to not repeat myself
-const businessName = "Lorem's Ipsum";
+const businessName = "Superb Bowls";
 
 const TodaysTestimonialPage: React.FC = () => {
 	return (
-		<TestimonialPageTemplate date="2023-02-11" businessName={businessName}>
+		<TestimonialPageTemplate date="2023-02-12" businessName={businessName}>
 			<TwoColumnTestimonial>
 				<Testimonial />
 				<BlurbColumn>
@@ -90,10 +114,7 @@ const TodaysTestimonialPage: React.FC = () => {
 						real quick.
 					</p>
 
-					<p>
-						Today's business is Lorem's Ipsum again, specializing in non-english
-						copy text.
-					</p>
+					<p>Today's business is Superb Bowls, specializing in lunch bowls.</p>
 				</BlurbColumn>
 			</TwoColumnTestimonial>
 		</TestimonialPageTemplate>

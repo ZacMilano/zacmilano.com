@@ -5,7 +5,7 @@ import { Link } from "gatsby";
 import {
 	TestimonialPageTemplate,
 	TwoColumnTestimonial,
-} from "../../components";
+} from "../../../components";
 
 const CenteredCardWithShadow = styled.article`
 	margin-inline: auto;

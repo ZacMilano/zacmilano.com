@@ -53,7 +53,7 @@ interface InternalLinkConfig {
 const topLevelLinks: InternalLinkConfig[] = [
 	{ path: "/", displayText: "Home" },
 	{ path: "/blog", displayText: "Blog" },
-	{ path: "/daily-testimonials", displayText: "Gallery" },
+	{ path: "/gallery", displayText: "Gallery" },
 ];
 
 export const NavigationHeader = () => {

@@ -207,7 +207,7 @@ const MakeTheSameThingEveryDayBlogPost: React.FC = () => {
 					</li>
 
 					<li>
-						<Link to="/daily-testimonials/2023-02-08">
+						<Link to="/gallery/daily-testimonials/2023-02-08">
 							My first testimonial component: FaaSt Foods
 						</Link>
 					</li>

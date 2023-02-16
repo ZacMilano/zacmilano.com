@@ -4,7 +4,7 @@ import styled from "styled-components";
 import {
 	TwoColumnTestimonial,
 	TestimonialPageTemplate,
-} from "../../components";
+} from "../../../components";
 
 const BlurbColumn = styled.div``;
 

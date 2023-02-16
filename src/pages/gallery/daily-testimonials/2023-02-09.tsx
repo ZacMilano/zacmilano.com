@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { TestimonialPageTemplate } from "../../components";
+import { TestimonialPageTemplate } from "../../../components";
 
 const PageLayoutWithGaps = styled.div`
 	display: grid;

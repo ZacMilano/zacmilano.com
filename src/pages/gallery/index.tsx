@@ -47,7 +47,7 @@ const TestimonialsHome: React.FC = () => {
 					<TestimonialList>
 						{testimonialPractices.map(({ date, businessName }) => (
 							<li>
-								<InternalLink to={`./${date}`}>
+								<InternalLink to={`./daily-testimonials/${date}`}>
 									{`${date}: ${businessName}`}
 								</InternalLink>
 							</li>

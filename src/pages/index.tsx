@@ -15,7 +15,7 @@ const IndexPage: React.FC<PageProps> = () => {
 			<MainWithCenteredContent>
 				<InternalLink to="/blog">Blog</InternalLink>
 
-				<InternalLink to="/daily-testimonials">
+				<InternalLink to="/gallery">
 					Making the same thing every day
 				</InternalLink>
 			</MainWithCenteredContent>
