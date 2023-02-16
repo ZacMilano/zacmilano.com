@@ -1,10 +1,12 @@
 import React from "react";
+import styled from "styled-components";
 
 import {
 	InternalLink,
 	MainWithCenteredContent,
 	NavigationHeader,
 } from "../../components";
+import { VISUALLY_HIDDEN } from "../../styles";
 
 interface TestimonialPracticeConfig {
 	date: string;
@@ -22,17 +24,36 @@ const testimonialPractices: TestimonialPracticeConfig[] = [
 	{ date: "2023-02-15", businessName: "Lorem's Ipsum" },
 ];
 
+const HiddenNavLabel = styled.h2`
+	${VISUALLY_HIDDEN}
+`;
+
+const TestimonialList = styled.ul`
+	padding-left: 0;
+	list-style-type: none;
+`;
+
 const TestimonialsHome: React.FC = () => {
 	return (
 		<>
 			<NavigationHeader />
 
 			<MainWithCenteredContent>
-				{testimonialPractices.map(({ date, businessName }) => (
-					<InternalLink to={`./${date}`}>
-						{`${date}: ${businessName}`}
-					</InternalLink>
-				))}
+				<nav aria-labelledby="main-nav-label">
+					<HiddenNavLabel id="main-nav-label">
+						Main Navigation Menu
+					</HiddenNavLabel>
+
+					<TestimonialList>
+						{testimonialPractices.map(({ date, businessName }) => (
+							<li>
+								<InternalLink to={`./${date}`}>
+									{`${date}: ${businessName}`}
+								</InternalLink>
+							</li>
+						))}
+					</TestimonialList>
+				</nav>
 			</MainWithCenteredContent>
 		</>
 	);
