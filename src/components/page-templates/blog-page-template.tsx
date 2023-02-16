@@ -1,5 +1,6 @@
 import React, { PropsWithChildren } from "react";
 import styled from "styled-components";
+import { NavigationHeader } from "../top-nav-bar";
 
 const FullHeightMain = styled.main`
 	min-height: 100%;
@@ -25,13 +26,16 @@ export const BlogPageTemplate: React.FC<
 	PropsWithChildren<BlogPageTemplateProps>
 > = ({ children, ...props }) => {
 	return (
-		<FullHeightMain>
-			<Header>{props.title}</Header>
-			<Subheader>
-				<i>Published on {props.dateModified ?? props.dateCreated}</i>
-			</Subheader>
+		<>
+			<NavigationHeader />
 
-			{children}
-		</FullHeightMain>
+			<FullHeightMain>
+				<Header>{props.title}</Header>
+				<Subheader>
+					<i>Published on {props.dateModified ?? props.dateCreated}</i>
+				</Subheader>
+				{children}
+			</FullHeightMain>
+		</>
 	);
 };
