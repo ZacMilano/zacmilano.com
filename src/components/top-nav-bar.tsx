@@ -2,7 +2,7 @@ import { Link } from "gatsby";
 import React from "react";
 import styled from "styled-components";
 
-import { VISUALLY_HIDDEN } from "../styles/visually-hidden";
+import { VISUALLY_HIDDEN } from "../styles";
 import zmLogo from "../images/zm-logo.png";
 
 const SiteHeader = styled.header`
