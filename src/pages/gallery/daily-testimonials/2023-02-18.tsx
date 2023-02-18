@@ -37,19 +37,21 @@ const Card = styled.article`
 	width: 35em;
 	padding: 2.5em;
 
-	background-color: white;
+	/* Toggle between backdrop-filter and background-color to see mechanics */
 	/* backdrop-filter: blur(1em); */
+	background-color: white;
 	box-shadow: 0 1em 2em hsl(0 0% 0% / 20%);
 `;
 
 interface TestimonialProps {
 	reviewerName: string;
 	reviewerTitle: string;
+	className?: string;
 }
 
 const Testimonial: React.FC<TestimonialProps> = ({ ...props }) => {
 	return (
-		<Card>
+		<Card className={props.className}>
 			<Reviewer>
 				<Avatar src={allie} alt={props.reviewerName} />
 
@@ -78,34 +80,50 @@ const CardStack = styled.article`
 	& > * {
 		--scaling-factor: 0.93;
 		--vertical-offset: 2em;
-		--animation-duration: 250ms;
+		--animation-duration: 200ms;
 		--animation-timing: ease-out;
 
 		position: absolute;
+
 		transform: scale(var(--scale)) translateY(var(--translation));
 
-		transition: transform var(--animation-duration) var(--animation-timing);
+		/* Delay transformations until the opacity transitions have finished */
+		transition: transform var(--animation-duration) var(--animation-timing)
+				var(--animation-duration),
+			opacity var(--animation-duration) var(--animation-timing);
 
-		&:nth-child(1) {
+		&.first-card {
 			--scale: 1;
 			--translation: 0em;
 			z-index: 5;
 		}
 
-		&:nth-child(2) {
+		&.second-card {
 			--scale: var(--scaling-factor);
 			--translation: var(--vertical-offset);
 			z-index: 4;
 		}
 
-		&:nth-child(n + 3) {
+		&.third-card {
 			--scale: calc(var(--scaling-factor) * var(--scaling-factor));
-			--translation: calc(var(--vertical-offset) * 2);
 			z-index: 3;
 		}
 
-		&:nth-child(n + 4) {
+		&.third-card,
+		&.hidden-card {
+			--translation: calc(var(--vertical-offset) * 2);
+		}
+
+		&.hidden-card {
+			/* Hide card so that the text/image are unselectable, but stay in the DOM
+			for later animations. */
+			--scale: 0;
 			opacity: 0;
+			user-select: none;
+
+			/* Stay above everything else to prevent a jumpy animation. 0 opacity
+			guarantees that it's not visibly on top. */
+			z-index: 100;
 		}
 	}
 `;
@@ -122,19 +140,7 @@ const RotateReviewsButton = styled.button`
 `;
 
 const TestimonialStack: React.FC = () => {
-	function nthElementAfterRotation<T>(
-		arr: T[],
-		nth: number,
-		rotationAmount: number
-	) {
-		const adjustedIndex = (nth + rotationAmount) % arr.length;
-		return arr[adjustedIndex];
-	}
-
-	function nElements(n: number) {
-		return Array.from(Array(n));
-	}
-
+	// Static data
 	const reviewers: TestimonialProps[] = [
 		{ reviewerName: "Allie", reviewerTitle: "A threat to mice" },
 		{ reviewerName: "Allie Cat", reviewerTitle: "Local rat chaser" },
@@ -155,6 +161,7 @@ const TestimonialStack: React.FC = () => {
 		<ReviewSwitcher>
 			<RotateReviewsButton
 				onClick={() => {
+					// TODO: Limit effect to only occur after animations finish
 					showNextReview();
 				}}
 			>
@@ -162,11 +169,16 @@ const TestimonialStack: React.FC = () => {
 			</RotateReviewsButton>
 
 			<CardStack>
-				{nElements(reviewCount).map((value, index) => (
-					<Testimonial
-						{...nthElementAfterRotation(reviewers, index, frontIndex)}
-					/>
-				))}
+				{reviewers.map((props, index) => {
+					const orderInStack = (index - frontIndex + reviewCount) % reviewCount;
+					const shownCards = ["first-card", "second-card", "third-card"];
+
+					let className = "hidden-card";
+					if (orderInStack < shownCards.length) {
+						className = shownCards[orderInStack];
+					}
+					return <Testimonial {...props} key={index} className={className} />;
+				})}
 			</CardStack>
 		</ReviewSwitcher>
 	);
@@ -190,11 +202,9 @@ const TodaysTestimonialPage: React.FC = () => {
 					</p>
 
 					<p>
-						I made a review switcher today. It's not 100% what I want; I
-						realized too late that normal CSS animations may not be feasible to
-						occur due to changing the DOM (changing the nth-child order of each
-						element). I'll try to do something similar another day, or revisit
-						today. I want animations!
+						I made a review switcher today! Currently, spamming the button makes
+						the layout look a little off, but I plan to fix that with some hooks
+						later.
 					</p>
 				</BlurbColumn>
 			</TwoColumnTestimonial>
