@@ -26,6 +26,7 @@ const testimonialPractices: TestimonialPracticeConfig[] = [
 	{ date: "2023-02-17", businessName: "Lorem's Ipsum" },
 	{ date: "2023-02-18", businessName: "Lorem's Ipsum" },
 	{ date: "2023-02-19", businessName: "Lorem's Ipsum" },
+	{ date: "2023-02-20", businessName: "Lorem's Ipsum" },
 ];
 
 const TestimonialList = styled.ul`
