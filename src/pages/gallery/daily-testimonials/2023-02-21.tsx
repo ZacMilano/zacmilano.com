@@ -6,33 +6,10 @@ import {
 	TestimonialPageTemplate,
 } from "../../../components";
 import allie from "../../../images/allie-sniffing.jpeg";
-
-interface Reviewer {
-	name: string;
-	title: string;
-	avatar: string;
-}
-
-interface Review {
-	body: string;
-	date: string;
-	starRating?: 1 | 2 | 3 | 4 | 5;
-}
-
-interface TestimonialProps {
-	reviewer: Reviewer;
-	review: Review;
-	className?: string;
-}
-
-interface Business {
-	name: string;
-	specialty: string;
-}
-
-interface BlurbColumnProps {
-	business: Business;
-}
+import {
+	BlurbColumnProps,
+	CommonTestimonialProps,
+} from "../../../types/testimonials";
 
 const Card = styled.article`
 	--padding: 3em;
@@ -117,7 +94,7 @@ const ReviewBody = styled.p`
 	line-height: 2;
 `;
 
-const Testimonial: React.FC<TestimonialProps> = ({ ...props }) => {
+const Testimonial: React.FC<CommonTestimonialProps> = ({ ...props }) => {
 	return (
 		<Card className={props.className}>
 			<ReviewerSection>
