@@ -38,10 +38,9 @@ const Rating = styled.div`
 
 const ReviewerInfo = styled.div`
 	display: grid;
-	/* gap: 1em; */
 
 	& > * {
-		justify-self: center;
+		justify-self: end;
 	}
 `;
 
