@@ -21,6 +21,6 @@ export interface Business {
 	specialty: string;
 }
 
-export interface BlurbColumnProps {
+export interface CommonBlurbColumnProps {
 	business: Business;
 }

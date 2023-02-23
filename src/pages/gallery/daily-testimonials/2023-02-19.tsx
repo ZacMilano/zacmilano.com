@@ -2,14 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 import {
+	CommonBlurbColumn,
 	TwoColumnTestimonial,
 	TestimonialPageTemplate,
 } from "../../../components";
 import allie from "../../../images/allie-sniffing.jpeg";
-import {
-	BlurbColumnProps,
-	CommonTestimonialProps,
-} from "../../../types/testimonials";
+import { CommonTestimonialProps } from "../../../types/testimonials";
 
 const Card = styled.article`
 	display: grid;
@@ -63,17 +61,6 @@ const Testimonial: React.FC<CommonTestimonialProps> = ({ ...props }) => {
 	);
 };
 
-const BlurbColumn: React.FC<BlurbColumnProps> = ({ ...props }) => {
-	return (
-		<div>
-			<p>
-				Today's business is {props.business.name}, specializing in{" "}
-				{props.business.specialty}.
-			</p>
-		</div>
-	);
-};
-
 const today = {
 	blurb: {
 		business: {
@@ -104,7 +91,7 @@ const TodaysTestimonialPage: React.FC = () => {
 		>
 			<TwoColumnTestimonial>
 				<Testimonial {...today.testimonial} />
-				<BlurbColumn {...today.blurb} />
+				<CommonBlurbColumn {...today.blurb} />
 			</TwoColumnTestimonial>
 		</TestimonialPageTemplate>
 	);
