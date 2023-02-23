@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from "react";
 import styled from "styled-components";
-import { NavigationHeader } from "..";
+import { InterTestimonialNavigation, NavigationHeader } from "..";
 
 const FullHeightMain = styled.main`
 	min-height: 100%;
@@ -28,6 +28,8 @@ export const TestimonialPageTemplate: React.FC<
 	return (
 		<>
 			<NavigationHeader />
+
+			<InterTestimonialNavigation currentDate={props.date} />
 
 			<FullHeightMain style={props.style}>
 				<HeaderSection>

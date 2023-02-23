@@ -13,6 +13,10 @@ interface TestimonialPracticeConfig {
 	businessName: string;
 }
 
+// TODO: Create TestimonialRegistry, and make testimonial pages auto-register
+// => This may make us lose this guaranteed data of first/last date
+
+// The registry/database & source of truth for testimonial metadata
 const testimonialPractices: TestimonialPracticeConfig[] = [
 	{ date: "2023-02-08", businessName: "FaaSt Foods" },
 	{ date: "2023-02-09", businessName: "Froggy's Daycare" },
@@ -29,6 +33,10 @@ const testimonialPractices: TestimonialPracticeConfig[] = [
 	{ date: "2023-02-20", businessName: "Lorem's Ipsum" },
 	{ date: "2023-02-21", businessName: "Lorem's Ipsum" },
 ];
+
+export const firstTestimonialDate = testimonialPractices[0].date;
+export const lastTestimonialDate =
+	testimonialPractices[testimonialPractices.length - 1].date;
 
 const TestimonialList = styled.ul`
 	padding-left: 0;
