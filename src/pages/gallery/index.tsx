@@ -32,6 +32,7 @@ const testimonialPractices: TestimonialPracticeConfig[] = [
 	{ date: "2023-02-19", businessName: "Lorem's Ipsum" },
 	{ date: "2023-02-20", businessName: "Lorem's Ipsum" },
 	{ date: "2023-02-21", businessName: "Lorem's Ipsum" },
+	{ date: "2023-02-22", businessName: "EagleEye, LLC" },
 ];
 
 export const firstTestimonialDate = testimonialPractices[0].date;
