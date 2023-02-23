@@ -46,7 +46,7 @@ const Card = styled.article`
 	display: grid;
 	gap: 1em;
 
-	width: 30em;
+	max-width: 30em;
 	padding: calc(2 * var(--padding)) var(--padding);
 
 	transition: transform var(--transition-duration) var(--transition-timing);

@@ -42,7 +42,7 @@ const Card = styled.article`
 	display: grid;
 	gap: var(--padding);
 
-	width: 30em;
+	max-width: 30em;
 	padding: var(--padding);
 	margin-top: calc(var(--avatar-height) / 2);
 

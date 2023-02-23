@@ -38,7 +38,7 @@ const Card = styled.article`
 	--padding: 5em;
 	position: relative;
 
-	width: 35em;
+	max-width: 35em;
 	padding: var(--padding);
 
 	box-shadow: 0 1em 2em hsl(0 0% 0% / 30%);

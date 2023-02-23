@@ -13,7 +13,7 @@ const CenteredCardWithShadow = styled.article`
 	display: grid;
 	gap: 1em;
 
-	width: 25em;
+	max-width: 25em;
 	height: min-content;
 	padding: 3em;
 

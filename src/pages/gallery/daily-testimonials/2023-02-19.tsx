@@ -38,7 +38,7 @@ const Card = styled.article`
 	display: grid;
 	gap: 2em;
 
-	width: 35em;
+	max-width: 35em;
 	padding: 3em;
 
 	box-shadow: 0 1em 2em hsl(0 0% 0% / 20%);

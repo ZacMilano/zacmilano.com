@@ -59,7 +59,7 @@ const Card = styled.article`
 	display: grid;
 	gap: 2.5em;
 
-	width: 30em;
+	max-width: 30em;
 	padding: 3em;
 
 	box-shadow: 0 1em 2em rgba(0, 0, 0, 50%);

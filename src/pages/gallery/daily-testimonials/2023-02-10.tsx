@@ -15,7 +15,7 @@ const Card = styled.article`
 	flex-direction: column;
 	align-items: flex-end;
 
-	width: 30em;
+	max-width: 30em;
 	padding: 3em;
 
 	background-color: white;

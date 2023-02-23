@@ -11,7 +11,7 @@ const BlurbColumn = styled.div``;
 const CardWithDecor = styled.article`
 	position: relative;
 
-	width: 30em;
+	max-width: 30em;
 
 	padding: 3em;
 	text-align: justify;

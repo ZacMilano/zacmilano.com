@@ -15,7 +15,7 @@ const Card = styled.article`
 	flex-direction: column;
 	gap: 1em;
 
-	width: 30em;
+	max-width: 30em;
 	padding: 2.5em;
 
 	border-radius: 1em;

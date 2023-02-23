@@ -15,7 +15,7 @@ const Card = styled.article`
 	display: grid;
 	gap: var(--gap);
 
-	width: 35em;
+	max-width: 35em;
 	padding: 3em;
 
 	border-radius: 2em;

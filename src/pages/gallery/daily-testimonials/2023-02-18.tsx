@@ -1,15 +1,13 @@
 import React, { useCallback, useState } from "react";
 import styled from "styled-components";
 
-import {
-	TwoColumnTestimonial,
-	TestimonialPageTemplate,
-} from "../../../components";
+import { TestimonialPageTemplate } from "../../../components";
 import allie from "../../../images/allie-sniffing.jpeg";
 
 const BlurbColumn = styled.div`
 	display: grid;
 	gap: 1em;
+	margin-bottom: 3em;
 `;
 
 const Reviewer = styled.div`
@@ -34,7 +32,7 @@ const Card = styled.article`
 	display: grid;
 	gap: 2em;
 
-	width: 35em;
+	max-width: 35em;
 	padding: 2.5em;
 
 	/* Toggle between backdrop-filter and background-color to see mechanics */
@@ -73,7 +71,7 @@ const Testimonial: React.FC<TestimonialProps> = ({ ...props }) => {
 	);
 };
 
-const CardStack = styled.article`
+const CardStack = styled.div`
 	position: relative;
 	isolation: isolate;
 
@@ -137,6 +135,7 @@ const RotateReviewsButton = styled.button`
 	width: max-content;
 	height: min-content;
 	padding: 1em;
+	place-self: center;
 `;
 
 const TestimonialStack: React.FC = () => {
@@ -192,22 +191,16 @@ const date = "2023-02-18";
 const TodaysTestimonialPage: React.FC = () => {
 	return (
 		<TestimonialPageTemplate date={date} businessName={businessName}>
-			<TwoColumnTestimonial>
-				<TestimonialStack />
+			<BlurbColumn>
+				<p>
+					Today's business is Lorem's Ipsum again, specializing in non-english
+					copy text.
+				</p>
 
-				<BlurbColumn>
-					<p>
-						Today's business is Lorem's Ipsum again, specializing in non-english
-						copy text.
-					</p>
+				<p>I made a review switcher today! </p>
+			</BlurbColumn>
 
-					<p>
-						I made a review switcher today! Currently, spamming the button makes
-						the layout look a little off, but I plan to fix that with some hooks
-						later.
-					</p>
-				</BlurbColumn>
-			</TwoColumnTestimonial>
+			<TestimonialStack />
 		</TestimonialPageTemplate>
 	);
 };

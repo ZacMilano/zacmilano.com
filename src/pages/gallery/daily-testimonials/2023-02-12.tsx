@@ -115,6 +115,8 @@ const TodaysTestimonialPage: React.FC = () => {
 					</p>
 
 					<p>Today's business is Superb Bowls, specializing in lunch bowls.</p>
+
+					<p>Mobile users beware: this one is tough to look at!</p>
 				</BlurbColumn>
 			</TwoColumnTestimonial>
 		</TestimonialPageTemplate>

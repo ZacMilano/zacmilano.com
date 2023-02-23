@@ -6,6 +6,7 @@ import { TestimonialPageTemplate } from "../../../components";
 const PageLayoutWithGaps = styled.div`
 	display: grid;
 	gap: 2em;
+	place-items: center;
 `;
 
 // BEGIN Testimonial Banner
@@ -14,11 +15,14 @@ const Banner = styled.section`
 	--color-neutral-600: hsla(0, 0%, 100%, 40%);
 	--color-neutral-400: hsl(0, 0%, 90%);
 
+	width: 150%;
+
 	display: grid;
+	align-items: center;
 	gap: 2em;
 
 	margin-block: 10em;
-	padding-inline: 25%;
+	/* padding-inline: 25%; */
 	padding-block: 3em;
 
 	color: var(--color-neutral-400);
@@ -29,6 +33,10 @@ const Banner = styled.section`
 	// Magic numbers to place a shadow (inset) only on top & bottom
 	box-shadow: 0 10em 1em -9.5em rgba(0, 0, 0, 20%) inset,
 		0 -10em 1em -9.5em rgba(0, 0, 0, 20%) inset;
+
+	& > * {
+		padding-inline: 25%;
+	}
 `;
 
 const TestimonialHeader = styled.h2`
@@ -74,8 +82,6 @@ const TestimonialQuote = styled.p`
 const BlurbSection = styled.section`
 	display: grid;
 	gap: 2em;
-
-	padding-inline: 10em;
 `;
 
 const Testimonial: React.FC = () => {
@@ -116,7 +122,11 @@ const businessName = "Froggy's Daycare";
 
 const TodaysTestimonialPage: React.FC = () => {
 	return (
-		<TestimonialPageTemplate date="2023-02-09" businessName={businessName}>
+		<TestimonialPageTemplate
+			date="2023-02-09"
+			businessName={businessName}
+			style={{ overflowX: "hidden" }}
+		>
 			<PageLayoutWithGaps>
 				<BlurbSection>
 					<p>
