@@ -14,6 +14,8 @@ const InterTestimonialNavigationContainer = styled.nav`
 `;
 
 const InterTestimonialNavigationLink = styled((props) => <Link {...props} />)`
+	position: relative;
+
 	display: flex;
 	gap: 1em;
 
@@ -26,6 +28,32 @@ const InterTestimonialNavigationLink = styled((props) => <Link {...props} />)`
 	font-weight: bold;
 
 	border-radius: 2em;
+
+	transition: transform 250ms ease-out;
+
+	&::after {
+		content: "";
+		position: absolute;
+		z-index: -1;
+
+		inset: 0;
+
+		opacity: 0;
+		border-radius: inherit;
+		box-shadow: 0 0.5em 2em hsl(0 0% 0% / 20%);
+
+		transition: opacity 250ms ease-out;
+	}
+
+	&:hover::after,
+	&:focus-within::after {
+		opacity: 1;
+	}
+
+	&:hover,
+	&:focus-within {
+		transform: scale(1.02);
+	}
 `;
 
 interface EmptyIfNoValidDateProps extends PropsWithChildren {
