@@ -9,7 +9,7 @@ const FullHeightMain = styled.main`
 `;
 
 const Subheader = styled.p`
-	margin-bottom: 6em;
+	/* margin-bottom: 6em; */
 	font-weight: normal;
 `;
 
@@ -29,8 +29,6 @@ export const TestimonialPageTemplate: React.FC<
 		<>
 			<NavigationHeader />
 
-			<InterTestimonialNavigation currentDate={props.date} />
-
 			<FullHeightMain style={props.style}>
 				<HeaderSection>
 					<h1>{props.businessName}</h1>
@@ -39,6 +37,8 @@ export const TestimonialPageTemplate: React.FC<
 						<i>Daily testimonial component for {props.date}</i>
 					</Subheader>
 				</HeaderSection>
+
+				<InterTestimonialNavigation currentDate={props.date} />
 
 				{children}
 			</FullHeightMain>

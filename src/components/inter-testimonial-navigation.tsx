@@ -7,8 +7,10 @@ import { firstTestimonialDate, lastTestimonialDate } from "../pages/gallery";
 const InterTestimonialNavigationContainer = styled.nav`
 	display: flex;
 	justify-content: space-between;
-	padding-inline: clamp(1em, 10vw, 10em);
+	/* padding-inline: clamp(1em, 10vw, 10em); */
 	padding-block: 1em;
+
+	margin-block-end: 10em;
 `;
 
 const InterTestimonialNavigationLink = styled((props) => <Link {...props} />)`
