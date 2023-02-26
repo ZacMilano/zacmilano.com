@@ -4,10 +4,12 @@ export interface Reviewer {
 	avatar: string;
 }
 
+export type StarRating = 1 | 2 | 3 | 4 | 5;
+
 export interface Review {
 	body: string;
 	date: string;
-	starRating?: 1 | 2 | 3 | 4 | 5;
+	starRating?: StarRating;
 }
 
 export interface CommonTestimonialProps {
