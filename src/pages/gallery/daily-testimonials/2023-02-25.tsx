@@ -16,6 +16,8 @@ const Rating = styled.div`
 	bottom: 0;
 
 	display: flex;
+	justify-content: center;
+	align-items: center;
 	gap: 0.25em;
 
 	padding: var(--padding);
@@ -51,8 +53,11 @@ const ReviewerInfo = styled.div`
 	display: grid;
 `;
 
-const ReviewBody = styled.p`
+const ReviewBody = styled.div`
 	z-index: 2;
+
+	display: grid;
+	gap: 1em;
 
 	padding: var(--padding);
 	background: white;
@@ -69,6 +74,23 @@ const ReviewBody = styled.p`
 		box-shadow: 0 1em 2em var(--color-accent);
 
 		transition: opacity var(--duration) var(--timing);
+	}
+
+	& > .review-body-heading {
+		position: relative;
+		font-size: 1.5rem;
+		color: gray;
+
+		& > .pre-hover,
+		& > .post-hover {
+			transition: opacity var(--duration) var(--timing);
+		}
+
+		& > .post-hover {
+			position: absolute;
+			inset: 0;
+			opacity: 0;
+		}
 	}
 `;
 
@@ -107,6 +129,14 @@ const Card = styled.article`
 		& .reviewer-section {
 			transform: translateY(-100%);
 		}
+
+		& .pre-hover {
+			opacity: 0;
+		}
+
+		& .post-hover {
+			opacity: 1;
+		}
 	}
 `;
 
@@ -126,7 +156,12 @@ const Testimonial: React.FC<CommonTestimonialProps> = ({ ...props }) => {
 			</ReviewerSection>
 
 			<ReviewBody className="review-body-section">
-				{props.review.body}
+				<h2 className="review-body-heading">
+					<i className="pre-hover">Here's what our customers think!</i>
+					<i className="post-hover">Posted on {props.review.date}</i>
+				</h2>
+
+				<p>{props.review.body}</p>
 			</ReviewBody>
 
 			<Rating className="rating-section">
