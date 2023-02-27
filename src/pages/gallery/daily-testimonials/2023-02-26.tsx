@@ -2,13 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 import {
-	CommonBlurbColumn,
 	TwoColumnTestimonial,
 	TestimonialPageTemplate,
 } from "../../../components";
 import luSeal from "../../../images/lu-seal.jpg";
 import { CommonTestimonialProps } from "../../../types/testimonials";
-import { RatingStars } from "../../../components/rating-stars";
+import { RatingStars } from "../../../components";
 
 const Card = styled.article`
 	--padding: 3em;

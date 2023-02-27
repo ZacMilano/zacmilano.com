@@ -209,8 +209,8 @@ export const NavigationHeader: React.FC = () => {
 				</h2>
 
 				<NavList data-visible={isNavExpanded}>
-					{topLevelLinks.map((linkConfig) => (
-						<NavItem>
+					{topLevelLinks.map((linkConfig, index) => (
+						<NavItem key={index}>
 							<Link to={linkConfig.path} activeClassName={"active-link"}>
 								{linkConfig.displayText}
 							</Link>
