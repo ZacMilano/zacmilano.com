@@ -5,43 +5,9 @@ import {
 	InternalLink,
 	MainWithCenteredContent,
 	NavigationHeader,
+	TestimonialRegistry,
 } from "../../components";
 import { VisuallyHidden } from "../../styles";
-
-interface TestimonialPracticeConfig {
-	date: string;
-	businessName: string;
-}
-
-// TODO: Create TestimonialRegistry, and make testimonial pages auto-register
-// => This may make us lose this guaranteed data of first/last date
-
-// The registry/database & source of truth for testimonial metadata
-const testimonialPractices: TestimonialPracticeConfig[] = [
-	{ date: "2023-02-08", businessName: "FaaSt Foods" },
-	{ date: "2023-02-09", businessName: "Froggy's Daycare" },
-	{ date: "2023-02-10", businessName: "Lorem's Ipsum" },
-	{ date: "2023-02-11", businessName: "Lorem's Ipsum" },
-	{ date: "2023-02-12", businessName: "Superb Bowls" },
-	{ date: "2023-02-13", businessName: "Chunky Dunkies" },
-	{ date: "2023-02-14", businessName: "Lorem's Ipsum" },
-	{ date: "2023-02-15", businessName: "Lorem's Ipsum" },
-	{ date: "2023-02-16", businessName: "Lorem's Ipsum" },
-	{ date: "2023-02-17", businessName: "Lorem's Ipsum" },
-	{ date: "2023-02-18", businessName: "Lorem's Ipsum" },
-	{ date: "2023-02-19", businessName: "Lorem's Ipsum" },
-	{ date: "2023-02-20", businessName: "Lorem's Ipsum" },
-	{ date: "2023-02-21", businessName: "Lorem's Ipsum" },
-	{ date: "2023-02-22", businessName: "EagleEye, LLC" },
-	{ date: "2023-02-23", businessName: "Lorem's Ipsum" },
-	{ date: "2023-02-24", businessName: "Lorem's Ipsum" },
-	{ date: "2023-02-25", businessName: "Lorem's Ipsum" },
-	{ date: "2023-02-26", businessName: "EagleEye, LLC" },
-];
-
-export const firstTestimonialDate = testimonialPractices[0].date;
-export const lastTestimonialDate =
-	testimonialPractices[testimonialPractices.length - 1].date;
 
 const TestimonialList = styled.ul`
 	padding-left: 0;
@@ -60,13 +26,15 @@ const TestimonialsHome: React.FC = () => {
 					</h2>
 
 					<TestimonialList>
-						{testimonialPractices.map(({ date, businessName }) => (
-							<li>
-								<InternalLink to={`./daily-testimonials/${date}`}>
-									{`${date}: ${businessName}`}
-								</InternalLink>
-							</li>
-						))}
+						{TestimonialRegistry.sortedRegistry.map(
+							({ date, registration }, index) => (
+								<li key={index}>
+									<InternalLink to={`./daily-testimonials/${date}`}>
+										{`${date}: ${registration.businessName}`}
+									</InternalLink>
+								</li>
+							)
+						)}
 					</TestimonialList>
 				</nav>
 			</MainWithCenteredContent>

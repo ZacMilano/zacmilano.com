@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-import { firstTestimonialDate, lastTestimonialDate } from "../pages/gallery";
+import { TestimonialRegistry } from "./testimonial-registry";
 
 const InterTestimonialNavigationContainer = styled.nav`
 	display: flex;
@@ -82,30 +82,20 @@ export interface InterTestimonialNavigationProps {
 export const InterTestimonialNavigation: React.FC<
 	InterTestimonialNavigationProps
 > = ({ ...props }) => {
-	const currentDate = new Date(props.currentDate);
+	const previousDate =
+		TestimonialRegistry.getPreviousTestimonial(props.currentDate)?.date ?? "";
 
-	const oneDayInMs = 24 * 60 * 60 * 1000;
-	const previousDate = new Date(currentDate.getTime() - oneDayInMs);
-	const nextDate = new Date(currentDate.getTime() + oneDayInMs);
-
-	let previousTestimonialPath = "";
-	let nextTestimonialPath = "";
-
-	if (previousDate.getTime() - new Date(firstTestimonialDate).getTime() >= 0) {
-		previousTestimonialPath = previousDate.toISOString().split("T")[0];
-	}
-	if (new Date(lastTestimonialDate).getTime() - nextDate.getTime() >= 0) {
-		nextTestimonialPath = nextDate.toISOString().split("T")[0];
-	}
+	const nextDate =
+		TestimonialRegistry.getNextTestimonial(props.currentDate)?.date ?? "";
 
 	return (
 		<InterTestimonialNavigationContainer>
-			<EmptyIfNoValidDate date={previousTestimonialPath}>
+			<EmptyIfNoValidDate date={previousDate}>
 				<p>&larr;</p>
 				<p>Previous</p>
 			</EmptyIfNoValidDate>
 
-			<EmptyIfNoValidDate date={nextTestimonialPath}>
+			<EmptyIfNoValidDate date={nextDate}>
 				<p>Next</p>
 				<p>&rarr;</p>
 			</EmptyIfNoValidDate>
