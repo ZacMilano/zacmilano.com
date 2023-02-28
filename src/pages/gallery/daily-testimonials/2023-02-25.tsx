@@ -9,6 +9,7 @@ import {
 } from "../../../components";
 import allie from "../../../images/allie-sniffing.jpeg";
 import { CommonTestimonialProps } from "../../../types/testimonials";
+import { blackRockBlue } from "../../../styles";
 
 const Rating = styled.div`
 	position: absolute;
@@ -97,7 +98,7 @@ const ReviewBody = styled.div`
 
 const Card = styled.article`
 	--padding: 3em;
-	--color-accent: hsl(239, 43%, 41%);
+	--color-accent: ${blackRockBlue};
 	--duration: 300ms;
 	--timing: ease-out;
 
@@ -181,7 +182,7 @@ const Testimonial: React.FC<CommonTestimonialProps> = ({ ...props }) => {
 							style = "fa-regular";
 						}
 
-						return <i className={`${starIcon} ${style}`} />;
+						return <i key={index} className={`${starIcon} ${style}`} />;
 					})}
 			</Rating>
 		</Card>

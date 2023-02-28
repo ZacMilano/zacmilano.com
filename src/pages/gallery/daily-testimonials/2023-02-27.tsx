@@ -10,6 +10,7 @@ import {
 } from "../../../components";
 import luSeal from "../../../images/lu-seal.jpg";
 import { CommonTestimonialProps } from "../../../types/testimonials";
+import { blackRockBlue } from "../../../styles";
 
 const Avatar = styled.img`
 	width: 4em;
@@ -18,7 +19,7 @@ const Avatar = styled.img`
 
 const Card = styled.article`
 	--gap: 3em;
-	--color-accent: hsl(239, 43%, 41%);
+	--color-accent: ${blackRockBlue};
 
 	position: relative;
 

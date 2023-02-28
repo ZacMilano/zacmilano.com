@@ -9,10 +9,11 @@ import {
 } from "../../../components";
 import allie from "../../../images/allie-sniffing.jpeg";
 import { CommonTestimonialProps } from "../../../types/testimonials";
+import { blackRockBlue } from "../../../styles";
 
 const Card = styled.article`
 	--padding: 3em;
-	--color-accent: hsl(239, 43%, 41%);
+	--color-accent: ${blackRockBlue};
 	display: grid;
 
 	max-width: 35em;

@@ -9,11 +9,12 @@ import {
 import luSeal from "../../../images/lu-seal.jpg";
 import { CommonTestimonialProps } from "../../../types/testimonials";
 import { RatingStars } from "../../../components";
+import { blackRockBlue, blackRockBlueWithAlpha } from "../../../styles";
 
 const Card = styled.article`
 	--padding: 3em;
-	--color-accent: hsl(239, 43%, 41%);
-	--color-accent-300: hsl(239, 43%, 41%, 30%);
+	--color-accent: ${blackRockBlue};
+	--color-accent-300: ${blackRockBlueWithAlpha(30)};
 
 	display: flex;
 	align-items: stretch;

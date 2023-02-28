@@ -66,6 +66,7 @@ const Testimonial: React.FC<CommonTestimonialProps> = ({ ...props }) => {
 						const isSolid = index + 1 <= starRating;
 						return (
 							<i
+								key={index}
 								className={`fa-star ${isSolid ? "fa-solid" : "fa-regular"}`}
 							></i>
 						);
