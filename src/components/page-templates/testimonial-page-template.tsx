@@ -25,8 +25,12 @@ export interface TestimonialPageTemplateProps {
 export const TestimonialPageTemplate: React.FC<
 	PropsWithChildren<TestimonialPageTemplateProps>
 > = ({ children, ...props }) => {
-	const path = window.location.pathname.split("/"),
+	const path =
+			typeof window !== "undefined"
+				? window.location.pathname.split("/")
+				: ["some day"],
 		date = path[path.length - 1];
+
 	return (
 		<>
 			<NavigationHeader />

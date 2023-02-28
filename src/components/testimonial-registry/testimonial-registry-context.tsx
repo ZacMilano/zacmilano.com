@@ -71,8 +71,8 @@ export function TestimonialRegistryProvider({ children }: PropsWithChildren) {
 			}
 		}
 	`).allSitePage.edges.map((edge: any) => {
-		const path = edge.node.path;
-		return path.slice(path.length - 10);
+		const path = edge.node.path.split("/");
+		return path[path.length - 1];
 	});
 
 	useEffect(() => {
