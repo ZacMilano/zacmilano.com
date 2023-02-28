@@ -23,7 +23,12 @@ export const RatingStars: React.FC<RatingStarsProps> = (props) => {
 					style = "fa-regular";
 				}
 
-				return <i className={`${starIcon} ${style} ${className ?? ""}`} />;
+				return (
+					<i
+						className={`${starIcon} ${style} ${className ?? ""}`}
+						key={index}
+					/>
+				);
 			})}
 		</>
 	);

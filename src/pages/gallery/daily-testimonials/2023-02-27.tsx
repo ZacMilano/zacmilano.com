@@ -31,6 +31,7 @@ const Card = styled.article`
 
 const ReviewerDataSection = styled.div`
 	display: flex;
+	align-items: center;
 	gap: var(--gap);
 	margin-block-end: calc(0.5 * var(--gap));
 `;
@@ -55,13 +56,19 @@ const ReviewerData = styled.div`
 const Rating = styled.div`
 	position: absolute;
 
-	padding: 1em 2em;
+	padding: 1.5em 2em;
+	min-width: max-content;
 	left: 50%;
 	bottom: 0;
 	transform: translateX(-50%) translateY(50%);
 
 	background: var(--color-accent);
 	color: white;
+
+	/* Gap between stars */
+	& > i + i {
+		margin-inline-start: 0.25em;
+	}
 `;
 
 const Testimonial: React.FC<CommonTestimonialProps> = ({ ...props }) => {
