@@ -28,10 +28,10 @@ const TestimonialsHome: React.FC = () => {
 					</h2>
 
 					<TestimonialList>
-						{registry.map(({ date, registration }, index) => (
+						{registry.map((date, index) => (
 							<li key={index}>
 								<InternalLink to={`./daily-testimonials/${date}`}>
-									{`${date}: ${registration.businessName}`}
+									{date}
 								</InternalLink>
 							</li>
 						))}

@@ -9,28 +9,20 @@ import React, {
 } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 
-export interface TestimonialRegistration {
-	businessName: string;
-}
-
-export interface TestimonialConfig {
-	date: string;
-	registration: TestimonialRegistration;
-}
-
-type Registry = Record<string, TestimonialRegistration>;
-
-type SortedRegistry = TestimonialConfig[];
+type TestimonialDate = string;
+type Registry = TestimonialDate[];
 
 interface TestimonialRegistrationContext {
-	registry: SortedRegistry;
-	firstDate: string;
-	lastDate: string;
-	register: (date: string, registration: TestimonialRegistration) => void;
+	registry: Registry;
+	firstDate: TestimonialDate;
+	lastDate: TestimonialDate;
+	register: (date: TestimonialDate) => void;
 	getPreviousTestimonial: (
-		currentDate: string
-	) => TestimonialConfig | undefined;
-	getNextTestimonial: (currentDate: string) => TestimonialConfig | undefined;
+		currentDate: TestimonialDate
+	) => TestimonialDate | undefined;
+	getNextTestimonial: (
+		currentDate: TestimonialDate
+	) => TestimonialDate | undefined;
 }
 
 const emptyFunction = () => {
@@ -48,8 +40,7 @@ const defaultState: TestimonialRegistrationContext = {
 const testimonialRegistrationContext =
 	createContext<TestimonialRegistrationContext>(defaultState);
 
-function useTestimonialRegistryContext() {
-	console.log("before");
+export function useTestimonialRegistryContext() {
 	return useContext(testimonialRegistrationContext);
 }
 
@@ -59,57 +50,13 @@ export function useTestimonialRegistry() {
 
 // TODO: convert the Registry to this provider style
 export function TestimonialRegistryProvider({ children }: PropsWithChildren) {
-	const [allPages, setAllPages] = useState([]);
-	const [registry, setRegistry] = useState<SortedRegistry>([]);
-	const [unsortedRegistry, setUnsortedRegistry] = useState<Registry>({});
-	const [sortedDates, setSortedDates] = useState<string[]>([]);
-	const [registrySize, setRegistrySize] = useState(0);
+	// const [allPages, setAllPages] = useState([]);
+	const [registry, setRegistry] = useState<Registry>([]);
+	// const [unsortedRegistry, setUnsortedRegistry] = useState<Registry>({});
+	// const [sortedDates, setSortedDates] = useState<string[]>([]);
+	// const [registrySize, setRegistrySize] = useState(0);
 	const [firstDate, setFirstDate] = useState("");
 	const [lastDate, setLastDate] = useState("");
-
-	useEffect(() => {
-		const dates = Object.keys(unsortedRegistry).sort();
-		setSortedDates(dates);
-		setRegistrySize(dates.length);
-	}, [sortedDates, unsortedRegistry]);
-
-	const register = useCallback(
-		(date: string, registry: TestimonialRegistration) => {
-			setUnsortedRegistry({ ...unsortedRegistry, [date]: registry });
-		},
-		[unsortedRegistry]
-	);
-
-	const getCurrentTestimonialIndex = useCallback(
-		(currentDate: string): number => {
-			return registry.findIndex(
-				(testimonial) => testimonial.date === currentDate
-			);
-		},
-		[registry]
-	);
-
-	const getPreviousTestimonial = useCallback(
-		(currentDate: string) => {
-			const currentIndex = getCurrentTestimonialIndex(currentDate);
-			console.log(currentIndex);
-
-			if ([-1, 0].includes(currentIndex)) return undefined;
-			return registry[currentIndex - 1];
-		},
-		[getCurrentTestimonialIndex, registry]
-	);
-
-	const getNextTestimonial = useCallback(
-		(currentDate: string) => {
-			const currentIndex = getCurrentTestimonialIndex(currentDate);
-			console.log(currentIndex);
-
-			if ([-1, registrySize - 1].includes(currentIndex)) return undefined;
-			return registry[currentIndex + 1];
-		},
-		[getCurrentTestimonialIndex, registry, registrySize]
-	);
 
 	const pagesData = useStaticQuery(graphql`
 		query AllTestimonialPages {
@@ -123,23 +70,74 @@ export function TestimonialRegistryProvider({ children }: PropsWithChildren) {
 				}
 			}
 		}
-	`);
+	`).allSitePage.edges.map((edge: any) => {
+		const path = edge.node.path;
+		return path.slice(path.length - 10);
+	});
 
 	useEffect(() => {
-		setRegistry(
-			sortedDates.map((date) => ({
-				date,
-				registration: unsortedRegistry[date],
-			}))
-		);
-		setFirstDate(sortedDates[0]);
-		setLastDate(sortedDates[sortedDates.length - 1]);
-	}, [sortedDates, unsortedRegistry]);
+		setRegistry(pagesData.sort());
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
+	const register = useCallback((date: string) => {
+		let lowIndex = 0;
+		let highIndex = registry.length;
+
+		while (lowIndex < highIndex) {
+			const midpoint = Math.floor((lowIndex + highIndex) / 2);
+			if (registry[midpoint] < date) {
+				lowIndex = midpoint + 1;
+			} else {
+				highIndex = midpoint;
+			}
+		}
+
+		setRegistry((prevState) => {
+			const frontHalf = prevState.slice(0, lowIndex);
+			const backHalf = prevState.slice(lowIndex);
+			return [...frontHalf, date, ...backHalf];
+		});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
+
+	const getCurrentTestimonialIndex = useCallback(
+		(currentDate: string): number => {
+			return registry.findIndex(
+				(testimonialDate) => testimonialDate === currentDate
+			);
+		},
+		[registry]
+	);
+
+	const getPreviousTestimonial = useCallback(
+		(currentDate: string) => {
+			const currentIndex = getCurrentTestimonialIndex(currentDate);
+
+			if ([-1, 0].includes(currentIndex)) return undefined;
+			return registry[currentIndex - 1];
+		},
+		[getCurrentTestimonialIndex, registry]
+	);
+
+	const getNextTestimonial = useCallback(
+		(currentDate: string) => {
+			const currentIndex = getCurrentTestimonialIndex(currentDate);
+
+			if ([-1, registry.length - 1].includes(currentIndex)) return undefined;
+			return registry[currentIndex + 1];
+		},
+		[getCurrentTestimonialIndex, registry]
+	);
+
+	useEffect(() => {
+		setFirstDate(registry[0]);
+		setLastDate(registry[registry.length - 1]);
+	}, [registry]);
 
 	const context = useMemo(
 		() => ({
 			registry,
-			registrySize,
 			firstDate,
 			lastDate,
 			register,
@@ -153,7 +151,6 @@ export function TestimonialRegistryProvider({ children }: PropsWithChildren) {
 			lastDate,
 			register,
 			registry,
-			registrySize,
 		]
 	);
 

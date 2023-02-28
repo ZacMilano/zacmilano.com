@@ -16,7 +16,7 @@ const Subheader = styled.p`
 const HeaderSection = styled.div``;
 
 export interface TestimonialPageTemplateProps {
-	date: string;
+	// date: string;
 	businessName: string;
 	style?: React.CSSProperties;
 }
@@ -25,6 +25,8 @@ export interface TestimonialPageTemplateProps {
 export const TestimonialPageTemplate: React.FC<
 	PropsWithChildren<TestimonialPageTemplateProps>
 > = ({ children, ...props }) => {
+	const path = window.location.pathname.split("/"),
+		date = path[path.length - 1];
 	return (
 		<>
 			<NavigationHeader />
@@ -34,11 +36,11 @@ export const TestimonialPageTemplate: React.FC<
 					<h1>{props.businessName}</h1>
 
 					<Subheader>
-						<i>Daily testimonial component for {props.date}</i>
+						<i>Daily testimonial component for {date}</i>
 					</Subheader>
 				</HeaderSection>
 
-				<InterTestimonialNavigation currentDate={props.date} />
+				<InterTestimonialNavigation currentDate={date} />
 
 				{children}
 			</FullHeightMain>

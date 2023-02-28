@@ -106,10 +106,7 @@ const today = {
 // index page for this meta-project, and to not repeat myself
 const TodaysTestimonialPage: React.FC = () => {
 	return (
-		<TestimonialPageTemplate
-			date={today.testimonial.review.date}
-			businessName={today.blurb.business.name}
-		>
+		<TestimonialPageTemplate businessName={today.blurb.business.name}>
 			<TwoColumnTestimonial>
 				<Testimonial {...today.testimonial} />
 				<CommonBlurbColumn {...today.blurb} />
