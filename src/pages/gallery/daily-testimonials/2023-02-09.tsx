@@ -116,14 +116,11 @@ const Testimonial: React.FC = () => {
 	);
 };
 
-// TODO: Define consistent structure to automatically include each day in the
-// index page for this meta-project, and to not repeat myself
 const businessName = "Froggy's Daycare";
 
 const TodaysTestimonialPage: React.FC = () => {
 	return (
 		<TestimonialPageTemplate
-			date="2023-02-09"
 			businessName={businessName}
 			style={{ overflowX: "hidden" }}
 		>

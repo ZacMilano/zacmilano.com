@@ -46,8 +46,10 @@ const TestimonialBlurb = styled.div`
 
 const TodaysTestimonialPage: React.FC = () => {
 	return (
-		<TestimonialPageTemplate date="2023-02-08" businessName="FaaSt Foods">
+		<TestimonialPageTemplate businessName={"FaaSt Foods"}>
 			<TwoColumnTestimonial>
+				<Testimonial />
+
 				<TestimonialBlurb>
 					<p>
 						This is my first testimonial component that I'm making in an effort
@@ -77,8 +79,6 @@ const TodaysTestimonialPage: React.FC = () => {
 
 					<p>See you tomorrow!</p>
 				</TestimonialBlurb>
-
-				<Testimonial />
 			</TwoColumnTestimonial>
 		</TestimonialPageTemplate>
 	);

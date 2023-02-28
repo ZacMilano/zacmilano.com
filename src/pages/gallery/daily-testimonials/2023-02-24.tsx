@@ -107,8 +107,6 @@ const today = {
 	},
 } as const;
 
-// TODO: Define consistent structure to automatically include each day in the
-// index page for this meta-project, and to not repeat myself
 const TodaysTestimonialPage: React.FC = () => {
 	return (
 		<TestimonialPageTemplate businessName={today.blurb.business.name}>

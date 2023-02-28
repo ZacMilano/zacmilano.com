@@ -154,7 +154,7 @@ const TestimonialStack: React.FC = () => {
 		_setFrontIndex(
 			(previousFrontIndex) => (previousFrontIndex + 1) % reviewCount
 		);
-	}, []);
+	}, [reviewCount]);
 
 	return (
 		<ReviewSwitcher>
@@ -183,14 +183,12 @@ const TestimonialStack: React.FC = () => {
 	);
 };
 
-// TODO: Define consistent structure to automatically include each day in the
-// index page for this meta-project, and to not repeat myself
 const businessName = "Lorem's Ipsum";
 const date = "2023-02-18";
 
 const TodaysTestimonialPage: React.FC = () => {
 	return (
-		<TestimonialPageTemplate date={date} businessName={businessName}>
+		<TestimonialPageTemplate businessName={businessName}>
 			<BlurbColumn>
 				<p>
 					Today's business is Lorem's Ipsum again, specializing in non-english
