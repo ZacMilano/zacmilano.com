@@ -5,9 +5,9 @@ import {
 	InternalLink,
 	MainWithCenteredContent,
 	NavigationHeader,
-	TestimonialRegistry,
 } from "../../components";
 import { VisuallyHidden } from "../../styles";
+import { useTestimonialRegistry } from "../../components/testimonial-registry";
 
 const TestimonialList = styled.ul`
 	padding-left: 0;
@@ -15,6 +15,8 @@ const TestimonialList = styled.ul`
 `;
 
 const TestimonialsHome: React.FC = () => {
+	const registry = useTestimonialRegistry();
+
 	return (
 		<>
 			<NavigationHeader />
@@ -26,15 +28,13 @@ const TestimonialsHome: React.FC = () => {
 					</h2>
 
 					<TestimonialList>
-						{TestimonialRegistry.sortedRegistry.map(
-							({ date, registration }, index) => (
-								<li key={index}>
-									<InternalLink to={`./daily-testimonials/${date}`}>
-										{`${date}: ${registration.businessName}`}
-									</InternalLink>
-								</li>
-							)
-						)}
+						{registry.map(({ date, registration }, index) => (
+							<li key={index}>
+								<InternalLink to={`./daily-testimonials/${date}`}>
+									{`${date}: ${registration.businessName}`}
+								</InternalLink>
+							</li>
+						))}
 					</TestimonialList>
 				</nav>
 			</MainWithCenteredContent>

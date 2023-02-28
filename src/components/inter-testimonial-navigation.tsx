@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-import { TestimonialRegistry } from "./testimonial-registry";
+import { useTestimonialRegistry } from "./testimonial-registry";
 
 const InterTestimonialNavigationContainer = styled.nav`
 	display: flex;
@@ -82,11 +82,12 @@ export interface InterTestimonialNavigationProps {
 export const InterTestimonialNavigation: React.FC<
 	InterTestimonialNavigationProps
 > = ({ ...props }) => {
-	const previousDate =
-		TestimonialRegistry.getPreviousTestimonial(props.currentDate)?.date ?? "";
+	const registry = useTestimonialRegistry();
 
-	const nextDate =
-		TestimonialRegistry.getNextTestimonial(props.currentDate)?.date ?? "";
+	const previousDate =
+		registry.getPreviousTestimonial(props.currentDate)?.date ?? "";
+
+	const nextDate = registry.getNextTestimonial(props.currentDate)?.date ?? "";
 
 	return (
 		<InterTestimonialNavigationContainer>
