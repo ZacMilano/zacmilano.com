@@ -5,6 +5,7 @@ import {
 	CommonBlurbColumn,
 	TwoColumnTestimonial,
 	TestimonialPageTemplate,
+	TestimonialHead,
 } from "../../../components";
 import allie from "../../../images/allie-sniffing.jpeg";
 import { CommonTestimonialProps } from "../../../types/testimonials";
@@ -123,12 +124,9 @@ export default TodaysTestimonialPage;
 
 export const Head: React.FC = () => {
 	return (
-		<>
-			<title>{today.blurb.business.name} | Testimonials</title>
-			<script
-				src="https://kit.fontawesome.com/6ab573e32e.js"
-				crossOrigin="anonymous"
-			/>
-		</>
+		<TestimonialHead
+			businessName={today.blurb.business.name}
+			includeFontAwesomeScript
+		/>
 	);
 };

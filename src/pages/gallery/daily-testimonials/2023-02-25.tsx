@@ -5,6 +5,7 @@ import {
 	CommonBlurbColumn,
 	TwoColumnTestimonial,
 	TestimonialPageTemplate,
+	TestimonialHead,
 } from "../../../components";
 import allie from "../../../images/allie-sniffing.jpeg";
 import { CommonTestimonialProps } from "../../../types/testimonials";
@@ -158,7 +159,8 @@ const Testimonial: React.FC<CommonTestimonialProps> = ({ ...props }) => {
 			<ReviewBody className="review-body-section">
 				<h2 className="review-body-heading">
 					<i className="pre-hover">Here's what our customers think!</i>
-					<i className="post-hover">Posted on {props.review.date}</i>
+					{/* TODO: get this date dynamically */}
+					<i className="post-hover">Posted on 2023-02-25</i>
 				</h2>
 
 				<p>{props.review.body}</p>
@@ -222,12 +224,9 @@ export default TodaysTestimonialPage;
 
 export const Head: React.FC = () => {
 	return (
-		<>
-			<title>{today.blurb.business.name} | Testimonials</title>
-			<script
-				src="https://kit.fontawesome.com/6ab573e32e.js"
-				crossOrigin="anonymous"
-			/>
-		</>
+		<TestimonialHead
+			businessName={today.blurb.business.name}
+			includeFontAwesomeScript
+		/>
 	);
 };

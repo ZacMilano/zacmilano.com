@@ -4,6 +4,7 @@ import styled from "styled-components";
 import {
 	TwoColumnTestimonial,
 	TestimonialPageTemplate,
+	TestimonialHead,
 } from "../../../components";
 import luSeal from "../../../images/lu-seal.jpg";
 import { CommonTestimonialProps } from "../../../types/testimonials";
@@ -145,12 +146,9 @@ export default TodaysTestimonialPage;
 
 export const Head: React.FC = () => {
 	return (
-		<>
-			<title>{today.blurb.business.name} | Testimonials</title>
-			<script
-				src="https://kit.fontawesome.com/6ab573e32e.js"
-				crossOrigin="anonymous"
-			/>
-		</>
+		<TestimonialHead
+			businessName={today.blurb.business.name}
+			includeFontAwesomeScript
+		/>
 	);
 };

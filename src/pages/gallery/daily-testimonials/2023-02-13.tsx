@@ -4,6 +4,7 @@ import styled from "styled-components";
 import {
 	TwoColumnTestimonial,
 	TestimonialPageTemplate,
+	TestimonialHead,
 } from "../../../components";
 
 const BlurbColumn = styled.div``;
@@ -105,12 +106,6 @@ export default TodaysTestimonialPage;
 
 export const Head: React.FC = () => {
 	return (
-		<>
-			<title>{businessName} | Testimonials</title>
-			<script
-				src="https://kit.fontawesome.com/6ab573e32e.js"
-				crossOrigin="anonymous"
-			/>
-		</>
+		<TestimonialHead businessName={businessName} includeFontAwesomeScript />
 	);
 };

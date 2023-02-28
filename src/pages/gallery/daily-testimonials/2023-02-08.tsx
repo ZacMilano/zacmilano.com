@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Link } from "gatsby";
 
 import {
+	TestimonialHead,
 	TestimonialPageTemplate,
 	TwoColumnTestimonial,
 } from "../../../components";
@@ -87,5 +88,5 @@ const TodaysTestimonialPage: React.FC = () => {
 export default TodaysTestimonialPage;
 
 export const Head: React.FC = () => {
-	return <title>FaaSt Foods | Testimonials</title>;
+	return <TestimonialHead businessName={"FaaSt Foods"} />;
 };
