@@ -62,7 +62,6 @@ const BackLinkSection = styled.section`
 
 		:is(&:hover, &:focus-visible)::after {
 			opacity: 1;
-			outline: unset;
 		}
 	}
 `;

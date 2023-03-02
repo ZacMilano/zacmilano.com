@@ -50,11 +50,6 @@ const TestimonialList = styled.ul`
 		border-radius: 2em;
 		overflow: hidden;
 
-		outline: 4px solid transparent;
-
-		transition: outline 250ms ease-out;
-
-		&:hover,
 		&:focus-within,
 		&:focus-visible {
 			outline: 4px solid orange;

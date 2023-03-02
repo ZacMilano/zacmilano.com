@@ -20,14 +20,12 @@ const Avatar = styled.img`
 `;
 
 const Review = styled.div`
-	max-width: 30em;
 	padding: 4em;
 
 	background-color: var(--bg-color);
 	line-height: 2;
 	border-radius: var(--border-radius) var(--border-radius) 0
 		var(--border-radius);
-	outline: 0.25em solid ${blackRockBlue};
 	box-shadow: 0 1em 2em hsl(0 0% 0% / 30%);
 `;
 
@@ -52,7 +50,6 @@ const Reviewer = styled.div`
 	border-radius: var(--border-radius) 0 var(--border-radius)
 		var(--border-radius);
 	background-color: var(--bg-color);
-	outline: 0.25em solid ${blackRockBlue};
 	box-shadow: 0 1em 2em hsl(0 0% 0% / 30%);
 
 	@media (max-width: 45rem) {
@@ -72,7 +69,8 @@ const GridLayout = styled.article`
 	--bg-color: ${blackRockBlue};
 
 	display: grid;
-	gap: 1.5em;
+	gap: 1em;
+	max-width: 30em;
 
 	color: white;
 `;

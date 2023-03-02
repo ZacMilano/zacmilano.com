@@ -39,7 +39,7 @@ const Card = styled.article`
 	}
 
 	&::before {
-		outline: 2px solid var(--color-accent);
+		border: 2px solid var(--color-accent);
 	}
 
 	&:hover {

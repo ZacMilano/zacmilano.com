@@ -29,7 +29,8 @@ const Avatar = styled.img`
 	margin-bottom: var(--vertical-displacement);
 
 	border-radius: 9999px;
-	outline: 0.5em solid var(--background-color);
+	/* Outline */
+	box-shadow: 0 0 0 0.5em var(--background-color);
 `;
 
 const Card = styled.article`

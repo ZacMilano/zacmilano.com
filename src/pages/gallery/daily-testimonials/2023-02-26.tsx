@@ -21,7 +21,7 @@ const Card = styled.article`
 
 	max-width: 35em;
 
-	outline: 2px solid var(--color-accent);
+	border: 2px solid var(--color-accent);
 
 	@media (max-width: 45rem) {
 		flex-direction: column;

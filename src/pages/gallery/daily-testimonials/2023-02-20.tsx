@@ -56,7 +56,8 @@ const ReviewerAvatar = styled.img`
 	height: var(--banner-height);
 	aspect-ratio: 1;
 
-	outline: 0.5em solid white;
+	/* Outline */
+	box-shadow: 0 0 0 0.5em white;
 	border-radius: 9999px;
 `;
 

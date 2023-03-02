@@ -109,12 +109,12 @@ const Card = styled.article`
 
 	line-height: 2;
 
-	outline: 2px solid var(--color-accent);
+	border: 2px solid var(--color-accent);
 
-	transition: outline var(--duration) var(--timing);
+	transition: border var(--duration) var(--timing);
 
 	&:hover {
-		outline: 2px solid transparent;
+		border: 2px solid transparent;
 
 		& .review-body-section {
 			transform: scale(1.05);
