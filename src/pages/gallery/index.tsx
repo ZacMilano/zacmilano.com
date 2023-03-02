@@ -38,7 +38,7 @@ const TestimonialList = styled.ul`
 	display: flex;
 	justify-content: space-around;
 	flex-flow: row wrap;
-	gap: clamp(0em, 3vw, 4em);
+	gap: 1.5em;
 
 	margin-inline: auto;
 	padding-left: 0;
@@ -46,6 +46,7 @@ const TestimonialList = styled.ul`
 	list-style-type: none;
 
 	& > li {
+		flex-grow: 1;
 		width: 15ch;
 		border-radius: 2em;
 		overflow: hidden;
