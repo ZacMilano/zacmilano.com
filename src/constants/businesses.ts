@@ -5,6 +5,12 @@ const muddAndRox: Business = {
 	specialty: "cat food, both wet and dry",
 };
 
+const loremsIpsum: Business = {
+	name: "Lorem's Ipsum",
+	specialty: "non-English copy text",
+};
+
 export const businesses = {
+	loremsIpsum,
 	muddAndRox,
 };
