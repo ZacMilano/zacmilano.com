@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const TwoColumnLayout = styled.section`
 	display: grid;
-	grid-template-columns: auto 1fr;
+	grid-template-columns: 2fr 3fr;
 	grid-auto-rows: min-content;
 	gap: 6em;
 
