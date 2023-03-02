@@ -1,13 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-import {
-	InternalLink,
-	MainWithCenteredContent,
-	NavigationHeader,
-} from "../../components";
+import { NavigationHeader } from "../../components";
 import { VisuallyHidden } from "../../styles";
 import { useTestimonialRegistry } from "../../components/testimonial-registry";
+import { Link } from "gatsby";
 
 const TestimonialList = styled.ul`
 	padding-left: 0;
@@ -21,7 +18,7 @@ const TestimonialsHome: React.FC = () => {
 		<>
 			<NavigationHeader />
 
-			<MainWithCenteredContent>
+			<main>
 				<nav aria-labelledby="gallery-nav-label">
 					<h2 id="gallery-nav-label">
 						<VisuallyHidden>Gallery Navigation Menu</VisuallyHidden>
@@ -30,14 +27,12 @@ const TestimonialsHome: React.FC = () => {
 					<TestimonialList>
 						{registry.map((date, index) => (
 							<li key={index}>
-								<InternalLink to={`./daily-testimonials/${date}`}>
-									{date}
-								</InternalLink>
+								<Link to={`./daily-testimonials/${date}`}>{date}</Link>
 							</li>
 						))}
 					</TestimonialList>
 				</nav>
-			</MainWithCenteredContent>
+			</main>
 		</>
 	);
 };

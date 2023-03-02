@@ -1,24 +1,18 @@
 import * as React from "react";
-import { HeadFC, PageProps } from "gatsby";
+import { HeadFC, Link, PageProps } from "gatsby";
 
-import {
-	InternalLink,
-	MainWithCenteredContent,
-	NavigationHeader,
-} from "../components";
+import { NavigationHeader } from "../components";
 
 const IndexPage: React.FC<PageProps> = () => {
 	return (
 		<>
 			<NavigationHeader />
 
-			<MainWithCenteredContent>
-				<InternalLink to="/blog">Blog</InternalLink>
+			<main>
+				<Link to="/blog">Blog</Link>
 
-				<InternalLink to="/gallery">
-					Making the same thing every day
-				</InternalLink>
-			</MainWithCenteredContent>
+				<Link to="/gallery">Making the same thing every day</Link>
+			</main>
 		</>
 	);
 };

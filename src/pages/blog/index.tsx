@@ -1,21 +1,18 @@
 import React from "react";
 
-import {
-	InternalLink,
-	MainWithCenteredContent,
-	NavigationHeader,
-} from "../../components";
+import { NavigationHeader } from "../../components";
+import { Link } from "gatsby";
 
 const BlogHome: React.FC = () => {
 	return (
 		<>
 			<NavigationHeader />
 
-			<MainWithCenteredContent>
-				<InternalLink to="./make-the-same-thing-every-day">
+			<main>
+				<Link to="./make-the-same-thing-every-day">
 					Make the Same Thing Every Day
-				</InternalLink>
-			</MainWithCenteredContent>
+				</Link>
+			</main>
 		</>
 	);
 };
