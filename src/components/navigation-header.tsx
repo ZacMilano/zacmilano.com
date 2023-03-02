@@ -2,14 +2,17 @@ import { Link } from "gatsby";
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import { VisuallyHidden } from "../styles";
+import { VisuallyHidden, blackRockBlue } from "../styles";
 import zmLogo from "../images/zm-logo.png";
 
 const SiteHeader = styled.header`
 	--mobile-padding: 3em;
 	--logo-height: 4em;
-	--transition-duration: 350ms;
-	--transition-timing: ease-out;
+	--transition-duration: 750ms;
+	/* https://cubic-bezier.com/ */
+	--transition-timing: cubic-bezier(0.77, -0.65, 0, 1.74);
+
+	--color-accent: ${blackRockBlue};
 
 	position: relative;
 
@@ -71,20 +74,42 @@ const NavItem = styled.li`
 	font-size: 1.5rem;
 
 	& a {
+		position: relative;
+
 		text-decoration: none;
 		color: gray;
 
 		transition: color 250ms ease-in-out;
 
+		&.active-link {
+			color: var(--color-accent);
+		}
+
 		&:hover,
 		&:focus-within {
-			color: black;
-		}
-	}
+			color: var(--color-accent);
 
-	& a.active-link {
-		text-decoration: revert;
-		color: black;
+			/* Reveal */
+			&::before {
+				transform: translateY(0) scaleY(1);
+			}
+		}
+
+		/* Animated thick underline on hover */
+		&::before {
+			content: "";
+			position: absolute;
+			z-index: -1;
+
+			width: 100%;
+			height: 0.25em;
+			bottom: -0.5em;
+
+			background-color: var(--color-accent);
+
+			transform: translateY(-50%) scaleY(0);
+			transition: transform 250ms ease-out;
+		}
 	}
 `;
 
@@ -117,7 +142,7 @@ const MobileNavToggle = styled.button`
 		width: 100%;
 		height: 14%;
 
-		background-color: black;
+		background-color: var(--color-accent);
 
 		/* Upper & lower bars */
 		&::before,
