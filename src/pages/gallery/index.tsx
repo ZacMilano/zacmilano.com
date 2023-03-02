@@ -2,13 +2,79 @@ import React from "react";
 import styled from "styled-components";
 
 import { NavigationHeader } from "../../components";
-import { VisuallyHidden } from "../../styles";
+import { VisuallyHidden, blackRockBlue, pagePaddingInline } from "../../styles";
 import { useTestimonialRegistry } from "../../components/testimonial-registry";
 import { Link } from "gatsby";
 
+const Main = styled.main`
+	display: grid;
+	margin-block-start: 4em;
+	padding-inline: ${pagePaddingInline};
+
+	padding-bottom: 10em;
+
+	& > * + * {
+		margin-block-start: 2em;
+	}
+
+	& > header {
+		margin-block-end: 2em;
+	}
+`;
+
+const Subheader = styled.p`
+	font-size: 1.25rem;
+`;
+
+const SectionHeader = styled.header`
+	margin-block-end: 2em;
+
+	& > h3 {
+		font-size: 1.25rem;
+	}
+`;
+
 const TestimonialList = styled.ul`
+	display: flex;
+	justify-content: space-around;
+	flex-flow: row wrap;
+	gap: clamp(0em, 3vw, 4em);
+
+	margin-inline: auto;
 	padding-left: 0;
+
 	list-style-type: none;
+
+	& > li {
+		width: 15ch;
+		border-radius: 2em;
+		overflow: hidden;
+
+		outline: 4px solid transparent;
+
+		transition: outline 250ms ease-out;
+
+		&:hover,
+		&:focus-within,
+		&:focus-visible {
+			outline: 4px solid orange;
+		}
+
+		& > a {
+			display: inline-block;
+
+			width: 100%;
+			padding-block: 1em;
+			padding-inline: auto;
+
+			color: white;
+			background-color: ${blackRockBlue};
+
+			text-align: center;
+			text-decoration: none;
+			font-weight: bold;
+		}
+	}
 `;
 
 const TestimonialsHome: React.FC = () => {
@@ -18,21 +84,36 @@ const TestimonialsHome: React.FC = () => {
 		<>
 			<NavigationHeader />
 
-			<main>
+			<Main>
+				<header>
+					<h1>A gallery of my work</h1>
+					<Subheader>Or at least, the pretty stuff I've made lately.</Subheader>
+				</header>
+
 				<nav aria-labelledby="gallery-nav-label">
 					<h2 id="gallery-nav-label">
 						<VisuallyHidden>Gallery Navigation Menu</VisuallyHidden>
 					</h2>
 
-					<TestimonialList>
-						{registry.map((date, index) => (
-							<li key={index}>
-								<Link to={`./daily-testimonials/${date}`}>{date}</Link>
-							</li>
-						))}
-					</TestimonialList>
+					<section>
+						<SectionHeader>
+							<h3>Testimonials</h3>
+							<p>
+								Read about this project{" "}
+								<Link to="/blog/make-the-same-thing-every-day">here</Link>.
+							</p>
+						</SectionHeader>
+
+						<TestimonialList>
+							{registry.map((date, index) => (
+								<li key={index}>
+									<Link to={`./daily-testimonials/${date}`}>{date}</Link>
+								</li>
+							))}
+						</TestimonialList>
+					</section>
 				</nav>
-			</main>
+			</Main>
 		</>
 	);
 };
@@ -40,5 +121,5 @@ const TestimonialsHome: React.FC = () => {
 export default TestimonialsHome;
 
 export const Head: React.FC = () => {
-	return <title>Testimonials</title>;
+	return <title>Gallery | Zac Milano</title>;
 };

@@ -2,11 +2,12 @@ import React, { PropsWithChildren } from "react";
 import styled from "styled-components";
 
 import { NavigationHeader } from "..";
+import { pagePaddingInline } from "../../styles";
 
 const FullHeightMain = styled.main`
 	min-height: 100%;
 	padding-block: 4em;
-	padding-inline: 10em;
+	padding-inline: ${pagePaddingInline};
 `;
 
 const Header = styled.h1``;

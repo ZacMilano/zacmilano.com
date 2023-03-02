@@ -3,11 +3,11 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 
 import { useTestimonialRegistryContext } from ".";
+import { blackRockBlue } from "../styles";
 
 const InterTestimonialNavigationContainer = styled.nav`
 	display: flex;
 	justify-content: space-between;
-	/* padding-inline: clamp(1em, 10vw, 10em); */
 	padding-block: 1em;
 
 	margin-block-end: 10em;
@@ -23,7 +23,7 @@ const InterTestimonialNavigationLink = styled((props) => <Link {...props} />)`
 	padding: 1em clamp(1em, 5vw, 3em);
 
 	color: white;
-	background-color: gray;
+	background-color: ${blackRockBlue};
 	text-decoration: none;
 	font-weight: bold;
 
