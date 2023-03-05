@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import { VisuallyHidden, blackRockBlue } from "$styles";
-import zmLogo from "$images/zm-logo.png";
+import { zmLogo } from "$images";
 
 const SiteHeader = styled.header`
 	--mobile-padding: 3em;

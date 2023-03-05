@@ -6,7 +6,7 @@ import {
 	TestimonialPageTemplate,
 	TestimonialHead,
 } from "$components";
-import luSeal from "$images/lu-seal.jpg";
+import { lucy } from "$images";
 import { CommonTestimonialProps } from "$types/testimonials";
 import { RatingStars } from "$components";
 import { blackRockBlue, blackRockBlueWithAlpha } from "$styles";
@@ -111,7 +111,7 @@ const today = {
 		reviewer: {
 			name: "Lucille Milano",
 			title: "Fearful Cat",
-			avatar: luSeal,
+			avatar: lucy,
 		},
 		review: {
 			body: "Holy guacamole. I think my cousin put these guys on me (I read her review). I'm not sure why though, we share all our foods and litter box and beds and toys and stuff. I can't stress enough how scared I am all the time because of them. I'm toast.",

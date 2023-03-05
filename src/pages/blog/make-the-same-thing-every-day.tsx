@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 import { BlogPageTemplate } from "$components";
-import struthlessIbisDrawing from "$images/struthless-ibis-drawing.webp";
+import { struthlessIbisDrawing } from "$images";
 import { Link } from "gatsby";
 
 const Subheader = styled.h2`

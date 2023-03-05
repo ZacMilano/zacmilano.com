@@ -8,7 +8,7 @@ import {
 	TestimonialHead,
 	CommonBlurbColumn,
 } from "$components";
-import allie from "$images/allie-sniffing.jpeg";
+import { allie } from "$images";
 import { CommonTestimonialProps } from "$types/testimonials";
 import { blackRockBlue } from "$styles";
 import { testimonialBusinesses } from "$constants";

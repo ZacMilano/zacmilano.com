@@ -7,7 +7,7 @@ import {
 	TestimonialPageTemplate,
 	TestimonialHead,
 } from "$components";
-import allie from "$images/allie-sniffing.jpeg";
+import { allie } from "$images";
 import { CommonTestimonialProps } from "$types/testimonials";
 
 const Card = styled.article`

@@ -7,7 +7,7 @@ import {
 	RatingStars,
 	TestimonialHead,
 } from "$components";
-import luSeal from "$images/lu-seal.jpg";
+import { lucy } from "$images";
 import { CommonTestimonialProps } from "$types/testimonials";
 import { blackRockBlueWithAlpha } from "$styles";
 
@@ -135,7 +135,7 @@ const today = {
 		reviewer: {
 			name: "Bungus McGee",
 			title: "Former Street Cat",
-			avatar: luSeal,
+			avatar: lucy,
 		},
 		review: {
 			body: "Mudd & Rox is my favorite things. I eat them every day, at least twice per day. My pa chases me around for a couple minutes beforehand, I don't really get it. And then my cousin Allie punches me in the head a couple times. Is that enough for your review, MuddMann?",

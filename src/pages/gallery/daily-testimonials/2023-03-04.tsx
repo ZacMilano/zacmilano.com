@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import allie from "$images/allie-sniffing.jpeg";
+import { allie } from "$images";
 import {
 	TwoColumnTestimonial,
 	TestimonialPageTemplate,

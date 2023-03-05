@@ -2,7 +2,7 @@ import React, { useCallback, useState } from "react";
 import styled from "styled-components";
 
 import { TestimonialHead, TestimonialPageTemplate } from "$components";
-import allie from "$images/allie-sniffing.jpeg";
+import { allie } from "$images";
 
 const BlurbColumn = styled.div`
 	display: grid;

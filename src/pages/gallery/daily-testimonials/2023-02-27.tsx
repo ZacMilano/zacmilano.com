@@ -8,7 +8,7 @@ import {
 	RatingStars,
 	TestimonialHead,
 } from "$components";
-import luSeal from "$images/lu-seal.jpg";
+import { lucy } from "$images";
 import { CommonTestimonialProps } from "$types/testimonials";
 import { blackRockBlue } from "$styles";
 
@@ -110,7 +110,7 @@ const today = {
 		reviewer: {
 			name: "Lucy Deuci",
 			title: "Local Angel",
-			avatar: luSeal,
+			avatar: lucy,
 		},
 		review: {
 			body: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt voluptate repudiandae doloremque quibusdam facilis voluptatibus unde? Doloremque, vero. Voluptatem adipisci aliquam accusamus laborum omnis enim sunt laudantium voluptates, illum eaque ipsa laboriosam nesciunt ratione obcaecati, fugit optio? Commodi, in? Dolor consequatur adipisci consectetur ad veniam ipsum quod veritatis velit ex!",

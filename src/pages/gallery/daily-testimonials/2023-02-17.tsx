@@ -6,7 +6,7 @@ import {
 	TestimonialPageTemplate,
 	TestimonialHead,
 } from "$components";
-import allie from "$images/allie-sniffing.jpeg";
+import { allie } from "$images";
 
 const BlurbColumn = styled.div``;
 
