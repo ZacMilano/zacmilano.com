@@ -37,15 +37,14 @@ const BackLinkSection = styled.section`
 		position: relative;
 
 		display: inline-block;
-		padding: 1em 3em 1em 2em;
+		padding: 1em;
 
-		color: white;
-		background-color: ${blackRockBlue};
+		background-color: white;
+		color: ${blackRockBlue};
+		border: 2px solid ${blackRockBlue};
 
 		font-weight: bold;
 		text-decoration: none;
-
-		border-radius: 9999px 0 0 9999px;
 
 		&::after {
 			content: "";

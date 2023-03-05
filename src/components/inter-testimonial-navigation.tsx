@@ -27,7 +27,7 @@ const InterTestimonialNavigationLink = styled((props) => <Link {...props} />)`
 	text-decoration: none;
 	font-weight: bold;
 
-	border-radius: 2em;
+	/* border-radius: 2em; */
 
 	transition: transform 250ms ease-out;
 

@@ -47,9 +47,9 @@ const TestimonialList = styled.ul`
 
 	& > li {
 		flex-grow: 1;
-		width: 15ch;
-		border-radius: 2em;
+		min-width: 30ch;
 		overflow: hidden;
+		text-wrap: nowrap;
 
 		&:focus-within,
 		&:focus-visible {
@@ -63,8 +63,9 @@ const TestimonialList = styled.ul`
 			padding-block: 1em;
 			padding-inline: auto;
 
-			color: white;
-			background-color: ${blackRockBlue};
+			background-color: white;
+			color: ${blackRockBlue};
+			border: 2px solid ${blackRockBlue};
 
 			text-align: center;
 			text-decoration: none;
@@ -103,7 +104,9 @@ const TestimonialsHome: React.FC = () => {
 						<TestimonialList>
 							{registry.map((date, index) => (
 								<li key={index}>
-									<Link to={`./daily-testimonials/${date}`}>{date}</Link>
+									<Link to={`./daily-testimonials/${date}`}>
+										See testimonial for {date}
+									</Link>
 								</li>
 							))}
 						</TestimonialList>
