@@ -7,10 +7,10 @@ import {
 	CommonBlurbColumn,
 	RatingStars,
 	TestimonialHead,
-} from "../../../components";
-import luSeal from "../../../images/lu-seal.jpg";
-import { CommonTestimonialProps } from "../../../types/testimonials";
-import { blackRockBlue } from "../../../styles";
+} from "$components";
+import luSeal from "$images/lu-seal.jpg";
+import { CommonTestimonialProps } from "$types/testimonials";
+import { blackRockBlue } from "$styles";
 
 const Avatar = styled.img`
 	width: 4em;

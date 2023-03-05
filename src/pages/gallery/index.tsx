@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
 
-import { NavigationHeader, useTestimonialRegistry } from "../../components";
-import { VisuallyHidden, blackRockBlue, pagePaddingInline } from "../../styles";
+import { NavigationHeader, useTestimonialRegistry } from "$components";
+import { VisuallyHidden, blackRockBlue, pagePaddingInline } from "$styles";
 
 const Main = styled.main`
 	display: grid;

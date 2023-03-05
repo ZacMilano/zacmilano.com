@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 
 import { useTestimonialRegistryContext } from ".";
-import { blackRockBlue } from "../../styles";
+import { blackRockBlue } from "$styles";
 
 const InterTestimonialNavigationContainer = styled.nav`
 	display: flex;

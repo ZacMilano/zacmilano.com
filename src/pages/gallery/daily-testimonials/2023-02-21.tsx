@@ -6,10 +6,10 @@ import {
 	TwoColumnTestimonial,
 	TestimonialPageTemplate,
 	TestimonialHead,
-} from "../../../components";
-import allie from "../../../images/allie-sniffing.jpeg";
-import { CommonTestimonialProps } from "../../../types/testimonials";
-import { blackRockBlue } from "../../../styles";
+} from "$components";
+import allie from "$images/allie-sniffing.jpeg";
+import { CommonTestimonialProps } from "$types/testimonials";
+import { blackRockBlue } from "$styles";
 
 const Card = styled.article`
 	--padding: 3em;

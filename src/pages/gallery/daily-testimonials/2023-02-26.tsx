@@ -5,11 +5,11 @@ import {
 	TwoColumnTestimonial,
 	TestimonialPageTemplate,
 	TestimonialHead,
-} from "../../../components";
-import luSeal from "../../../images/lu-seal.jpg";
-import { CommonTestimonialProps } from "../../../types/testimonials";
-import { RatingStars } from "../../../components";
-import { blackRockBlue, blackRockBlueWithAlpha } from "../../../styles";
+} from "$components";
+import luSeal from "$images/lu-seal.jpg";
+import { CommonTestimonialProps } from "$types/testimonials";
+import { RatingStars } from "$components";
+import { blackRockBlue, blackRockBlueWithAlpha } from "$styles";
 
 const Card = styled.article`
 	--padding: 3em;

@@ -5,8 +5,8 @@ import {
 	TwoColumnTestimonial,
 	TestimonialPageTemplate,
 	TestimonialHead,
-} from "../../../components";
-import allie from "../../../images/allie-sniffing.jpeg";
+} from "$components";
+import allie from "$images/allie-sniffing.jpeg";
 
 const BlurbColumn = styled.div``;
 

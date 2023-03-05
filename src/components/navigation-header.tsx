@@ -2,8 +2,8 @@ import { Link } from "gatsby";
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import { VisuallyHidden, blackRockBlue } from "../styles";
-import zmLogo from "../images/zm-logo.png";
+import { VisuallyHidden, blackRockBlue } from "$styles";
+import zmLogo from "$images/zm-logo.png";
 
 const SiteHeader = styled.header`
 	--mobile-padding: 3em;

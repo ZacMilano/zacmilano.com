@@ -19,6 +19,20 @@ const config: GatsbyConfig = {
 		"gatsby-plugin-styled-components",
 		"gatsby-transformer-sharp",
 		{
+			resolve: "gatsby-plugin-alias-imports",
+			options: {
+				alias: {
+					$components: "src/components",
+					$constants: "src/constants",
+					$pages: "src/pages",
+					$images: "src/images",
+					$styles: "src/styles",
+					$types: "src/types",
+				},
+				extensions: ["ts", "tsx", "js", "jsx"],
+			},
+		},
+		{
 			resolve: `gatsby-plugin-s3`,
 			options: {
 				bucketName: "zacmilano.com",

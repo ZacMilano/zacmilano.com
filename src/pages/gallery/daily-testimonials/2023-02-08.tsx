@@ -6,7 +6,7 @@ import {
 	TestimonialHead,
 	TestimonialPageTemplate,
 	TwoColumnTestimonial,
-} from "../../../components";
+} from "$components";
 
 const CenteredCardWithShadow = styled.article`
 	margin-inline: auto;

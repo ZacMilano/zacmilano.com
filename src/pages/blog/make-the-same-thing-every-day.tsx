@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import { BlogPageTemplate } from "../../components";
-import struthlessIbisDrawing from "../../images/struthless-ibis-drawing.webp";
+import { BlogPageTemplate } from "$components";
+import struthlessIbisDrawing from "$images/struthless-ibis-drawing.webp";
 import { Link } from "gatsby";
 
 const Subheader = styled.h2`

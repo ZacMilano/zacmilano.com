@@ -1,4 +1,4 @@
-import { Business } from "../types/testimonials";
+import { Business } from "$types/testimonials";
 
 const muddAndRox: Business = {
 	name: "Mudd & Rox",

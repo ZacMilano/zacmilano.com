@@ -5,7 +5,7 @@ import {
 	blackRockBlue,
 	blackRockBlueWithAlpha,
 	pagePaddingInline,
-} from "../../styles";
+} from "$styles";
 import { Link } from "gatsby";
 
 const FullHeightMain = styled.main`

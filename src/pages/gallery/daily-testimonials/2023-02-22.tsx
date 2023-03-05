@@ -6,9 +6,9 @@ import {
 	TwoColumnTestimonial,
 	TestimonialPageTemplate,
 	TestimonialHead,
-} from "../../../components";
-import allie from "../../../images/allie-sniffing.jpeg";
-import { CommonTestimonialProps } from "../../../types/testimonials";
+} from "$components";
+import allie from "$images/allie-sniffing.jpeg";
+import { CommonTestimonialProps } from "$types/testimonials";
 
 const Card = styled.article`
 	display: grid;

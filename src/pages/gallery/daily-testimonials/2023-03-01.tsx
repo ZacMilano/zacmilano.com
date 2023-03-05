@@ -7,11 +7,11 @@ import {
 	RatingStars,
 	TestimonialHead,
 	CommonBlurbColumn,
-} from "../../../components";
-import allie from "../../../images/allie-sniffing.jpeg";
-import { CommonTestimonialProps } from "../../../types/testimonials";
-import { blackRockBlue } from "../../../styles";
-import { testimonialBusinesses } from "../../../constants";
+} from "$components";
+import allie from "$images/allie-sniffing.jpeg";
+import { CommonTestimonialProps } from "$types/testimonials";
+import { blackRockBlue } from "$styles";
+import { testimonialBusinesses } from "$constants";
 
 const Avatar = styled.img`
 	width: 4em;

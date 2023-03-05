@@ -1,17 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-import allie from "../../../images/allie-sniffing.jpeg";
+import allie from "$images/allie-sniffing.jpeg";
 import {
 	TwoColumnTestimonial,
 	TestimonialPageTemplate,
 	TestimonialHead,
 	CommonBlurbColumn,
 	RatingStars,
-} from "../../../components";
-import { CommonTestimonialProps } from "../../../types/testimonials";
-import { blackRockBlue } from "../../../styles";
-import { testimonialBusinesses } from "../../../constants";
+} from "$components";
+import { CommonTestimonialProps } from "$types/testimonials";
+import { blackRockBlue } from "$styles";
+import { testimonialBusinesses } from "$constants";
 
 const Avatar = styled.img`
 	width: 6em;

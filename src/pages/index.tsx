@@ -2,8 +2,8 @@ import { HeadFC, Link, PageProps } from "gatsby";
 import * as React from "react";
 import styled from "styled-components";
 
-import { NavigationHeader } from "../components";
-import { pagePaddingInline } from "../styles";
+import { NavigationHeader } from "$components";
+import { pagePaddingInline } from "$styles";
 
 const Main = styled.main`
 	display: grid;

@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 
-import lucy from "../../../images/lu-seal.jpg";
+import lucy from "$images/lu-seal.jpg";
 import {
 	TwoColumnTestimonial,
 	TestimonialPageTemplate,
 	TestimonialHead,
 	CommonBlurbColumn,
-} from "../../../components";
-import { CommonTestimonialProps } from "../../../types/testimonials";
-import { blackRockBlueWithLightness } from "../../../styles";
-import { testimonialBusinesses } from "../../../constants";
+} from "$components";
+import { CommonTestimonialProps } from "$types/testimonials";
+import { blackRockBlueWithLightness } from "$styles";
+import { testimonialBusinesses } from "$constants";
 
 const Avatar = styled.img`
 	width: 6em;

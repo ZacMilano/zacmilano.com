@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Link, HeadFC, PageProps } from "gatsby";
-import { NavigationHeader } from "../components";
+import { NavigationHeader } from "$components";
 
 const pageStyles = {
 	color: "#232129",
