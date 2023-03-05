@@ -11,7 +11,7 @@ import {
 import allie from "../../../images/allie-sniffing.jpeg";
 import { CommonTestimonialProps } from "../../../types/testimonials";
 import { blackRockBlue } from "../../../styles";
-import { businesses } from "../../../constants";
+import { testimonialBusinesses } from "../../../constants";
 
 const Avatar = styled.img`
 	width: 4em;
@@ -105,7 +105,7 @@ const Testimonial: React.FC<CommonTestimonialProps> = ({
 
 const today = {
 	blurb: {
-		business: businesses.muddAndRox,
+		business: testimonialBusinesses.muddAndRox,
 	},
 	testimonial: {
 		reviewer: {

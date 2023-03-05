@@ -10,8 +10,8 @@ import {
 	RatingStars,
 } from "../../../components";
 import { CommonTestimonialProps } from "../../../types/testimonials";
-import { blackRockBlue, blackRockBlueWithLightness } from "../../../styles";
-import { businesses } from "../../../constants";
+import { blackRockBlue } from "../../../styles";
+import { testimonialBusinesses } from "../../../constants";
 
 const Avatar = styled.img`
 	width: 6em;
@@ -132,7 +132,7 @@ const Testimonial: React.FC<CommonTestimonialProps> = ({
 
 const today = {
 	blurb: {
-		business: businesses.loremsIpsum,
+		business: testimonialBusinesses.loremsIpsum,
 	},
 	testimonial: {
 		reviewer: {

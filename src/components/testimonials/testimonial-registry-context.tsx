@@ -48,13 +48,8 @@ export function useTestimonialRegistry() {
 	return useTestimonialRegistryContext().registry;
 }
 
-// TODO: convert the Registry to this provider style
 export function TestimonialRegistryProvider({ children }: PropsWithChildren) {
-	// const [allPages, setAllPages] = useState([]);
 	const [registry, setRegistry] = useState<Registry>([]);
-	// const [unsortedRegistry, setUnsortedRegistry] = useState<Registry>({});
-	// const [sortedDates, setSortedDates] = useState<string[]>([]);
-	// const [registrySize, setRegistrySize] = useState(0);
 	const [firstDate, setFirstDate] = useState("");
 	const [lastDate, setLastDate] = useState("");
 

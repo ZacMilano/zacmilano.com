@@ -10,7 +10,7 @@ const loremsIpsum: Business = {
 	specialty: "non-English copy text",
 };
 
-export const businesses = {
+export const testimonialBusinesses = {
 	loremsIpsum,
 	muddAndRox,
 };

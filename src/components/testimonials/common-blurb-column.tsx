@@ -1,6 +1,6 @@
 import React from "react";
 
-import { CommonBlurbColumnProps } from "../types/testimonials";
+import { CommonBlurbColumnProps } from "../../types/testimonials";
 
 export const CommonBlurbColumn: React.FC<CommonBlurbColumnProps> = ({
 	...props

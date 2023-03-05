@@ -1,5 +1,5 @@
 import React from "react";
-import { StarRating } from "../types/testimonials";
+import { StarRating } from "../../types/testimonials";
 
 export interface RatingStarsProps {
 	starRating: StarRating;
