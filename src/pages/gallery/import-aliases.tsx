@@ -26,7 +26,7 @@ import "../../../../styles/styles.css";`;
 
 	const afterAliases = `// src/pages/my/deeply/nested/page.tsx
 
-import { MyButton }	from "$components/my-button.tsx";
+import { MyButton }	from "$components/my-button";
 import { UserResponse }	from "$types";
 import "$public/styles.css";`;
 
@@ -98,7 +98,7 @@ import "$public/styles.css";`;
       },
     },
   ],
-	// ...`;
+  // ...`;
 
 	return (
 		<GalleryPageTemplate date="2023-03-05" title="Import Aliases & Code Blocks">
