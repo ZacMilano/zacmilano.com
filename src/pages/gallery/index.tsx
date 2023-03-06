@@ -6,14 +6,15 @@ import { NavigationHeader, useTestimonialRegistry } from "$components";
 import { VisuallyHidden, blackRockBlue, pagePaddingInline } from "$styles";
 
 const Main = styled.main`
-	display: grid;
+	/* display: grid; */
 	margin-block-start: 4em;
 	padding-inline: ${pagePaddingInline};
 
 	padding-bottom: 10em;
 
-	& > * + * {
-		margin-block-start: 2em;
+	& > * + *,
+	& > nav > * + * {
+		margin-block-start: 4em;
 	}
 
 	& > header {
@@ -73,6 +74,16 @@ const TestimonialList = styled.ul`
 	}
 `;
 
+const ImportAliasesLink = styled((props) => <Link {...props} />)`
+	padding: 1em 2em;
+
+	text-decoration: none;
+	font-weight: bold;
+	color: ${blackRockBlue};
+	background-color: white;
+	border: 2px solid ${blackRockBlue};
+`;
+
 const TestimonialsHome: React.FC = () => {
 	const registry = useTestimonialRegistry();
 
@@ -90,6 +101,16 @@ const TestimonialsHome: React.FC = () => {
 					<h2 id="gallery-nav-label">
 						<VisuallyHidden>Gallery Navigation Menu</VisuallyHidden>
 					</h2>
+
+					<section>
+						<SectionHeader>
+							<h3>Updates to this project</h3>
+						</SectionHeader>
+
+						<ImportAliasesLink to={"./import-aliases"}>
+							Import Aliases
+						</ImportAliasesLink>
+					</section>
 
 					<section>
 						<SectionHeader>
