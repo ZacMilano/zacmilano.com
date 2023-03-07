@@ -82,6 +82,10 @@ const ImportAliasesLink = styled((props) => <Link {...props} />)`
 	color: ${blackRockBlue};
 	background-color: white;
 	border: 2px solid ${blackRockBlue};
+
+	& + & {
+		margin-inline-start: 1em;
+	}
 `;
 
 const TestimonialsHome: React.FC = () => {
@@ -109,6 +113,10 @@ const TestimonialsHome: React.FC = () => {
 
 						<ImportAliasesLink to={"./import-aliases"}>
 							Import Aliases
+						</ImportAliasesLink>
+
+						<ImportAliasesLink to={"./copy-button"}>
+							Copy Button
 						</ImportAliasesLink>
 					</section>
 

@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import { GalleryPageTemplate } from "$components";
 import "$styles/prism-vsc-dark-plus.css";
+import { CodeBlock } from "$components/component-practice";
 
 const SectionWithSpacing = styled.section`
 	margin-block-start: 4em;
@@ -30,7 +31,9 @@ import { MyButton }	from "$components/my-button";
 import { UserResponse }	from "$types";
 import "$public/styles.css";`;
 
-	const tsconfigNoBaseUrl = `{
+	const tsconfigNoBaseUrl = `// tsconfig.json
+
+{
   "compilerOptions": {
     // ...
     "paths": {
@@ -49,7 +52,9 @@ import "$public/styles.css";`;
   // ...
 }`;
 
-	const tsconfigBaseUrl = `{
+	const tsconfigBaseUrl = `// tsconfig.json
+
+{
   "compilerOptions": {
     // ...
     "baseUrl": "./src",
@@ -68,7 +73,9 @@ import "$public/styles.css";`;
   // ...
 }`;
 
-	const tsconfigInclude = `{
+	const tsconfigInclude = `// tsconfig.json
+	
+{
   "compilerOptions": {
     // ...
   },
@@ -83,7 +90,9 @@ import "$public/styles.css";`;
 	const installPluginNpm = `npm i gatsby-plugin-alias-imports`;
 	const installPluginYarn = `yarn add gatsby-plugin-alias-imports`;
 
-	const gatsbyConfig = `  // ...
+	const gatsbyConfig = `// gatsby-config.ts
+
+  // ...
   plugins: [
     // ...
     {
@@ -124,9 +133,7 @@ import "$public/styles.css";`;
 					this:
 				</p>
 
-				<pre className="language-typescript">
-					<code>{beforeAliases}</code>
-				</pre>
+				<CodeBlock language="typescript" code={beforeAliases} />
 
 				<p>
 					That's pretty ugly, and hard to maintain. If you move this file to a
@@ -144,9 +151,7 @@ import "$public/styles.css";`;
 					globally-interpreted sources for modules to be imported:
 				</p>
 
-				<pre className="language-typescript">
-					<code>{afterAliases}</code>
-				</pre>
+				<CodeBlock language="typescript" code={afterAliases} />
 
 				<p>
 					I'm using the $ symbol to denote local-project modules. An approach
@@ -179,36 +184,26 @@ import "$public/styles.css";`;
 					</a>
 					.
 				</p>
-				<pre className="language-json">
-					<code>{tsconfigNoBaseUrl}</code>
-				</pre>
+				<CodeBlock language="json" code={tsconfigNoBaseUrl} />
 
 				<p>
 					Optionally, you can set a base URL with which the paths will be
 					prefixed:
 				</p>
-				<pre className="language-json">
-					<code>{tsconfigBaseUrl}</code>
-				</pre>
+				<CodeBlock language="json" code={tsconfigBaseUrl} />
 
 				<p>
 					Make sure also that your TypeScript Compiler's config includes the
 					source code you're working with:
 				</p>
-				<pre className="language-json">
-					<code>{tsconfigInclude}</code>
-				</pre>
+				<CodeBlock language="json" code={tsconfigInclude} />
 
 				<h3>Install gatsby-plugin-alias-imports</h3>
 				<p>Install gatsby-plugin-alias-imports via NPM:</p>
-				<pre className="language-bash">
-					<code>{installPluginNpm}</code>
-				</pre>
+				<CodeBlock language="bash" code={installPluginNpm} isCopyable />
 
 				<p>Or via Yarn:</p>
-				<pre className="language-bash">
-					<code>{installPluginYarn}</code>
-				</pre>
+				<CodeBlock language="bash" code={installPluginYarn} isCopyable />
 
 				<h3>In your project's gatsby-config.js:</h3>
 				<p>
@@ -223,9 +218,7 @@ import "$public/styles.css";`;
 					</a>
 					.
 				</p>
-				<pre className="language-javascript">
-					<code>{gatsbyConfig}</code>
-				</pre>
+				<CodeBlock language="javascript" code={gatsbyConfig} />
 
 				<h3>Good to go!</h3>
 				<p>That's all there is to it! Go wild.</p>
@@ -262,3 +255,16 @@ import "$public/styles.css";`;
 };
 
 export default ImportAliases;
+
+export const Head = () => {
+	return (
+		<>
+			<title>Import Aliases & Code Blocks | Zac Milano</title>
+
+			<script
+				src="https://kit.fontawesome.com/6ab573e32e.js"
+				crossOrigin="anonymous"
+			/>
+		</>
+	);
+};
