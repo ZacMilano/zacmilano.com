@@ -6,7 +6,6 @@ import { NavigationHeader, useTestimonialRegistry } from "$components";
 import { VisuallyHidden, blackRockBlue, pagePaddingInline } from "$styles";
 
 const Main = styled.main`
-	/* display: grid; */
 	margin-block-start: 4em;
 	padding-inline: ${pagePaddingInline};
 
@@ -19,6 +18,22 @@ const Main = styled.main`
 
 	& > header {
 		margin-block-end: 2em;
+	}
+
+	/* Utility class for styling links as uniform buttons. */
+	/* TODO: Make this global */
+	& .button-link {
+		padding: 1em 2em;
+
+		display: inline-block;
+
+		background-color: white;
+		color: ${blackRockBlue};
+		border: 2px solid ${blackRockBlue};
+
+		text-align: center;
+		text-decoration: none;
+		font-weight: bold;
 	}
 `;
 
@@ -36,12 +51,12 @@ const SectionHeader = styled.header`
 
 const TestimonialList = styled.ul`
 	display: flex;
-	justify-content: space-around;
-	flex-flow: row wrap;
+	justify-content: space-between;
+	flex-wrap: wrap;
 	gap: 1.5em;
 
 	margin-inline: auto;
-	padding-left: 0;
+	padding-inline-start: 0;
 
 	list-style-type: none;
 
@@ -51,45 +66,53 @@ const TestimonialList = styled.ul`
 		overflow: hidden;
 		text-wrap: nowrap;
 
-		&:focus-within,
-		&:focus-visible {
-			outline: 4px solid orange;
-		}
-
 		& > a {
 			display: inline-block;
 
 			width: 100%;
-			padding-block: 1em;
-			padding-inline: auto;
-
-			background-color: white;
-			color: ${blackRockBlue};
-			border: 2px solid ${blackRockBlue};
-
-			text-align: center;
-			text-decoration: none;
-			font-weight: bold;
 		}
 	}
 `;
 
-const ImportAliasesLink = styled((props) => <Link {...props} />)`
-	padding: 1em 2em;
+const GalleryUpdateList = styled.ul`
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5em;
 
-	text-decoration: none;
-	font-weight: bold;
-	color: ${blackRockBlue};
-	background-color: white;
-	border: 2px solid ${blackRockBlue};
+	margin-inline: auto;
+	padding: 0;
 
+	list-style-type: none;
+
+	@media (max-width: 35rem) {
+		& > li {
+			width: 100%;
+
+			& > a {
+				width: 100%;
+			}
+		}
+	}
+`;
+
+const GalleryLink = styled((props) => <Link {...props} />)`
 	& + & {
 		margin-inline-start: 1em;
 	}
 `;
 
-const TestimonialsHome: React.FC = () => {
-	const registry = useTestimonialRegistry();
+interface LinkConfig {
+	to: string;
+	displayText: string;
+}
+
+const GalleryHome: React.FC = () => {
+	const testimonialRegistry = useTestimonialRegistry();
+
+	const galleryUpdateRegistry: LinkConfig[] = [
+		{ to: "./import-aliases", displayText: "Import Aliases" },
+		{ to: "./copy-button", displayText: "Copy Button" },
+	];
 
 	return (
 		<>
@@ -111,13 +134,15 @@ const TestimonialsHome: React.FC = () => {
 							<h3>Updates to this project</h3>
 						</SectionHeader>
 
-						<ImportAliasesLink to={"./import-aliases"}>
-							Import Aliases
-						</ImportAliasesLink>
-
-						<ImportAliasesLink to={"./copy-button"}>
-							Copy Button
-						</ImportAliasesLink>
+						<GalleryUpdateList>
+							{galleryUpdateRegistry.map(({ to, displayText }, index) => (
+								<li key={index}>
+									<GalleryLink to={to} className="button-link">
+										{displayText}
+									</GalleryLink>
+								</li>
+							))}
+						</GalleryUpdateList>
 					</section>
 
 					<section>
@@ -130,9 +155,12 @@ const TestimonialsHome: React.FC = () => {
 						</SectionHeader>
 
 						<TestimonialList>
-							{registry.map((date, index) => (
+							{testimonialRegistry.map((date, index) => (
 								<li key={index}>
-									<Link to={`./daily-testimonials/${date}`}>
+									<Link
+										to={`./daily-testimonials/${date}`}
+										className="button-link"
+									>
 										See testimonial for {date}
 									</Link>
 								</li>
@@ -145,7 +173,7 @@ const TestimonialsHome: React.FC = () => {
 	);
 };
 
-export default TestimonialsHome;
+export default GalleryHome;
 
 export const Head: React.FC = () => {
 	return <title>Gallery | Zac Milano</title>;
