@@ -2,9 +2,8 @@ import React, { useEffect } from "react";
 import Prism from "prismjs";
 import styled from "styled-components";
 
-import { GalleryPageTemplate } from "$components";
+import { CodeBlock, GalleryPageTemplate } from "$components";
 import "$styles/prism-vsc-dark-plus.css";
-import { CodeBlock } from "$components/component-practice";
 
 const SectionWithSpacing = styled.section`
 	margin-block-start: 4em;

@@ -74,7 +74,7 @@ const TestimonialList = styled.ul`
 	}
 `;
 
-const GalleryUpdateList = styled.ul`
+const ClusterList = styled.ul`
 	display: flex;
 	flex-wrap: wrap;
 	gap: 1.5em;
@@ -114,6 +114,10 @@ const GalleryHome: React.FC = () => {
 		{ to: "./copy-button", displayText: "Copy Button" },
 	];
 
+	const uiPracticeRegistry: LinkConfig[] = [
+		{ to: "./concentric-button", displayText: "Concentric Button" },
+	];
+
 	return (
 		<>
 			<NavigationHeader />
@@ -121,7 +125,7 @@ const GalleryHome: React.FC = () => {
 			<Main>
 				<header>
 					<h1>A gallery of my work</h1>
-					<Subheader>Or at least, the pretty stuff I've made lately.</Subheader>
+					<Subheader>Or at least, the fun stuff I've made lately.</Subheader>
 				</header>
 
 				<nav aria-labelledby="gallery-nav-label">
@@ -131,10 +135,26 @@ const GalleryHome: React.FC = () => {
 
 					<section>
 						<SectionHeader>
+							<h3>UI Practice</h3>
+						</SectionHeader>
+
+						<ClusterList>
+							{uiPracticeRegistry.map(({ to, displayText }, index) => (
+								<li key={index}>
+									<GalleryLink to={to} className="button-link">
+										{displayText}
+									</GalleryLink>
+								</li>
+							))}
+						</ClusterList>
+					</section>
+
+					<section>
+						<SectionHeader>
 							<h3>Updates to this project</h3>
 						</SectionHeader>
 
-						<GalleryUpdateList>
+						<ClusterList>
 							{galleryUpdateRegistry.map(({ to, displayText }, index) => (
 								<li key={index}>
 									<GalleryLink to={to} className="button-link">
@@ -142,7 +162,7 @@ const GalleryHome: React.FC = () => {
 									</GalleryLink>
 								</li>
 							))}
-						</GalleryUpdateList>
+						</ClusterList>
 					</section>
 
 					<section>
@@ -151,6 +171,9 @@ const GalleryHome: React.FC = () => {
 							<p>
 								Read about this project{" "}
 								<Link to="/blog/make-the-same-thing-every-day">here</Link>.
+								TODO: Write a post in the Updates section about why I'm not
+								doing this anymore. (Hint: it's so I have time to work on other
+								things here!)
 							</p>
 						</SectionHeader>
 
@@ -161,7 +184,7 @@ const GalleryHome: React.FC = () => {
 										to={`./daily-testimonials/${date}`}
 										className="button-link"
 									>
-										See testimonial for {date}
+										Testimonial for {date}
 									</Link>
 								</li>
 							))}

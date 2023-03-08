@@ -2,9 +2,8 @@ import React, { useEffect } from "react";
 import Prism from "prismjs";
 import styled from "styled-components";
 
-import { GalleryPageTemplate } from "$components";
+import { CodeBlock, GalleryPageTemplate } from "$components";
 import "$styles/prism-vsc-dark-plus.css";
-import { CodeBlock } from "$components/component-practice";
 
 const SectionWithSpacing = styled.section`
 	margin-block-start: 4em;
@@ -27,7 +26,7 @@ import "../../../../styles/styles.css";`;
 
 	const afterAliases = `// src/pages/my/deeply/nested/page.tsx
 
-import { MyButton }	from "$components/my-button";
+import { MyButton } from "$components/my-button";
 import { UserResponse }	from "$types";
 import "$public/styles.css";`;
 
