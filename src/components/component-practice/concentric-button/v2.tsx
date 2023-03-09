@@ -47,7 +47,7 @@ const Button = styled.button`
 
 	&::after {
 		animation-name: oscillate-large;
-		animation-delay: 500ms;
+		animation-delay: -500ms;
 	}
 
 	&:hover {
