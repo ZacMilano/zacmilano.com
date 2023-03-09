@@ -11839,6 +11839,13 @@ vfile@^5.0.0, vfile@^5.3.6:
     unist-util-stringify-position "^3.0.0"
     vfile-message "^3.0.0"
 
+vscode-generate-index-standalone@^1.7.1:
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/vscode-generate-index-standalone/-/vscode-generate-index-standalone-1.7.1.tgz#de16fb3300f62281554bacd70ccc34d75b866179"
+  integrity sha512-N0lwDq5v0d6ghhXiZ3zGLVzZ66yyVeCf2YwxaX70t2G2J5KA9RRPAu8p5uuokXYThxubDiw+cNNXkFqiwh2/1w==
+  optionalDependencies:
+    fsevents "~2.3.2"
+
 watchpack@^2.4.0:
   version "2.4.0"
   resolved "https://registry.npmjs.org/watchpack/-/watchpack-2.4.0.tgz"
