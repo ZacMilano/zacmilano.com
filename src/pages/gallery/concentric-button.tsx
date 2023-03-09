@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-import { ConcentricButton, GalleryPageTemplate } from "$components";
+import { GalleryPageTemplate } from "$components";
+import { ConcentricButton } from "$components/component-practice/concentric-button";
 
 const CenteredContent = styled.section`
 	display: flex;
@@ -16,14 +17,21 @@ const ConcentricButtonpage: React.FC = () => {
 	return (
 		<GalleryPageTemplate date="2023-03-07" title="Concentric Button">
 			<CenteredContent>
-				<ConcentricButton onClick={() => alert("Oh no! I've been clicked!")}>
+				<ConcentricButton.V1 onClick={() => alert("Oh no! I've been clicked!")}>
 					Click me &mdash; if you dare!
-				</ConcentricButton>
+				</ConcentricButton.V1>
 			</CenteredContent>
 
 			<section>
-				Today, I made the concentric button. It pulsates! I dare you to not
-				click it.
+				<p>
+					On 3/7/2023, I made the first concentric button. It pulsates! I dare
+					you to not click it.
+				</p>
+
+				<p>
+					I'll iterate on this design going forward, and you'll be able to see
+					the different versions over time on this page.
+				</p>
 			</section>
 		</GalleryPageTemplate>
 	);

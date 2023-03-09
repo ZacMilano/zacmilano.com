@@ -1,6 +1,8 @@
-import { blackRockBlue, blackRockBlueWithAlpha } from "$styles/colors";
 import React from "react";
 import styled from "styled-components";
+
+import { blackRockBlue, blackRockBlueWithAlpha } from "$styles/colors";
+import { ConcentricButtonProps } from "./concentric-button-props";
 
 const Button = styled.button`
 	@keyframes oscillate-small {
@@ -64,16 +66,13 @@ const Button = styled.button`
 	}
 `;
 
-interface ButtonProps {
-	onClick: React.MouseEventHandler<HTMLButtonElement>;
-}
-
-export const ConcentricButton: React.FC<
-	React.PropsWithChildren<ButtonProps>
-> = ({ children, onClick }) => {
+export const V1: React.FC<React.PropsWithChildren<ConcentricButtonProps>> = ({
+	children,
+	onClick,
+}) => {
 	return (
 		<Button onClick={onClick}>
-			<p>{children}</p>
+			{children}
 
 			<div className="concentric-ring" />
 			<div className="concentric-ring" />
