@@ -28,6 +28,7 @@ const VersionPicker = styled.form`
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	flex-wrap: wrap;
 	gap: var(--gap);
 
 	padding: var(--gap);
@@ -83,9 +84,10 @@ const ConcentricButtonPage: React.FC = () => {
 			</CenteredContent>
 
 			<SectionWithGaps>
-				<VersionPicker action="javascript:void(0);">
-					{versions.map((version) => (
+				<VersionPicker action="void(0);">
+					{versions.map((version, index) => (
 						<VersionOptionWrapper
+							key={index}
 							className={version === selectedVersion ? "selected-version" : ""}
 						>
 							<VersionOption
