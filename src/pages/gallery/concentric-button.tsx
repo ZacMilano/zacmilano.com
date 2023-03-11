@@ -72,7 +72,7 @@ const ConcentricButtonPage: React.FC = () => {
 
 	return (
 		<GalleryPageTemplate
-			date="2023-03-07, iterated through present day"
+			date="2023-03-07, last updated 2023-03-11"
 			title="Concentric Button"
 		>
 			<CenteredContent>
@@ -117,6 +117,13 @@ const ConcentricButtonPage: React.FC = () => {
 					the different versions over time on this page. FYI, for some reason,
 					V1 doesn't animate the pseudo-elements when switching into it after
 					the page loads.
+				</p>
+
+				<p>
+					2023-03-11: I'll have to take a pause on building anything out for
+					this website because I'll have some software from my job on the
+					computer I'm using to develop it, and I don't want there to be any
+					overlap of time.
 				</p>
 			</SectionWithGaps>
 		</GalleryPageTemplate>
