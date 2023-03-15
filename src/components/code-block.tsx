@@ -1,5 +1,4 @@
-import { blackRockBlue } from "$styles/colors";
-import React, { PropsWithChildren, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const CodePre = styled.pre`
