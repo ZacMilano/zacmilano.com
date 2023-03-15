@@ -1,3 +1,4 @@
-// Don't export concentric-button/ versions
-// @index(['./*', /\/concentric-button/g], f => `export * from "${f.path}";`)
+// @index('./*', f => `export * from "${f.path}";`)
+export * from "./concentric-button";
+export * from "./fan-of-cards";
 // @endindex

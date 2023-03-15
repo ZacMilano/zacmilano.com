@@ -1,18 +1,16 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import { GalleryPageTemplate } from "$components";
-import { ConcentricButton } from "$components/component-practice";
+import { FanOfCards, GalleryPageTemplate } from "$components";
 import { blackRockBlue, blackRockBlueWithLightness } from "$styles/colors";
+import { FanOfCardsProps } from "$components/component-practice/fan-of-cards/fan-of-cards-props";
+import { allie, lucy, struthlessIbisDrawing } from "$images/index";
+// import { ConcentricButton } from "$components/component-practice/concentric-button";
 
 const CenteredContent = styled.section`
-	display: flex;
+	display: grid;
 	justify-content: center;
-	align-items: center;
-	gap: 2em;
-
-	padding-block: 1em;
-	margin-block: 10em;
+	align-content: center;
 `;
 
 const SectionWithGaps = styled.section`
@@ -60,27 +58,32 @@ const VersionOption = styled.input`
 	display: none;
 `;
 
+// TODO: Abstract out similarities between this and the ConcentricButton
 const ConcentricButtonPage: React.FC = () => {
-	const versions = Object.keys(ConcentricButton).sort();
+	const versions = Object.keys(FanOfCards).sort();
 
 	const [selectedVersion, setSelectedVersion] = useState(
 		versions[versions.length - 1]
 	);
 
-	const VersionedConcentricButton =
-		ConcentricButton[selectedVersion as keyof typeof ConcentricButton];
+	const VersionedFanOfCards =
+		FanOfCards[selectedVersion as keyof typeof FanOfCards];
+
+	const fanProps: FanOfCardsProps = {
+		cardImages: [
+			{ src: allie, alt: "Amogus Allie" },
+			{ src: lucy, alt: "Lucy Deucy" },
+			{ src: struthlessIbisDrawing, alt: "Struthless's Ibis drawing" },
+		],
+	};
 
 	return (
 		<GalleryPageTemplate
-			date="2023-03-07, last updated 2023-03-11"
-			title="Concentric Button"
+			date="2023-03-14, last updated 2023-03-14"
+			title="Fan of Cards"
 		>
 			<CenteredContent>
-				<VersionedConcentricButton
-					onClick={() => alert("Oh no! I've been clicked!")}
-				>
-					Click me &mdash; if you dare!
-				</VersionedConcentricButton>
+				<VersionedFanOfCards {...fanProps} />
 			</CenteredContent>
 
 			<SectionWithGaps>
@@ -97,7 +100,7 @@ const ConcentricButtonPage: React.FC = () => {
 								value={version}
 								checked={version === selectedVersion}
 								onChange={() =>
-									setSelectedVersion(version as keyof typeof ConcentricButton)
+									setSelectedVersion(version as keyof typeof FanOfCards)
 								}
 							/>
 							{version}
@@ -108,22 +111,10 @@ const ConcentricButtonPage: React.FC = () => {
 
 			<SectionWithGaps>
 				<p>
-					On 3/7/2023, I made the first concentric button. It pulsates! I dare
-					you to not click it.
-				</p>
-
-				<p>
-					I'll iterate on this design going forward, and you'll be able to see
-					the different versions over time on this page. FYI, for some reason,
-					V1 doesn't animate the pseudo-elements when switching into it after
-					the page loads.
-				</p>
-
-				<p>
-					2023-03-11: I'll have to take a pause on building anything out for
-					this website because I'll have some software from my job on the
-					computer I'm using to develop it, and I don't want there to be any
-					overlap of time.
+					On 3/14/2023, I made the first fan of cards component. I learned from
+					my employer that my work will be 100% contained within an environment
+					that is inaccessible via the methods I use to work on this project, so
+					I'm good to go with continuing work here!
 				</p>
 			</SectionWithGaps>
 		</GalleryPageTemplate>
@@ -135,7 +126,7 @@ export default ConcentricButtonPage;
 export const Head: React.FC = () => {
 	return (
 		<>
-			<title>Concentric Button | Zac Milano</title>
+			<title>Fan of Cards | Zac Milano</title>
 		</>
 	);
 };

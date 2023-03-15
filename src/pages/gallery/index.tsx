@@ -106,6 +106,7 @@ interface LinkConfig {
 	displayText: string;
 }
 
+// TODO: Organize gallery/* into gallery/updates/ and gallery/ui-practice/
 const GalleryHome: React.FC = () => {
 	const testimonialRegistry = useTestimonialRegistry();
 
@@ -116,6 +117,7 @@ const GalleryHome: React.FC = () => {
 
 	const uiPracticeRegistry: LinkConfig[] = [
 		{ to: "./concentric-button", displayText: "Concentric Button" },
+		{ to: "./fan-of-cards", displayText: "Fan of Cards" },
 	];
 
 	return (
