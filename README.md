@@ -7,6 +7,21 @@
   Gatsby minimal TypeScript starter
 </h1>
 
+## Directory contents to links, automatically
+
+Use the [index generator](https://marketplace.visualstudio.com/items?itemName=JayFong.generate-index)
+extension with this project for best maintainability. To use the to convert all
+filenames in a directory to Start Case (as the `\_` in this extension isn't full
+Lodash), use this snippet:
+
+```ts
+// @index("./directory-name", (f, _) => `"${f.name.split("-").map(_.pascalCase).join(" ")}"`)
+
+// @endindex
+```
+
+TODO: Create a commit hook that runs the `yarn indices` script
+
 ## 🚀 Quick start
 
 1.  **Create a Gatsby site.**

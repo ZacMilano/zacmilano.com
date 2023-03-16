@@ -106,18 +106,24 @@ interface LinkConfig {
 	displayText: string;
 }
 
-// TODO: Organize gallery/* into gallery/updates/ and gallery/ui-practice/
 const GalleryHome: React.FC = () => {
 	const testimonialRegistry = useTestimonialRegistry();
 
 	const galleryUpdateRegistry: LinkConfig[] = [
-		{ to: "./import-aliases", displayText: "Import Aliases" },
-		{ to: "./copy-button", displayText: "Copy Button" },
+		// @index("./updates/*", (f, _) => `{ to: "${f.path}", displayText: "${f.name.split("-").map(_.pascalCase).join(" ")}" },`)
+		{ to: "./updates/copy-button", displayText: "Copy Button" },
+		{ to: "./updates/import-aliases", displayText: "Import Aliases" },
+		// @endindex
 	];
 
 	const uiPracticeRegistry: LinkConfig[] = [
-		{ to: "./concentric-button", displayText: "Concentric Button" },
-		{ to: "./fan-of-cards", displayText: "Fan of Cards" },
+		// @index("./ui-iteration/*", (f, _) => `{ to: "${f.path}", displayText: "${f.name.split("-").map(_.pascalCase).join(" ")}" },`)
+		{
+			to: "./ui-iteration/concentric-button",
+			displayText: "Concentric Button",
+		},
+		{ to: "./ui-iteration/fan-of-cards", displayText: "Fan Of Cards" },
+		// @endindex
 	];
 
 	return (

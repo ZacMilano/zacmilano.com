@@ -5,7 +5,6 @@ import { FanOfCards, GalleryPageTemplate } from "$components";
 import { blackRockBlue, blackRockBlueWithLightness } from "$styles/colors";
 import { FanOfCardsProps } from "$components/component-practice/fan-of-cards/fan-of-cards-props";
 import { allie, lucy, struthlessIbisDrawing } from "$images/index";
-// import { ConcentricButton } from "$components/component-practice/concentric-button";
 
 const CenteredContent = styled.section`
 	display: grid;

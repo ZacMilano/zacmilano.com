@@ -81,7 +81,7 @@ export const GalleryPageTemplate: React.FC<
 > = ({ children, ...props }) => {
 	const { title, date } = props;
 
-	const backLink = <Link to="..">&larr; Back to the Gallery</Link>;
+	const backLink = <Link to="/gallery">&larr; Back to the Gallery</Link>;
 
 	return (
 		<>
