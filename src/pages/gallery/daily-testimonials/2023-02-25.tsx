@@ -160,7 +160,7 @@ const Testimonial: React.FC<CommonTestimonialProps> = ({ ...props }) => {
 			<ReviewBody className="review-body-section">
 				<h2 className="review-body-heading">
 					<i className="pre-hover">Here's what our customers think!</i>
-					{/* TODO: get this date dynamically */}
+					{/* Redacted TODO: get this date dynamically */}
 					<i className="post-hover">Posted on 2023-02-25</i>
 				</h2>
 

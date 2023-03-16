@@ -160,7 +160,7 @@ const TestimonialStack: React.FC = () => {
 		<ReviewSwitcher>
 			<RotateReviewsButton
 				onClick={() => {
-					// TODO: Limit effect to only occur after animations finish
+					// Redacted TODO: Limit effect to only occur after animations finish
 					showNextReview();
 				}}
 			>
