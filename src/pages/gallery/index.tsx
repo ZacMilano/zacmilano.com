@@ -118,10 +118,7 @@ const GalleryHome: React.FC = () => {
 
 	const uiPracticeRegistry: LinkConfig[] = [
 		// @index("./ui-iteration/*", (f, _) => `{ to: "${f.path}", displayText: "${f.name.split("-").map(_.pascalCase).join(" ")}" },`)
-		{
-			to: "./ui-iteration/concentric-button",
-			displayText: "Concentric Button",
-		},
+		{ to: "./ui-iteration/concentric-button", displayText: "Concentric Button" },
 		{ to: "./ui-iteration/fan-of-cards", displayText: "Fan Of Cards" },
 		// @endindex
 	];
