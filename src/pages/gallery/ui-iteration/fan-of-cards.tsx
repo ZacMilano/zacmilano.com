@@ -115,6 +115,23 @@ const ConcentricButtonPage: React.FC = () => {
 					that is inaccessible via the methods I use to work on this project, so
 					I'm good to go with continuing work here!
 				</p>
+
+				<p>
+					Day one, just added the cards in the right shape and a fine
+					arrangement.
+				</p>
+
+				<p>Day two, added a hover effect: expand the stack!</p>
+
+				<p>
+					Day three, improved the hover effect. It now has something to see on a
+					per-card basis. Also, the images are no longer stretched.
+				</p>
+
+				<p>
+					The plan for day 4 is to let the card stack have a variable number of
+					children. Planning for 2-10.
+				</p>
 			</SectionWithGaps>
 		</GalleryPageTemplate>
 	);
