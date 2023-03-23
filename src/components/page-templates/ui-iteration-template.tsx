@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import styled from "styled-components";
 
 import { GalleryPageTemplate } from "$components";
-import { ConcentricButton } from "$components/component-practice";
 import { blackRockBlue, blackRockBlueWithLightness } from "$styles/colors";
 
 const CenteredContent = styled.section`
-	display: flex;
+	display: grid;
 	justify-content: center;
-	align-items: center;
+	align-content: center;
 `;
 
 const SectionWithGaps = styled.section`
@@ -56,34 +55,45 @@ const VersionOption = styled.input`
 	display: none;
 `;
 
-const ButtonWrapper = styled.div`
-	padding-block: 1em;
-	margin-block: 10em;
-`;
+export interface UiIterationPageProps<
+	IteratedComponentProps = Record<string, unknown>
+> {
+	iteratedComponent: Record<
+		string,
+		React.ComponentType<IteratedComponentProps>
+	>;
+	iteratedComponentProps: IteratedComponentProps;
+	funStuff: React.ReactNode;
+	date: string;
+	title: string;
+	blurb: React.ReactNode;
+}
 
-const ConcentricButtonPage: React.FC = () => {
-	const versions = Object.keys(ConcentricButton).sort();
-
+const UiIterationPage: React.FC<UiIterationPageProps> = ({ ...props }) => {
+	// Default to showing the latest version
+	const versions = Object.keys(props.iteratedComponent).sort();
 	const [selectedVersion, setSelectedVersion] = useState(
 		versions[versions.length - 1]
 	);
 
-	const VersionedConcentricButton =
-		ConcentricButton[selectedVersion as keyof typeof ConcentricButton];
+	const VersionedComponent = useMemo(
+		() =>
+			props.iteratedComponent[
+				selectedVersion as keyof typeof props.iteratedComponent
+			],
+		[props, selectedVersion]
+	);
 
 	return (
-		<GalleryPageTemplate
-			date="2023-03-07, last updated 2023-03-11"
-			title="Concentric Button"
-		>
+		<GalleryPageTemplate date={props.date} title={props.title}>
 			<CenteredContent>
-				<ButtonWrapper>
-					<VersionedConcentricButton
-						onClick={() => alert("Oh no! I've been clicked!")}
-					>
-						Click me &mdash; if you dare!
-					</VersionedConcentricButton>
-				</ButtonWrapper>
+				{/* The component itself, rendering whichever version is selected */}
+				<VersionedComponent {...props.iteratedComponentProps} />
+			</CenteredContent>
+
+			<CenteredContent>
+				{/* Alter the component's data, eg button's text, number of children */}
+				{props.funStuff}
 			</CenteredContent>
 
 			<SectionWithGaps>
@@ -96,11 +106,13 @@ const ConcentricButtonPage: React.FC = () => {
 							<VersionOption
 								key={version}
 								type="radio"
-								name="concentric-button-version"
+								name="ui-component-version"
 								value={version}
 								checked={version === selectedVersion}
 								onChange={() =>
-									setSelectedVersion(version as keyof typeof ConcentricButton)
+									setSelectedVersion(
+										version as keyof typeof props.iteratedComponent
+									)
 								}
 							/>
 							{version}
@@ -110,35 +122,11 @@ const ConcentricButtonPage: React.FC = () => {
 			</SectionWithGaps>
 
 			<SectionWithGaps>
-				<p>
-					On 3/7/2023, I made the first concentric button. It pulsates! I dare
-					you to not click it.
-				</p>
-
-				<p>
-					I'll iterate on this design going forward, and you'll be able to see
-					the different versions over time on this page. FYI, for some reason,
-					V1 doesn't animate the pseudo-elements when switching into it after
-					the page loads.
-				</p>
-
-				<p>
-					2023-03-11: I'll have to take a pause on building anything out for
-					this website because I'll have some software from my job on the
-					computer I'm using to develop it, and I don't want there to be any
-					overlap of time.
-				</p>
+				{/* Commentary about the component */}
+				{props.blurb}
 			</SectionWithGaps>
 		</GalleryPageTemplate>
 	);
 };
 
-export default ConcentricButtonPage;
-
-export const Head: React.FC = () => {
-	return (
-		<>
-			<title>Concentric Button | Zac Milano</title>
-		</>
-	);
-};
+export default UiIterationPage;

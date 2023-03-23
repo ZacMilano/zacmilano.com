@@ -5,11 +5,18 @@ import { FanOfCards, GalleryPageTemplate } from "$components";
 import { blackRockBlue, blackRockBlueWithLightness } from "$styles/colors";
 import { FanOfCardsProps } from "$components/component-practice/fan-of-cards/fan-of-cards-props";
 import { allie, lucy } from "$images/index";
+import UiIterationPage, {
+	UiIterationPageProps,
+} from "$components/page-templates/ui-iteration-template";
 
 const CenteredContent = styled.section`
-	display: grid;
+	display: flex;
 	justify-content: center;
-	align-content: center;
+	align-items: center;
+	gap: 2em;
+
+	padding-block: 1em;
+	margin-block: 10em;
 `;
 
 const SectionWithGaps = styled.section`
@@ -83,17 +90,37 @@ const VersionOption = styled.input`
 	display: none;
 `;
 
-// TODO: Abstract out similarities between this and the ConcentricButton
-const ConcentricButtonPage: React.FC = () => {
-	const versions = Object.keys(FanOfCards).sort();
+const FanOfCardsPage: React.FC = () => {
+	const blurb = (
+		<>
+			<p>
+				On 3/14/2023, I made the first fan of cards component. I learned from my
+				employer that my work will be 100% contained within an environment that
+				is inaccessible via the methods I use to work on this project, so I'm
+				good to go with continuing work here!
+			</p>
 
-	const [selectedVersion, setSelectedVersion] = useState(
-		versions[versions.length - 1]
+			<p>
+				Day one, just added the cards in the right shape and a fine arrangement.
+			</p>
+
+			<p>Day two, added a hover effect: expand the stack!</p>
+
+			<p>
+				Day three, improved the hover effect. It now has something to see on a
+				per-card basis. Also, the images are no longer stretched.
+			</p>
+
+			<p>
+				Day four, the fan can take a variable number of card children. Current
+				maximum is 12.
+			</p>
+
+			<p>The plan for day five is to do some cleanup.</p>
+		</>
 	);
-	const [nChildren, setNChildren] = useState(3);
 
-	const VersionedFanOfCards =
-		FanOfCards[selectedVersion as keyof typeof FanOfCards];
+	const [nChildren, setNChildren] = useState(3);
 
 	const fanProps: FanOfCardsProps = useMemo(
 		() => ({
@@ -115,42 +142,66 @@ const ConcentricButtonPage: React.FC = () => {
 		[nChildren]
 	);
 
+	const childCountChanger = (
+		<ChildrenChanger action="void(0);">
+			<header>
+				<h2>Number of cards</h2>
+			</header>
+
+			<div className="buttons">
+				<button
+					onClick={(event) => {
+						event.preventDefault();
+						setNChildren((n) => n - 1);
+					}}
+				>
+					-
+				</button>
+				<p>{nChildren}</p>
+				<button
+					onClick={(event) => {
+						event.preventDefault();
+						setNChildren((n) => n + 1);
+					}}
+				>
+					+
+				</button>
+			</div>
+		</ChildrenChanger>
+	);
+
+	const props: UiIterationPageProps<FanOfCardsProps> = {
+		blurb,
+		date: "2023-03-14, last updated 2023-03-20",
+		title: "Fan of Cards",
+		iteratedComponent: FanOfCards,
+		iteratedComponentProps: fanProps,
+		funStuff: childCountChanger,
+	};
+
+	// TODO
+	// Need to pass generic-ness on to the UiIterationPage. That is, the
+	// UiIterationPage needs to be generic, to accept the props of the component
+	return <UiIterationPage {...props} />;
+};
+
+// TODO: Abstract out similarities between this and the ConcentricButton
+const OldFanOfCardsPage: React.FC = () => {
+	const versions = Object.keys(FanOfCards).sort();
+
+	const [selectedVersion, setSelectedVersion] = useState(
+		versions[versions.length - 1]
+	);
+	const VersionedFanOfCards =
+		FanOfCards[selectedVersion as keyof typeof FanOfCards];
+
 	return (
-		<GalleryPageTemplate
-			date="2023-03-14, last updated 2023-03-14"
-			title="Fan of Cards"
-		>
+		<GalleryPageTemplate date="" title="">
 			<CenteredContent>
 				<VersionedFanOfCards {...fanProps} />
 			</CenteredContent>
 
-			<CenteredContent>
-				<ChildrenChanger action="void(0);">
-					<header>
-						<h2>Number of cards</h2>
-					</header>
-
-					<div className="buttons">
-						<button
-							onClick={(event) => {
-								event.preventDefault();
-								setNChildren((n) => n - 1);
-							}}
-						>
-							-
-						</button>
-						<p>{nChildren}</p>
-						<button
-							onClick={(event) => {
-								event.preventDefault();
-								setNChildren((n) => n + 1);
-							}}
-						>
-							+
-						</button>
-					</div>
-				</ChildrenChanger>
-			</CenteredContent>
+			<CenteredContent></CenteredContent>
 
 			<SectionWithGaps>
 				<VersionPicker action="void(0);">
@@ -162,7 +213,7 @@ const ConcentricButtonPage: React.FC = () => {
 							<VersionOption
 								key={version}
 								type="radio"
-								name="concentric-button-version"
+								name="ui-component-version"
 								value={version}
 								checked={version === selectedVersion}
 								onChange={() =>
@@ -206,7 +257,7 @@ const ConcentricButtonPage: React.FC = () => {
 	);
 };
 
-export default ConcentricButtonPage;
+export default FanOfCardsPage;
 
 export const Head: React.FC = () => {
 	return (
