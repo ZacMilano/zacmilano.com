@@ -55,21 +55,25 @@ const VersionOption = styled.input`
 	display: none;
 `;
 
-export interface UiIterationPageProps<
-	IteratedComponentProps = Record<string, unknown>
-> {
+export type UiIterationPageProps<
+	IteratedComponentProps extends Record<string, unknown>
+> = React.PropsWithChildren<{
 	iteratedComponent: Record<
 		string,
 		React.ComponentType<IteratedComponentProps>
 	>;
 	iteratedComponentProps: IteratedComponentProps;
-	funStuff: React.ReactNode;
+	funStuff?: React.ReactNode;
 	date: string;
 	title: string;
-	blurb: React.ReactNode;
-}
+}>;
 
-const UiIterationPage: React.FC<UiIterationPageProps> = ({ ...props }) => {
+export function UiIterationPage<
+	IteratedComponentProps extends Record<string, unknown>
+>({
+	children,
+	...props
+}: UiIterationPageProps<IteratedComponentProps>): React.ReactElement {
 	// Default to showing the latest version
 	const versions = Object.keys(props.iteratedComponent).sort();
 	const [selectedVersion, setSelectedVersion] = useState(
@@ -91,10 +95,12 @@ const UiIterationPage: React.FC<UiIterationPageProps> = ({ ...props }) => {
 				<VersionedComponent {...props.iteratedComponentProps} />
 			</CenteredContent>
 
-			<CenteredContent>
-				{/* Alter the component's data, eg button's text, number of children */}
-				{props.funStuff}
-			</CenteredContent>
+			{props.funStuff && (
+				<CenteredContent>
+					{/* Alter the component's data, eg button's text, number of children */}
+					{props.funStuff}
+				</CenteredContent>
+			)}
 
 			<SectionWithGaps>
 				<VersionPicker action="void(0);">
@@ -109,11 +115,7 @@ const UiIterationPage: React.FC<UiIterationPageProps> = ({ ...props }) => {
 								name="ui-component-version"
 								value={version}
 								checked={version === selectedVersion}
-								onChange={() =>
-									setSelectedVersion(
-										version as keyof typeof props.iteratedComponent
-									)
-								}
+								onChange={() => setSelectedVersion(version as string)}
 							/>
 							{version}
 						</VersionOptionWrapper>
@@ -123,10 +125,8 @@ const UiIterationPage: React.FC<UiIterationPageProps> = ({ ...props }) => {
 
 			<SectionWithGaps>
 				{/* Commentary about the component */}
-				{props.blurb}
+				{children}
 			</SectionWithGaps>
 		</GalleryPageTemplate>
 	);
-};
-
-export default UiIterationPage;
+}

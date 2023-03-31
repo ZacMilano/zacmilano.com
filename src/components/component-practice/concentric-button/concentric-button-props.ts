@@ -1,5 +1,5 @@
 import React from "react";
 
-export interface ConcentricButtonProps {
+export type ConcentricButtonProps = React.PropsWithChildren<{
 	onClick: React.MouseEventHandler<HTMLButtonElement>;
-}
+}>;

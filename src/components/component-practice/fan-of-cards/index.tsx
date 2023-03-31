@@ -1,3 +1,7 @@
+// @index("./*-props.ts", (f, _) => `export * from "${f.path}";`)
+export * from "./fan-of-cards-props";
+// @endindex
+
 // @index(["./*", /.\/v.+/], (f, _) => `import { ${_.pascalCase(f.path)} } from "${f.path}";`)
 import { V1 } from "./v1";
 import { V2 } from "./v2";

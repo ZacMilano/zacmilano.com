@@ -66,10 +66,7 @@ const Button = styled.button`
 	}
 `;
 
-export const V1: React.FC<React.PropsWithChildren<ConcentricButtonProps>> = ({
-	children,
-	onClick,
-}) => {
+export const V1: React.FC<ConcentricButtonProps> = ({ children, onClick }) => {
 	return (
 		<Button onClick={onClick}>
 			{children}

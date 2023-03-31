@@ -139,10 +139,7 @@ const CurvedWordContainer = styled.div`
 	animation-iteration-count: infinite;
 `;
 
-export const V3: React.FC<React.PropsWithChildren<ConcentricButtonProps>> = ({
-	children,
-	onClick,
-}) => {
+export const V3: React.FC<ConcentricButtonProps> = ({ children, onClick }) => {
 	let curvableChildren: string[] = [];
 	if (typeof children === "string") {
 		curvableChildren = children.split("");

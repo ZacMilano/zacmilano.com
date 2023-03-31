@@ -1,3 +1,3 @@
-export interface FanOfCardsProps {
+export type FanOfCardsProps = {
 	cardImages: { src: string; alt: string }[];
-}
+};
