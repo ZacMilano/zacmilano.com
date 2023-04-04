@@ -4,7 +4,7 @@ import {
 	ConcentricButton,
 	ConcentricButtonProps,
 } from "$components/component-practice";
-import { UiIterationPage } from "$components/page-templates/ui-iteration-template";
+import { UiIterationPage } from "$components/page-templates";
 
 function ConcentricButtonPage(): React.ReactElement {
 	const buttonProps = {

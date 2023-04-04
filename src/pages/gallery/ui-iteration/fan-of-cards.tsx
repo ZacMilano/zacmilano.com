@@ -1,10 +1,12 @@
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import styled from "styled-components";
 
 import { FanOfCards, FanOfCardsProps } from "$components/component-practice";
-import { blackRockBlue } from "$styles/colors";
+import { UiIterationPage } from "$components/page-templates";
+import { useCounter } from "$hooks";
 import { allie, lucy } from "$images/index";
-import { UiIterationPage } from "$components/page-templates/ui-iteration-template";
+import { blackRockBlue } from "$styles/colors";
+import { buildArray } from "$utils";
 
 const ChildrenChanger = styled.form`
 	display: flex;
@@ -33,50 +35,39 @@ const ChildrenChanger = styled.form`
 `;
 
 function FanOfCardsPage(): React.ReactElement {
-	const [nChildren, setNChildren] = useState(3);
+	const {
+		count: childCount,
+		increment: addChild,
+		decrement: removeChild,
+	} = useCounter(3);
+
+	const CARD_IMAGES = useMemo(
+		() => [
+			{ src: allie, alt: "Amogus Allie" },
+			{ src: lucy, alt: "Lucy Deucy" },
+		],
+		[]
+	);
 
 	const fanProps: FanOfCardsProps = useMemo(
 		() => ({
-			cardImages: [
-				{ src: allie, alt: "Amogus Allie" },
-				{ src: lucy, alt: "Lucy Deucy" },
-				{ src: allie, alt: "Amogus Allie" },
-				{ src: lucy, alt: "Lucy Deucy" },
-				{ src: allie, alt: "Amogus Allie" },
-				{ src: lucy, alt: "Lucy Deucy" },
-				{ src: allie, alt: "Amogus Allie" },
-				{ src: lucy, alt: "Lucy Deucy" },
-				{ src: allie, alt: "Amogus Allie" },
-				{ src: lucy, alt: "Lucy Deucy" },
-				{ src: allie, alt: "Amogus Allie" },
-				{ src: lucy, alt: "Lucy Deucy" },
-			].slice(0, nChildren),
+			cardImages: buildArray(childCount, (index) => CARD_IMAGES[index % 2]),
 		}),
-		[nChildren]
+		[CARD_IMAGES, childCount]
 	);
 
 	const childCountChanger = (
-		<ChildrenChanger action="void(0);">
+		<ChildrenChanger>
 			<header>
 				<h2>Number of cards</h2>
 			</header>
 
 			<div className="buttons">
-				<button
-					onClick={(event) => {
-						event.preventDefault();
-						setNChildren((n) => n - 1);
-					}}
-				>
+				<button type="button" onClick={removeChild}>
 					-
 				</button>
-				<p>{nChildren}</p>
-				<button
-					onClick={(event) => {
-						event.preventDefault();
-						setNChildren((n) => n + 1);
-					}}
-				>
+				<p>{childCount}</p>
+				<button type="button" onClick={addChild}>
 					+
 				</button>
 			</div>
@@ -85,7 +76,7 @@ function FanOfCardsPage(): React.ReactElement {
 
 	return (
 		<UiIterationPage<FanOfCardsProps>
-			date={"2023-03-14, last updated 2023-03-31"}
+			date={"2023-03-14, last updated 2023-04-03"}
 			title="Fan of Cards"
 			iteratedComponent={FanOfCards}
 			iteratedComponentProps={fanProps}
@@ -118,6 +109,11 @@ function FanOfCardsPage(): React.ReactElement {
 				Day five, much later, has been spent working on more broad-strokes
 				structure for this UI iteration stuff. Making the templates simpler to
 				use, more extensible, stuff like that.
+			</p>
+
+			<p>
+				Day six, more refactoring &amp; polish. Added a custom hook and a util
+				function to build a list of an arbitrary length with a mapping callback.
 			</p>
 		</UiIterationPage>
 	);
