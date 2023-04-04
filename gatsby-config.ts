@@ -23,6 +23,8 @@ const config: GatsbyConfig = {
 			options: {
 				alias: {
 					$components: "src/components",
+					$utils: "src/utils",
+					$hooks: "src/hooks",
 					$constants: "src/constants",
 					$pages: "src/pages",
 					$images: "src/images",
