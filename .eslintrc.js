@@ -4,6 +4,7 @@ module.exports = {
 		es2021: true,
 	},
 	// extends: ["plugin:react/recommended"],
+	ignorePatterns: ["**/__templates/*"],
 	parser: "@typescript-eslint/parser",
 	parserOptions: {
 		ecmaFeatures: {
