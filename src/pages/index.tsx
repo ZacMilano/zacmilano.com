@@ -23,6 +23,7 @@ const Welcome = styled.p`
 	font-size: 1.25rem;
 `;
 
+// TODO make shiny link
 const IndexPage: React.FC<PageProps> = () => {
 	return (
 		<>
@@ -36,11 +37,16 @@ const IndexPage: React.FC<PageProps> = () => {
 				</header>
 
 				<p>
-					Check out my blog posts <Link to="/blog">here</Link>.
+					Check out my latest project, Bois' Pets,{" "}
+					<Link to="/bois-pets">here</Link>.
 				</p>
 
 				<p>
-					Check out a collection of the stuff I've been working on lately{" "}
+					Find a couple blog posts <Link to="/blog">here</Link>.
+				</p>
+
+				<p>
+					See parts of the website I've worked on in the past{" "}
 					<Link to="/gallery">here</Link>.
 				</p>
 			</Main>

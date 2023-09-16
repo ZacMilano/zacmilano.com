@@ -3,5 +3,6 @@
 export * from "./code-block";
 export * from "./navigation-header";
 export * from "./page-templates";
+export * from "./pets";
 export * from "./testimonials";
 // @endindex

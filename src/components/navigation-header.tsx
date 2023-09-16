@@ -204,8 +204,9 @@ interface InternalLinkConfig {
 
 const topLevelLinks: InternalLinkConfig[] = [
 	{ path: "/", displayText: "Home" },
-	{ path: "/blog", displayText: "Blog" },
+	{ path: "/bois-pets", displayText: "Pets" },
 	{ path: "/gallery", displayText: "Gallery" },
+	{ path: "/blog", displayText: "Blog" },
 ];
 
 export const NavigationHeader: React.FC = () => {
