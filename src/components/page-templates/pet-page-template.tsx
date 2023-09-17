@@ -2,12 +2,9 @@ import React, { PropsWithChildren } from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-import { NavigationHeader } from "..";
-import {
-	blackRockBlue,
-	blackRockBlueWithAlpha,
-	pagePaddingInline,
-} from "$styles";
+import { BackLinkSection, InfoBox, NavigationHeader } from "..";
+import { pagePaddingInline } from "$styles";
+import { PetPageData } from "$data";
 
 const FullHeightMain = styled.main`
 	min-height: 100%;
@@ -15,67 +12,47 @@ const FullHeightMain = styled.main`
 	padding-inline: ${pagePaddingInline};
 `;
 
-const Subheader = styled.p`
-	font-weight: normal;
+const SummarySection = styled.section`
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 2em;
+
+	@media only screen and (min-width: 48rem) {
+		grid-template-columns: 2fr minmax(24rem, 1fr);
+	}
 `;
 
-const HeaderSection = styled.div``;
-
-const BackLinkSection = styled.section`
-	padding-inline: ${pagePaddingInline};
-
-	&.back-link {
-		&--bottom {
-			padding-block: 10em;
-		}
-
-		&--top {
-			margin-block-start: 4em;
-		}
-	}
-
-	& > a {
-		position: relative;
-
-		display: inline-block;
-		padding: 1em;
-
-		background-color: white;
-		color: ${blackRockBlue};
-		border: 2px solid ${blackRockBlue};
-
-		font-weight: bold;
-		text-decoration: none;
-
-		&::after {
-			content: "";
-			position: absolute;
-			inset: 0;
-
-			opacity: 0;
-
-			border-radius: inherit;
-			box-shadow: 0 1em 1em ${blackRockBlueWithAlpha(15)};
-
-			transition: opacity 250ms ease-out;
-		}
-
-		:is(&:hover, &:focus-visible)::after {
-			opacity: 1;
-		}
-	}
+const Section = styled.section`
+	margin-block: 2em;
 `;
 
 export interface PetPageTemplateProps {
-	petName: string;
+	intro: React.ReactElement;
+	pet: PetPageData;
 	style?: React.CSSProperties;
 }
 
 // TODO Dynamically define page's title with React Helmet (or similar)
 export const PetPageTemplate: React.FC<
 	PropsWithChildren<PetPageTemplateProps>
-> = ({ children, petName, ...props }) => {
+> = ({ intro, children, pet, style, ...rest }) => {
 	const backLink = <Link to="../..">&larr; Back to Bois' Pets</Link>;
+
+	/**
+	 * Layout
+	 *
+	 * Desktop:
+	 *
+	 * Title
+	 * Intro # <= Info Card
+	 * text  # <=
+	 *
+	 * Gallery
+	 *
+	 * Section
+	 *
+	 * Section
+	 */
 
 	return (
 		<>
@@ -83,12 +60,19 @@ export const PetPageTemplate: React.FC<
 
 			<BackLinkSection className="back-link--top">{backLink}</BackLinkSection>
 
-			<FullHeightMain style={props.style}>
-				<HeaderSection>
-					<h1>{petName}</h1>
-				</HeaderSection>
+			<FullHeightMain style={style}>
+				<h1>{pet.name}</h1>
 
-				{children}
+				<SummarySection>
+					{intro}
+					<InfoBox pet={pet} />
+				</SummarySection>
+
+				<Section>
+					<h2>Info</h2>
+
+					{children}
+				</Section>
 			</FullHeightMain>
 
 			<BackLinkSection className="back-link--bottom">

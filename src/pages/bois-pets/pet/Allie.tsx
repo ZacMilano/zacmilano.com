@@ -3,15 +3,10 @@ import styled from "styled-components";
 
 import { PetPageTemplate } from "$components/page-templates";
 import { PetsHead } from "$components/pets";
-import { allie } from "$images";
 import { blackRockBlue } from "$styles/colors";
-
-const ProfilePhoto = styled.img`
-	width: clamp(var(--min-photo-size), 80vh, 100%);
-`;
+import { allie } from "$data";
 
 const MainLayout = styled.div`
-	--gap: clamp(1em, 4vw, 4em);
 	--min-photo-size: 16rem;
 
 	display: grid;
@@ -27,7 +22,6 @@ const MainLayout = styled.div`
 
 const Checklist = styled.ul`
 	list-style: none;
-	margin-block: var(--gap);
 
 	& > li {
 		position: relative;
@@ -48,66 +42,63 @@ const Paragraph = styled.p`
 `;
 
 const AlliePage: React.FC = () => {
-	// TODO complaint:
+	const intro = (
+		<div>
+			<p>Allie is a honky jat.</p>
+			<p>She is known for her sweetness, trickery, and mischief.</p>
+		</div>
+	);
+
+	// TODO figure out how to make a short intro not look empty on desktop
+	// TODO make section component
+
 	return (
-		<PetPageTemplate petName="Allie">
-			<MainLayout>
-				<ProfilePhoto src={allie} alt="Allie" />
+		<PetPageTemplate pet={allie} intro={intro}>
+			<Checklist>
+				<li>
+					<i className="fas fa-check-square" />
+					Cat.
+				</li>
 
-				<div>
-					<Checklist>
-						<li>
-							<i className="fas fa-check-square" />
-							Cat.
-						</li>
+				<li>
+					<i className="fas fa-check-square" />
+					Menace.
+				</li>
 
-						<li>
-							<i className="fas fa-check-square" />
-							Menace.
-						</li>
+				<li>
+					<i className="fas fa-check-square" />
+					Known criminal.
+				</li>
 
-						<li>
-							<i className="fas fa-check-square" />
-							Known criminal.
-						</li>
+				<li>
+					<i className="fas fa-check-square"></i>
+					Sweeter than candy.
+				</li>
 
-						<li>
-							<i className="fas fa-check-square"></i>
-							Sweeter than candy.
-						</li>
+				<li>
+					{" "}
+					<i className="fas fa-check-square" />
+					Known homie:{" "}
+					<a
+						href="https://www.imdb.com/name/nm10128417/"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Logan Lloyd
+					</a>
+					.
+				</li>
+			</Checklist>
 
-						<li>
-							{" "}
-							<i className="fas fa-check-square" />
-							Known homie:{" "}
-							<a
-								href="https://www.imdb.com/name/nm10128417/"
-								target="_blank"
-								rel="noopener noreferrer"
-							>
-								Logan Lloyd
-							</a>
-							.
-						</li>
-					</Checklist>
+			<Paragraph>
+				Of course, I'm planning to add more info for Allie, and add more pets
+				over time.
+			</Paragraph>
 
-					<Paragraph>
-						More to come! Getting this up off the ground for now. Believe it or
-						not, setting up the pages for this Bois' Pets project took a couple
-						hours, despite how simple they are.
-					</Paragraph>
-
-					<Paragraph>
-						Of course, I'm planning to add more info for Allie, and add more
-						pets over time.
-					</Paragraph>
-
-					<Paragraph>
-						Do you have an idea? Put it in the{" "}
-						<a href="https://youtu.be/OyDyOweu-PA">suggestion box</a>!
-					</Paragraph>
-				</div>
-			</MainLayout>
+			<Paragraph>
+				Do you have an idea? Put it in the{" "}
+				<a href="https://youtu.be/OyDyOweu-PA">suggestion box</a>!
+			</Paragraph>
 		</PetPageTemplate>
 	);
 };

@@ -28,6 +28,7 @@ const config: GatsbyConfig = {
 					$constants: "src/constants",
 					$pages: "src/pages",
 					$images: "src/images",
+					$data: "src/data",
 					$styles: "src/styles",
 					$types: "src/types",
 				},
