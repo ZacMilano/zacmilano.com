@@ -16,6 +16,7 @@ const SummarySection = styled.section`
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 2em;
+	margin-block: 2em;
 
 	@media only screen and (min-width: 48rem) {
 		grid-template-columns: 2fr minmax(24rem, 1fr);
@@ -68,11 +69,7 @@ export const PetPageTemplate: React.FC<
 					<InfoBox pet={pet} />
 				</SummarySection>
 
-				<Section>
-					<h2>Info</h2>
-
-					{children}
-				</Section>
+				{children}
 			</FullHeightMain>
 
 			<BackLinkSection className="back-link--bottom">
