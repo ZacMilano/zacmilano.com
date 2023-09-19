@@ -10,6 +10,7 @@ const FullHeightMain = styled.main`
 	min-height: 100%;
 	padding-block: 4em;
 	padding-inline: ${pagePaddingInline};
+	line-height: 2;
 `;
 
 const SummarySection = styled.section`
@@ -21,10 +22,6 @@ const SummarySection = styled.section`
 	@media only screen and (min-width: 48rem) {
 		grid-template-columns: 2fr minmax(24rem, 1fr);
 	}
-`;
-
-const Section = styled.section`
-	margin-block: 2em;
 `;
 
 export interface PetPageTemplateProps {

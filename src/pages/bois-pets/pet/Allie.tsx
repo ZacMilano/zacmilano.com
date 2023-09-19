@@ -5,20 +5,6 @@ import { CollapsibleSection, PetsHead, PetPageTemplate } from "$components";
 import { blackRockBlue } from "$styles/colors";
 import { allie } from "$data";
 
-const MainLayout = styled.div`
-	--min-photo-size: 16rem;
-
-	display: grid;
-	gap: var(--gap);
-	grid-template-columns: repeat(auto-fit, minmax(var(--min-photo-size), 1fr));
-
-	margin-block: 2em;
-
-	& a {
-		color: ${blackRockBlue};
-	}
-`;
-
 const Checklist = styled.ul`
 	list-style: none;
 
@@ -36,6 +22,7 @@ const Checklist = styled.ul`
 	}
 `;
 
+// TODO standardize spacing. But how?
 const Paragraph = styled.p`
 	margin-block: 2em;
 `;
@@ -43,8 +30,11 @@ const Paragraph = styled.p`
 const AlliePage: React.FC = () => {
 	const intro = (
 		<div>
-			<p>Allie is a honky jat.</p>
-			<p>She is known for her sweetness, trickery, and mischief.</p>
+			<Paragraph>Allie is a honky jat.</Paragraph>
+
+			<Paragraph>
+				She is known for her sweetness, trickery, and mischief.
+			</Paragraph>
 		</div>
 	);
 

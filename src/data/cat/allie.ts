@@ -18,7 +18,7 @@ export const allie: PetPageData = {
 	],
 	alignment: "Chaotic Neutral",
 	birthday: "2018?",
-	gotchaDay: "unknown",
+	gotchaDay: "September 13th 2019 (Friday the 13th)",
 	fullName: "Allison Wonderland Jandro Lloyd",
 	mainPhotoSrc,
 	occupations: ["gambler", "criminal", "conspirator", "mercenary"],

@@ -25,11 +25,16 @@ const Subheader = styled.p`
 
 const BoisPetsHome: React.FC = () => {
 	const petLinks = (
-		// @index('./pet/*', f => `<p>\n\t\t\t<Link to="${f.path}">${f.name.split("-").join(" ")}</Link>\n\t\t</p>`)
-		<p>
-			<Link to="./pet/Allie">Allie</Link>
-		</p>
-		// @endindex
+		<>
+			{/* @index('./pet/*', f => `<p>\n\t\t\t\t<Link to="${f.path}">${f.name.split("-").join(" ")}</Link>\n\t\t\t</p>`) */}
+			<p>
+				<Link to="./pet/Allie">Allie</Link>
+			</p>
+			<p>
+				<Link to="./pet/Lucy">Lucy</Link>
+			</p>
+			{/* @endindex */}
+		</>
 	);
 
 	return (
