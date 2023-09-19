@@ -7,8 +7,8 @@ import { zmLogo } from "$images";
 
 const SiteHeader = styled.header`
 	--mobile-padding: 3em;
-	--logo-height: 4em;
-	--transition-duration: 750ms;
+	--logo-height: 3em;
+	--transition-duration: 500ms;
 	/* https://cubic-bezier.com/ */
 	--transition-timing: cubic-bezier(0.77, -0.65, 0, 1.74);
 
