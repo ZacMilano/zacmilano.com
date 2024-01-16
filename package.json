@@ -10,6 +10,7 @@
 	"scripts": {
 		"generate": "node scripts/create-new-ui-iteration-component.js",
 		"indices": "yarn vscode-generate-index-standalone src/",
+		"dev": "gatsby develop",
 		"develop": "gatsby develop",
 		"start": "gatsby develop",
 		"build": "gatsby build",
