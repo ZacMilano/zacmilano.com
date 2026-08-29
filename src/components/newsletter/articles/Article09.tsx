@@ -2,9 +2,9 @@ import React from "react";
 
 export const Article09: React.FC = () => {
   return (
-    <section>
+    <section id='9'>
       <h2>Comic</h2>
-      <p>TODO: write Comic</p>
+      <p>Quintuple Dutch Apple Pie</p>
     </section>
   );
 };

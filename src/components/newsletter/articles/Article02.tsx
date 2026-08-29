@@ -32,12 +32,12 @@ const items: ItemType[] = [
 
 export const Article02: React.FC = () => {
   return (
-    <section>
+    <section id='2'>
       <h2>Table of contents</h2>
 
       <ol>
-        {items.map((item) => (
-          <li>{item}</li>
+        {items.map((item, index) => (
+          <li><a href={`#${index + 1}`}>{item}</a></li>
         ))}
       </ol>
     </section>

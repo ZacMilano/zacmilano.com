@@ -75,17 +75,6 @@ const Main = styled.main`
 	}
 `;
 
-const Title = styled.h1`
-	margin-block: 1.5em 0.5em;
-	text-align: center;
-`;
-
-const Subtitle = styled.p`
-	text-align: center;
-	color: hsl(0, 0%, 45%);
-	margin-block-end: 2em;
-`;
-
 const NewsletterPage: React.FC<PageProps> = () => {
 	const [unlocked, setUnlocked] = useState(false);
 	const [input, setInput] = useState("");
@@ -119,13 +108,13 @@ const NewsletterPage: React.FC<PageProps> = () => {
 
 	return (
 		<>
-			<NavigationHeader />
+			{/* <NavigationHeader /> */}
 			<AnnotationProvider>
 				<Main>
-					<Title>BOIS MONTHLY</Title>
+					{/* <Title>BOIS MONTHLY</Title>
 					<Subtitle>August 2026 | The Zec Edition</Subtitle>
           
-          <Subtitle>TODO: Make a cover</Subtitle>
+          <Subtitle>TODO: Make a cover</Subtitle> */}
 
 					<Article01 />
 					<Article02 />
