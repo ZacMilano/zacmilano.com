@@ -16,6 +16,9 @@ import {
 	Article08,
 	Article09,
 	Article10,
+	Article11,
+	Article12,
+	Article13,
 } from "$components/newsletter/articles";
 
 const PASSWORD = "froggy99";
@@ -134,6 +137,9 @@ const NewsletterPage: React.FC<PageProps> = () => {
 					<Article08 />
 					<Article09 />
 					<Article10 />
+					<Article11 />
+					<Article12 />
+					<Article13 />
 				</Main>
 			</AnnotationProvider>
 		</>
