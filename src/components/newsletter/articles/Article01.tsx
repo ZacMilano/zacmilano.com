@@ -18,9 +18,13 @@ export const Article01: React.FC = () => {
     <section>
       <h2>Cover</h2>
       
-      <p>TODO: make cover</p>
-
       <ImagePlaceholder />
+
+      <p>TODO: make cover</p>
+      
+      <p>TODO link table of contents to each article's start</p>
+      
+      <p>TODO: a bunch of annotations</p>
     </section>
   );
 };
