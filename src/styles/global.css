@@ -80,4 +80,5 @@ h6 {
 /* END RESETS */
 html {
 	font-family: sans-serif;
+	scroll-behavior: smooth;
 }
