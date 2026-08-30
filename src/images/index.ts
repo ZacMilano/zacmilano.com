@@ -30,6 +30,9 @@ import ezpawnAd from "./ezpawn-ad.jpg";
 import ezpawnHiringAd from "./ezpawn-hiring-ad.jpg";
 import doocE from "./dooc-e.jpeg";
 import bldc5010 from "./bldc-5010.jpg";
+import cheesyGorditaCruncyhes from "./CheesyGorditaCrunchesWithQuesoAndSalsa.jpeg";
+import tacosWithChipsAndGuac from "./TacosWithChipsAndGuac.jpeg";
+import tacosWithQuesoFrescoAndCornSalsa from "./TacosWithQuesoFrescoAndCornSalsa.jpeg";
 
 export {
   lucy,
@@ -58,6 +61,10 @@ export {
   sasha,
   willoughby,
   ezpawnAd,
+  ezpawnHiringAd,
   doocE,
   bldc5010,
+  cheesyGorditaCruncyhes,
+  tacosWithChipsAndGuac,
+  tacosWithQuesoFrescoAndCornSalsa,
 };

@@ -1,20 +1,35 @@
+import { cheesyGorditaCruncyhes, tacosWithChipsAndGuac, tacosWithQuesoFrescoAndCornSalsa } from "$images/index";
 import React from "react";
+import { FloatImage } from "../FloatImage";
+import { Annotated } from "../annotations";
 
 export const Article11: React.FC = () => {
   return (
-    <section id='11'>
+		<section id="11">
 			<h2>Chipotle bell pepper chicken tacos recipe</h2>
-			<p>TODO: add in photo</p>
+
+			<a href="#ingredients">Skip to recipe &gt;</a>
 
 			<h3>Summary</h3>
 			<p>
-				This recipe is not for the faint of heart nor the short of time. In an
-				ideal world, you cook this on the Monday before a Taco Tuesday, and heat
-				up for dinner. Or otherwise plan to be cooking for about 2-3 hours
-				before you eat!
+				This recipe is one I honed after moving to Chicago. It is not for the
+				short of time. In an ideal world, you cook this on the Monday before a
+				Taco Tuesday, and heat up for dinner. Or otherwise plan to be cooking
+				for about 2-3 hours before you eat!
 			</p>
 
-			<h3>Ingredients</h3>
+			<p>
+				The end result is a smoky, spicy shredded chicken taco filling which
+				will put some meat on your bones.
+			</p>
+
+			<FloatImage
+				float="right"
+				src={tacosWithChipsAndGuac}
+				alt={"Tacos with chips and guac"}
+			/>
+
+			<h3 id="ingredients">Ingredients</h3>
 			<ul>
 				<li>3lb chicken thighs</li>
 				<li>2 large onions</li>
@@ -158,11 +173,32 @@ export const Article11: React.FC = () => {
 						tissue, or what-have-you.
 					</li>
 					<li>
-						Using a couple forks, remove and discard any undesirable bits of
-						chicken (like skin/bone/etc), and shred the meat. This step goes a
-						lot faster if you use a hand-mixer (like one you might use for
-						baking) to shred the chicken, instead of forks. I'm just sayin'.
-						(TODO hot dog guy)
+						Using a couple forks, remove and discard any{" "}
+						<Annotated
+							id="undesirable-bits-of-chicken"
+							content={<>Like skin/bones/etc</>}
+						>
+							undesirable bits of chicken
+						</Annotated>{" "}
+						, and shred the meat. This step goes a lot faster if you use a
+						hand-mixer (like one you might use for baking) to shred the chicken,
+						instead of forks.{" "}
+						<Annotated
+							id="im-just-sayin"
+							content={
+								<iframe
+									src="https://www.youtube.com/embed/QnrTiuqSLGQ?si=Rz39lddC7dSD88Hg&amp;start=14"
+									title="YouTube video player"
+									frameBorder="0"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+									referrerPolicy="strict-origin-when-cross-origin"
+									allowFullScreen
+								></iframe>
+							}
+						>
+							I'm just sayin'
+						</Annotated>
+						.
 					</li>
 					<li>
 						Stick your immersion blender into your soup pot full of liquid and
@@ -182,6 +218,12 @@ export const Article11: React.FC = () => {
 						<li>Stir, add more salsa as-needed, and heat more if needed.</li>
 					</ul>
 				</ul>
+
+				<FloatImage
+					src={tacosWithQuesoFrescoAndCornSalsa}
+					alt={"Tacos with queso fresco and corn salsa"}
+          float="right"
+				/>
 
 				<li>Serving</li>
 				<ul>
@@ -205,10 +247,29 @@ export const Article11: React.FC = () => {
 						generally cook my tortillas for like 10-15 seconds per side, then
 						throw into the steamer for ~5 minutes.
 					</li>
+					<FloatImage
+						src={cheesyGorditaCruncyhes}
+						alt="Cheesy gordita crunches"
+					/>
 					<li>
 						Fill tortillas with chicken, and top with onion, cilantro, and more
 						salsa. Slice some avocado onto 'em too, if that's your kinda thing.
-						Serve with tortilla chips and Jumex fruit nectar cans.
+						Serve with tortilla chips and Jumex fruit nectar cans, and your
+						favorite taco toppings. Guacamole, mango salsa, queso fresco are all
+						common in our household for taco night. Hell, even make some{" "}
+						<Annotated
+							id="cheesy-gordita-crunches"
+							content={
+								<>
+									Pictured. Kinda like what taco bell calls a Cheesy Gordita
+									Crunch
+								</>
+							}
+						>
+							cheesy gordita crunches
+						</Annotated>
+						, using hard shells and soft shells with a little melted cheese
+						between.
 					</li>
 				</ul>
 			</ol>

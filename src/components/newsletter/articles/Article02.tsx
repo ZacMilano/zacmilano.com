@@ -26,7 +26,7 @@ const items: ItemType[] = [
   "Comic",
   "Recommendations",
   "Chipotle bell pepper chicken tacos recipe",
-  "Another word, another sponsor",
+  "Another word from our sponsors",
   "Signing off",
 ];
 

@@ -39,6 +39,15 @@ const TooltipCard = styled.div<{ $highlighted: boolean }>`
 		margin-block-end: 0;
 	}
 
+	/* keep media embeds inside the card and responsive on mobile */
+	& :where(iframe) {
+		display: block;
+		width: 100%;
+		height: auto;
+		aspect-ratio: 16 / 9;
+		border: 0;
+	}
+
 	${(p) =>
 		p.$highlighted &&
 		css`
