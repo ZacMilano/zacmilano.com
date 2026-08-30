@@ -27,6 +27,18 @@ const TooltipCard = styled.div<{ $highlighted: boolean }>`
 	line-height: 1.5;
 	z-index: 1000;
 
+	/* tooltip is portaled to <body>, so the newsletter's flow spacing
+	   doesn't reach it — restore em-based paragraph spacing here */
+	& :where(p) {
+		margin-block: 0.85em;
+	}
+	& :where(p:first-child) {
+		margin-block-start: 0;
+	}
+	& :where(p:last-child) {
+		margin-block-end: 0;
+	}
+
 	${(p) =>
 		p.$highlighted &&
 		css`

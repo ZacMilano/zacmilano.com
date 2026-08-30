@@ -19,6 +19,7 @@ import {
   birdie,
   bodie,
   buzz,
+  dawg,
   gwen,
   holland,
   honey,
@@ -29,6 +30,7 @@ import {
   pip,
   sasha,
   willoughby,
+  manguito,
 } from "$images";
 
 // useLayoutEffect on the client, useEffect during SSR (avoids the warning).
@@ -122,6 +124,8 @@ type Pet = {
   // Free-form notes on the pet's political leanings / personality
   otherNotes?: Text;
   policyStances: PolicyStance[];
+  // Only appears on the compass — no bio, no policy spectra.
+  compassOnly?: boolean;
 };
 
 // Plain-text projection of a Text field (for alt / aria-label), with a
@@ -180,7 +184,14 @@ const pets: Pet[] = [
 		photoSrc: lucy2,
 		xAxisPlacement: -0.6,
 		yAxisPlacement: 0.85,
-    otherNotes: <>Lucy is the sweetest hermit you'll ever meet. She is from the streets: she flinches at the slightest movement in her direction, she steals food, she makes eye contact <em>all the time</em>, and she needs her personal space from other cats. Not people though; she loves to snuggle.</>,
+		otherNotes: (
+			<>
+				Lucy is the sweetest hermit you'll ever meet. She is from the streets:
+				she flinches at the slightest movement in her direction, she steals
+				food, she makes eye contact <em>all the time</em>, and she needs her
+				personal space from other cats. Not people though; she loves to snuggle.
+			</>
+		),
 		policyStances: [
 			{
 				policy: "catnip",
@@ -301,6 +312,16 @@ const pets: Pet[] = [
 				fiend for a soft blanket, sucking on it in so many different spots that
 				you can't help but to touch a gross wet spot when you get into bed after
 				he's been there.
+
+				<img src={manguito} alt="Manguito getting flashbanged" />
+
+				He is also very affectionate, and has taken Archie under his wing. It's
+				really cute to see them snuggled up in a tiny box somewhere together,
+				even if it's usually the case that Mango originally fell asleep there by
+				himself, Archie came over and fell asleep on him, and then Mango
+				eventually wakes up and walks away. Usually, this wakes Archie up, so he
+				follows Mango to his next task. Mango uses drugs to cope with his
+				stalker.
 			</>
 		),
 		policyStances: [
@@ -550,7 +571,8 @@ const pets: Pet[] = [
 		photoSrc: gwen,
 		xAxisPlacement: -0.3,
 		yAxisPlacement: -1,
-    otherNotes: "A true rascal who has been exiled on several occasions to a room in her own home based on her kitten-like behavior.",
+		otherNotes:
+			"A true rascal who has been exiled on several occasions to a room in her own home based on her kitten-like behavior.",
 		policyStances: [
 			{
 				policy: "catnip",
@@ -591,7 +613,8 @@ const pets: Pet[] = [
 		photoSrc: juliette,
 		xAxisPlacement: 0.2,
 		yAxisPlacement: 0.9,
-    otherNotes: "The eldest cat of the Kleyn household. She looks great in a sweater.",
+		otherNotes:
+			"The eldest cat of the Kleyn household. She looks great in a sweater.",
 		policyStances: [
 			{
 				policy: "immigration",
@@ -692,7 +715,7 @@ const pets: Pet[] = [
 		xAxisPlacement: -0.95,
 		yAxisPlacement: -0.5,
 		otherNotes:
-			"Goes with the flow, loves to play with toys by himself; when Artie and Pip fight he just stares at them and barks — a true libertarian.",
+			"Goes with the flow, loves to play with toys by himself; when Artie and Pip fight he just stares at them and barks: a true libertarian.",
 		policyStances: [
 			{
 				policy: "secondAmendment",
@@ -927,11 +950,11 @@ const pets: Pet[] = [
 				blurb:
 					"Wishes all humans walking in her direction a very anvil on the head",
 			},
-      {
-        policy: "governmentHandouts",
-        stance: -1.0,
-        blurb: "Campaigns for the abolishment of the government (humans)"
-      },
+			{
+				policy: "governmentHandouts",
+				stance: -1.0,
+				blurb: "Campaigns for the abolishment of the government (humans)",
+			},
 		],
 	},
 	{
@@ -1025,7 +1048,7 @@ const pets: Pet[] = [
 		xAxisPlacement: -0.35,
 		yAxisPlacement: 0.4,
 		otherNotes:
-			'Leans center-left but gives little thought to politics, so she is heavily influenced by the state of affairs she lives in. Has become susceptible to fascist-style thinking because "that\'s just the way it is" and it will protect her way of life — the way your grandma might like a strongman because the news tells her to.',
+			'Leans center-left but gives little thought to politics, so she is heavily influenced by the state of affairs she lives in. Has become susceptible to fascist-style thinking because "that\'s just the way it is" and it will protect her way of life - the way your grandma might like a strongman because the news tells her to.',
 		policyStances: [
 			{
 				policy: "immigration",
@@ -1117,11 +1140,12 @@ const pets: Pet[] = [
 					</>
 				),
 			},
-      {
-        policy: "governmentHandouts",
-        stance: 0.7,
-        blurb: "Likes some crunchy treats. Sometimes eats them too quickly so she throws up"
-      },
+			{
+				policy: "governmentHandouts",
+				stance: 0.7,
+				blurb:
+					"Likes some crunchy treats. Sometimes eats them too quickly so she throws up",
+			},
 			{
 				policy: "immigration",
 				stance: 1.0,
@@ -1165,11 +1189,11 @@ const pets: Pet[] = [
 		otherNotes:
 			"Believes in a lot of causes and rights. Not too deep politically and pretty simple in his beliefs. Loves being a rule follower but doesn't want anyone to feel oppressed. Holds strong Christian values despite not being especially religious or right-leaning with it.",
 		policyStances: [
-      {
-        policy: "governmentHandouts",
-        stance: -0.9,
-        blurb: "Does not care for treats in the slightest"
-      },
+			{
+				policy: "governmentHandouts",
+				stance: -0.9,
+				blurb: "Does not care for treats in the slightest",
+			},
 			{
 				policy: "catsRights",
 				stance: 0.7,
@@ -1280,6 +1304,24 @@ const pets: Pet[] = [
 		],
 	},
 ];
+
+// Cameo(s) that show up as a dot on the compass only — no bio, no policies.
+const compassOnlyPets: Pet[] = [
+	{
+		slug: "kennys-foot",
+		fullName: "Kenny's foot",
+		primaryNickname: "DAWG",
+		nicknames: [],
+		photoSrc: dawg,
+		xAxisPlacement: -0.5,
+		yAxisPlacement: -0.7,
+		otherNotes: "Hot DAWG",
+		policyStances: [],
+		compassOnly: true,
+	},
+];
+
+const compassPets: Pet[] = [...pets, ...compassOnlyPets];
 
 /* ------------------------------------------------------------------ */
 /* Helpers                                                             */
@@ -1852,7 +1894,7 @@ const BioCard = styled.div<{ $accent: string }>`
 /* ------------------------------------------------------------------ */
 
 const Compass: React.FC = () => {
-  const raw: Pt[] = pets.map((p) => ({
+  const raw: Pt[] = compassPets.map((p) => ({
     x: ((p.xAxisPlacement + 1) / 2) * 100,
     y: ((1 - p.yAxisPlacement) / 2) * 100,
   }));
@@ -1890,7 +1932,7 @@ const Compass: React.FC = () => {
       <AxisLabel $pos='right'>Conservative</AxisLabel>
 
       <CompassPlot>
-        {pets.map((pet, i) => (
+        {compassPets.map((pet, i) => (
           <DotWrap
             key={pet.slug}
             style={{ left: `${placed[i].x}%`, top: `${placed[i].y}%` }}
@@ -1898,7 +1940,7 @@ const Compass: React.FC = () => {
             <Dot
               className='compass-dot'
               $size={AVATAR}
-              href={`#bio-${pet.slug}`}
+              href={pet.compassOnly ? undefined : `#bio-${pet.slug}`}
               style={{ color: colorOf(pet) }}
               aria-label={plain(pet.primaryNickname, pet.slug)}
               onMouseEnter={(e) => open(e.currentTarget, pet)}
@@ -1927,9 +1969,9 @@ const Compass: React.FC = () => {
               {hovered.pet.fullName}
             </div>
             {hovered.pet.otherNotes && <p>{hovered.pet.otherNotes}</p>}
-            <a href={`#bio-${hovered.pet.slug}`}>
-              Read full bio ↓
-            </a>
+            {!hovered.pet.compassOnly && (
+              <a href={`#bio-${hovered.pet.slug}`}>Read full bio ↓</a>
+            )}
           </>
         )}
       </FloatingCard>
@@ -2158,26 +2200,37 @@ export const Article07: React.FC = () => {
   }, []);
 
   return (
-    <section id='7'>
-      <h2>Political ethology</h2>
-      
-      <p>Obviously, our pets are involved in politics, all to varying degrees. Let's take a look at the data.</p>
+		<section id="7">
+			<h2>Political ethology</h2>
 
-      <h3>The Bois Polls Pets Political Compass</h3>
+			<p>
+				Obviously, our pets are involved in politics, all to varying degrees.
+				Let's take a look at the data.
+			</p>
 
-      <Compass />
+			<h3>The Bois Polls Pets Political Compass</h3>
 
-      <h3>About the candidates</h3>
-      <Bios />
+			<Compass />
 
-      <h3>Policy alignment</h3>
-      <p>
-        Where each pet lands on the issues of the day. Faces below the dotted
-        line have no stated position on that policy.
-      </p>
-      {policies.map((policy) => (
-        <PolicySpectrum key={policy} policy={policy} />
-      ))}
-    </section>
-  );
+			<h3>About the candidates</h3>
+			<Bios />
+
+			<h3>Policy alignment</h3>
+			<p>
+				Where each pet lands on the issues of the day. Faces below the dotted
+				line have no stated position on that policy.
+			</p>
+
+			{policies.map((policy) => (
+				<PolicySpectrum key={policy} policy={policy} />
+			))}
+
+			<h3>Closing notes</h3>
+
+			<p>
+				Since this is a website, I can update any policy stances if you'd like!
+				Had to take some guesses. Just let me know and I'll tweak it.
+			</p>
+		</section>
+	);
 };

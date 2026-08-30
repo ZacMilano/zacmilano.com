@@ -69,6 +69,24 @@ const Main = styled.main`
 		overflow: hidden;
 	}
 
+	/*
+	  Generous em-based flow spacing for article prose.
+	  :where() keeps specificity at 0 so per-article styled
+	  components can still override individual elements.
+	*/
+	& :where(p) {
+		margin-block: 1.75em;
+	}
+
+	& :where(h1, h2, h3, h4, h5, h6) {
+		margin-block: 2.5em 1em;
+		line-height: 1.2;
+	}
+
+	& :where(h1) {
+		margin-block-start: 3em;
+	}
+
 	& > section + section {
 		border-top: 1px solid hsl(0, 0%, 85%);
 		padding-block-start: 3em;

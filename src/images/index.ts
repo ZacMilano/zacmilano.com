@@ -19,11 +19,17 @@ import honey from "./Honey.jpg";
 import juliette from "./Juliette.jpeg";
 import lucy2 from "./Lucy.jpeg";
 import mango from "./Mango.jpeg";
+import manguito from "./Manguito.jpeg";
 import mia from "./Mia.jpg";
 import olivia from "./Olivia.jpeg";
 import pip from "./Pip.jpg";
 import sasha from "./Sasha.jpg";
 import willoughby from "./Willoughby.jpg";
+
+import ezpawnAd from "./ezpawn-ad.jpg";
+import ezpawnHiringAd from "./ezpawn-hiring-ad.jpg";
+import doocE from "./dooc-e.jpeg";
+import bldc5010 from "./bldc-5010.jpg";
 
 export {
   lucy,
@@ -45,9 +51,13 @@ export {
   honey,
   juliette,
   mango,
+  manguito,
   mia,
   olivia,
   pip,
   sasha,
   willoughby,
+  ezpawnAd,
+  doocE,
+  bldc5010,
 };
