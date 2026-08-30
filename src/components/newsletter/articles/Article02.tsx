@@ -21,7 +21,7 @@ const items: ItemType[] = [
   "Doohickey of the month: TARbot",
   "Lemme mansplain some shi",
   "A word from our sponsors",
-  "Political felinology",
+  "Political ethology",
   "The case for digital media*",
   "Comic",
   "Recommendations",

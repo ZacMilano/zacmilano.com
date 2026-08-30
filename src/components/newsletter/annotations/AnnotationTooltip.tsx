@@ -20,7 +20,8 @@ const TooltipCard = styled.div<{ $highlighted: boolean }>`
 	border: 1px solid hsl(0, 0%, 85%);
 	border-radius: 8px;
 	padding: 12px 16px;
-	max-width: 360px;
+	/* wide enough for a media embed on desktop; viewport-bounded on mobile */
+	max-width: min(520px, calc(100vw - 32px));
 	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 	font-size: 0.9rem;
 	line-height: 1.5;

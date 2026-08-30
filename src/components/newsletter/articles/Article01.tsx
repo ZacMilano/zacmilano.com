@@ -34,11 +34,8 @@ export const Article01: React.FC = () => {
       
       <Subtitle>The Zac Edition</Subtitle>
 
+      <ImagePlaceholder />
       <p>TODO: make cover</p>
-      
-      <p>TODO link table of contents to each article's start</p>
-      
-      <p>TODO: a bunch of annotations</p>
     </section>
   );
 };
