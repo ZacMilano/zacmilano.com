@@ -1,41 +1,64 @@
 import React from "react";
 import styled from "styled-components";
-import { Annotated } from "../annotations";
+import { withFam } from "../../../images";
 
-const ImagePlaceholder = styled.div<{ $float?: "left" | "right" }>`
-  width: 300px;
-  height: 200px;
-  background: hsl(0, 0%, 85%);
-  border-radius: 4px;
-  float: ${(p) => p.$float || "left"};
-  margin: ${(p) =>
-    p.$float === "right" ? "0.5em 0 1em 1.5em" : "0.5em 1.5em 1em 0"};
-  shape-outside: margin-box;
+const Cover = styled.section`
+	position: relative;
+	width: 100vw;
+	margin-inline: calc(50% - 50vw);
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding: 2em;
+	overflow: hidden;
+
+	&::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-image: url(${withFam});
+		background-size: cover;
+		background-position: center;
+		z-index: 0;
+	}
+
+	> * {
+		position: relative;
+		z-index: 1;
+	}
+
+  color: white;
+  text-shadow: 1px 1px 3px black;
 `;
 
 const Title = styled.h1`
-	margin-block: 1.5em 0.5em;
+	margin-block: 0.5em;
 	text-align: center;
+	white-space: nowrap;
+	font-size: clamp(2.25rem, 11vw, 9rem);
 `;
 
 const Subtitle = styled.p`
 	text-align: center;
-	color: hsl(0, 0%, 45%);
 	margin-block-end: 2em;
+	font-size: clamp(1.25rem, 5vw, 5rem);
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.5em, 1vw, 2em);
 `;
-
 
 export const Article01: React.FC = () => {
   return (
-    <section id='1'>
-      <Title>BOIS MONTHLY</Title>
-      
-      <Subtitle>August 2026</Subtitle>
-      
-      <Subtitle>The Zac Edition</Subtitle>
+		<Cover id="1">
+			<Title>BOIS MONTHLY</Title>
 
-      <ImagePlaceholder />
-      <p>TODO: make cover</p>
-    </section>
-  );
+			<Subtitle>
+				<span>August 2026</span><span>❖</span><span>The Zac Edition</span>
+			</Subtitle>
+		</Cover>
+	);
 };

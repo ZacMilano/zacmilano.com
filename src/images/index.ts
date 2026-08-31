@@ -39,6 +39,13 @@ import totoro from "./Totoro.png";
 import numpad from "./numpad-full.jpeg";
 import numpadInProgress from "./numpad-in-progress.jpeg";
 import ipadButton from "./ipad-button.png";
+import actuatorFromFront from "./actuator-from-front.jpeg";
+import actuatorFromBehind from "./actuator-from-behind.jpeg";
+import building5010 from "./building-5010.jpeg";
+import tarbot from "./tarbot.jpeg";
+import tarbotCad from "./TARBOT-CAD.png";
+import actuator6374 from "./6374-actuator.png";
+import withFam from "./withFam.jpeg";
 
 export {
   lucy,
@@ -79,4 +86,11 @@ export {
   numpad,
   numpadInProgress,
   ipadButton,
+  actuatorFromFront,
+  actuatorFromBehind,
+  building5010,
+  tarbot,
+  tarbotCad,
+  actuator6374,
+  withFam,
 };

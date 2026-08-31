@@ -69,6 +69,10 @@ const Main = styled.main`
 		overflow: hidden;
 	}
 
+	& > section:first-of-type {
+		margin-block-start: 0;
+	}
+
 	/*
 	  Generous em-based flow spacing for article prose.
 	  :where() keeps specificity at 0 so per-article styled
