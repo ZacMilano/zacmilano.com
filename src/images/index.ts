@@ -47,6 +47,7 @@ import tarbotCad from "./TARBOT-CAD.png";
 import actuator6374 from "./6374-actuator.png";
 import withFam from "./withFam.jpeg";
 import pala from "./pala.jpeg";
+import pie from "./pie.jpeg";
 
 export {
   lucy,
@@ -95,4 +96,5 @@ export {
   actuator6374,
   withFam,
   pala,
+  pie,
 };
