@@ -34,7 +34,7 @@ const Cover = styled.section`
 `;
 
 const Title = styled.h1`
-	margin-block: 0.5em;
+	margin-block: 0.5em !important;
 	text-align: center;
 	white-space: nowrap;
 	font-size: clamp(2.25rem, 11vw, 9rem);
