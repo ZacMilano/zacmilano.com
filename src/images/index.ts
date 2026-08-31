@@ -33,6 +33,7 @@ import bldc5010 from "./bldc-5010.jpg";
 import cheesyGorditaCruncyhes from "./CheesyGorditaCrunchesWithQuesoAndSalsa.jpeg";
 import tacosWithChipsAndGuac from "./TacosWithChipsAndGuac.jpeg";
 import tacosWithQuesoFrescoAndCornSalsa from "./TacosWithQuesoFrescoAndCornSalsa.jpeg";
+import onSumShit from "./onSumShit.jpeg";
 
 export {
   lucy,
@@ -67,4 +68,5 @@ export {
   cheesyGorditaCruncyhes,
   tacosWithChipsAndGuac,
   tacosWithQuesoFrescoAndCornSalsa,
+  onSumShit,
 };
