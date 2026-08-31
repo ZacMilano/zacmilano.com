@@ -6,7 +6,7 @@ import { ImageRow } from "../ImageRow";
 export const Article04: React.FC = () => {
   return (
 		<section id="4">
-			<h2>Doohickey of the month: TARbot</h2>
+			<h2>Doohickey of the month: <Annotated id='tarbot-meaning' content={<>Technically A RoBot</>}>TARbot</Annotated></h2>
 			<p>
 				Holy guacamole, I have{" "}
 				<Annotated
