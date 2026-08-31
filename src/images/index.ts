@@ -34,6 +34,11 @@ import cheesyGorditaCruncyhes from "./CheesyGorditaCrunchesWithQuesoAndSalsa.jpe
 import tacosWithChipsAndGuac from "./TacosWithChipsAndGuac.jpeg";
 import tacosWithQuesoFrescoAndCornSalsa from "./TacosWithQuesoFrescoAndCornSalsa.jpeg";
 import onSumShit from "./onSumShit.jpeg";
+import borat from "./Borat.png";
+import totoro from "./Totoro.png";
+import numpad from "./numpad-full.jpeg";
+import numpadInProgress from "./numpad-in-progress.jpeg";
+import ipadButton from "./ipad-button.png";
 
 export {
   lucy,
@@ -69,4 +74,9 @@ export {
   tacosWithChipsAndGuac,
   tacosWithQuesoFrescoAndCornSalsa,
   onSumShit,
+  borat,
+  totoro,
+  numpad,
+  numpadInProgress,
+  ipadButton,
 };
